@@ -5,15 +5,8 @@ CAUTION: NOT TESTED ON A REAL DEVICE !!!
 Regulator of circulation pumps (TSN, pins PC4, PC5) and the three-way valve (TCA, pin PC3) for hot water heating systems.
 It is assumed that the boiler stops heating the water when the supply temperature exceeds the maximum (SUPPLYMAX).
 
-Estimated location of the equipment:
+Estimated location of the equipment - see ReadMe.en or Readme.ru
 
-+========+ Supply (supply)
-|        |==>>>===+=============\/==>>>==== TSN0(Pump0)====>>> Radiators ==>>>========\\
-|        | Sensor-supply        ||                                                    ||
-| Boiler |                      ||                                                    ||
-|        | Tank line (return)   ||                                                    ||
-|        |=<<<============== Three-way ========+====<<<======= TSN1(Pump1)======<<<==//
-|________|                     valve     Sensor-return
 
 Sensor - indoor - inside the house, outdoor - outside the house.
 
