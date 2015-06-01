@@ -1,0 +1,17 @@
+Usage: C:\AVR Toolchain 3.4.2\bin\avr-size.EXE [option(s)] [file(s)]
+ Displays the sizes of sections inside binary files
+ If no input file(s) are specified, a.out is assumed
+ The options are:
+  -A|-B|-C  --format={sysv|berkeley|avr}  Select output style (default is berkeley)
+            --mcu=<avrmcu>            MCU name for AVR format only
+            --mlist-devices           List all supported MCUs
+  -o|-d|-x  --radix={8|10|16}         Display numbers in octal, decimal or hex
+  -t        --totals                  Display the total sizes (Berkeley only)
+            --common                  Display total size for *COM* syms
+            --target=<bfdname>        Set the binary file format
+            @<file>                   Read options from <file>
+  -h        --help                    Display this information
+  -v        --version                 Display the program's version
+
+C:\AVR Toolchain 3.4.2\bin\avr-size.EXE: supported targets: elf32-avr elf32-little elf32-big srec symbolsrec verilog tekhex binary ihex
+Report bugs to <http://www.atmel.com>

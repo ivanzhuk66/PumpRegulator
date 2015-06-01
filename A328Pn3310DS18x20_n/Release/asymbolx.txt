@@ -1,0 +1,1 @@
+avr-nm -s -S --size-sort A328Pn3310DS18x20_n.elf > ASymbols.txt

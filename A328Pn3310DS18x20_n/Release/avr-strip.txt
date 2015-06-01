@@ -1,0 +1,1 @@
+avr-strip A328Pn3310DS18x20_n.elf

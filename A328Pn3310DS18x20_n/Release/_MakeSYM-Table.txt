@@ -1,0 +1,1 @@
+avr-nm -n A328Pn3310DS18x20_n.elf > A328Pn3310DS18x20_n.sym

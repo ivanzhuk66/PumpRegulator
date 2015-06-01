@@ -1,0 +1,4 @@
+avr-size -A -x A328Pn3310DS18x20_n.elf >aaMysize.txt
+avr-size -B -x A328Pn3310DS18x20_n.elf >abMysize.txt
+avr-size -C -x A328Pn3310DS18x20_n.elf >acMysize.txt
+

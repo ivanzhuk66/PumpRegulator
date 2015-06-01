@@ -1,0 +1,3 @@
+    1.in advance property select initial content of EEPROM
+    2.don't forget to check "Reset Persistent Model Data" in the "Debug" menu
+avr-objcopy -I ihex -O binary A328Pn3310DS18x20_n.eep A328Pn3310DS18x20_n.bin

@@ -1,0 +1,499 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Connecting a keypad to an AVR</title>
+<meta name="author" content="Gerhard Schmidt">
+<meta name="COPYRIGHT" content="Gerhard Schmidt">
+<meta name="CREATED" content="20060223;09211234">
+<meta name="CHANGEDBY" content="Gerhard Schmidt">
+<meta name="CHANGED" content="20150105;14251234">
+<meta name="DESCRIPTION" content="Connecting a 12-key keypad to an AVR and read the key pressed">
+<meta name="KEYWORDS" content="AVR,assembler,ATMEL,programming,keypad,matrix,AD-converter">
+</head>
+
+<body bgcolor="#F0FFF0">
+Pfad: <a href="http://www.avr-asm-tutorial.net/index.html" target="_top">Home</a> =&gt;
+<a href="http://www.avr-asm-tutorial.net/avr_en/index.html">AVR-Overview</a> =&gt; keypad
+<h1><a name="top">Connecting a keypad to an AVR</a></h1><a name="top">
+This page shows how to connect a common 12-key-keypad to an
+AVR and read it by assembler software. The chapters are:
+</a><ol><a name="top">
+</a><li><a name="top"></a><a href="#keyboard">How a keypad works</a></li>
+<li><a href="#io">AVR: I/O-connection of the matrix</a></li>
+<li><a href="#adc">AVR: Connecting to an ADC with a resistor network</a></li>
+</ol>
+<h2><a name="keyboard">1. How a keypad works</a></h2>
+<img src="Connecting%20a%20keypad%20to%20an%20AVR_files/keyboard.gif" alt="12-key-keypad-matrix" align="LEFT">
+Keypads are switches, that are connected to rows and columns.
+If key "1" is pressed, the column 1 is electrically connected
+to row 1, if key "2" is pressed column 2 with row 1, and so on
+...<br clear="ALL">
+<img src="Connecting%20a%20keypad%20to%20an%20AVR_files/anykey.gif" alt="Press any key" align="LEFT">To find
+out, if any one of the 12 keys is pressed, it would only be
+necessary to tie the three column lines to ground,
+connect all four row lines and, via a resistor of
+10&nbsp;k&#937;, pull them to the operating voltage. If no
+key is pressed, the row lines are at plus. Any pressed key
+pulls down the row lines to zero volts.<br clear="ALL">
+To detect, which one of the 12 keys is pressed, pull down the
+three column lines one by one to ground (the other two column
+lines to plus) and read the resulting four row-lines. If one
+of the four row-lines is low, stop further reading and identify
+the key code from the column and row info. Like that:<br>
+<table align="CENTER" border="2">
+<tbody><tr><th colspan="3">Column</th><th colspan="4">Row</th><th colspan="2">Key</th></tr>
+<tr><th>Col1</th><th>Col2</th><th>Col3</th><th>Row1</th><th>Row2</th>
+<th>Row3</th><th>Row4</th><th>Character</th><th>Binary code</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td>
+<td>(none)</td><td>1111</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td>
+<td>1</td><td>0001</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td>
+<td>2</td><td>0010</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td>
+<td>3</td><td>0011</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td>
+<td>4</td><td>0100</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td>
+<td>5</td><td>0101</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td>
+<td>6</td><td>0110</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td>
+<td>7</td><td>0111</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td>
+<td>8</td><td>1000</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td>
+<td>9</td><td>1001</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td>
+<td>*</td><td>1010</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td>
+<td>0</td><td>0000</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td>
+<td>#</td><td>1011</td></tr>
+</tbody></table><br>
+Reading such a keypad using digital logic components, you need at least:
+<ul>
+<li>an oscillator, a shift register and a start/stop gate for generating
+the column signals,</li>
+<li>detection if one of the four row signals is zero,</li>
+<li>a recoder for conversion of the seven signals to the keycode.</li>
+</ul>
+Or a complete IC doing all that (probably you won't get such an IC at your
+local electronic parts dealer). Or you better use a micro.
+
+<br><br><a href="#top">To top of page</a><br><br>
+
+<h2><a name="io">2. AVR: I/O-connection of the matrix</a></h2>
+<img src="Connecting%20a%20keypad%20to%20an%20AVR_files/avr-io.gif" alt="keypad matrix on I/O-Port" align="LEFT">
+A keypad matrix can be connected directly to an I/O port of an AVR,
+with no additional components.<br>
+The example shows a connection to the lower seven I/O pins of Port B.
+Other ports can be used similiarly.<br>
+The port pins PB4..PB6 are defined as outputs, they provide the column
+signals. The port pins PB0..PB3 are used to read in the row results.
+Pull-up resistors on these inputs are enabled by software, external resistors
+are not necessary.<br>
+<br>
+The following software example first demonstrates initialization of the
+ports. This software part has to be excecuted only once at the AVR's program
+start.<br clear="ALL">
+<h3>Init-routine</h3>
+<pre><code>
+;
+; Init keypad-I/O
+;
+.DEF rmp = R16 ; define a multipurpose register
+; define ports
+.EQU pKeyOut = PORTB ; Output and Pull-Up-Port
+.EQU pKeyInp = PINB  ; read keypad input
+.EQU pKeyDdr = DDRB  ; data direction register of the port
+; Init-routine
+InitKey:
+	ldi rmp,0b01110000 ; data direction register column lines output
+	out pKeyDdr,rmp    ; set direction register
+	ldi rmp,0b00001111 ; Pull-Up-Resistors to lower four port pins
+	out pKeyOut,rmp    ; to output port
+</code></pre>
+<h3>Check for any key pressed</h3>
+The following routine detects if any one of the 12 keys is pressed. This
+routine is called in intervals, e.g. in a delay loop or by use of a timer.
+<pre><code>
+;
+; Check any key pressed
+;
+AnyKey:
+	ldi rmp,0b00001111 ; PB4..PB6=Null, pull-Up-resistors to input lines
+	out pKeyOut,rmp    ; of port pins PB0..PB3
+	in rmp,pKeyInp     ; read key results
+	ori rmp,0b11110000 ; mask all upper bits with a one
+	cpi rmp,0b11111111 ; all bits = One?
+	breq NoKey         ; yes, no key is pressed
+</code></pre>
+<h3>Identify the key pressed</h3>
+Now the keypad is read out. One after the other the port bits PB6, PB5 and
+PB4 are set to low, and PB0..PB3 are checked for zeros. The register
+pair Z (ZH:ZL) points to a table with the key codes. When leaving the
+routine, this pair points to the key code of the pressed key. By using the LPM
+instruction, the key code is read from the table in the flash memory
+to the register R0.
+<pre><code>
+;
+; Identify the key pressed
+;
+ReadKey:
+	ldi ZH,HIGH(2*KeyTable) ; Z is pointer to key code table
+	ldi ZL,LOW(2*KeyTable)
+	; read column 1
+	ldi rmp,0b00111111 ; PB6 = 0
+	out pKeyOut,rmp
+	in rmp,pKeyInp ; read input line
+	ori rmp,0b11110000 ; mask upper bits
+	cpi rmp,0b11111111 ; a key in this column pressed?
+	brne KeyRowFound ; key found
+	adiw ZL,4 ; column not found, point Z one row down
+	; read column 2
+	ldi rmp,0b01011111 ; PB5 = 0
+	out pKeyOut,rmp
+	in rmp,pKeyInp ; read again input line
+	ori rmp,0b11110000 ; mask upper bits
+	cpi rmp,0b11111111 ; a key in this column?
+	brne KeyRowFound ; column found
+	adiw ZL,4 ; column not found, another four keys down
+	; read column 3
+	ldi rmp,0b01101111 ; PB4 = 0
+	out pKeyOut,rmp
+	in rmp,pKeyInp ; read last line
+	ori rmp,0b11110000 ; mask upper bits
+	cpi rmp,0b11111111 ; a key in this column?
+	breq NoKey ; unexpected: no key in this column pressed
+KeyRowFound: ; column identified, now identify row
+	lsr rmp ; shift a logic 0 in left, bit 0 to carry
+	brcc KeyFound ; a zero rolled out, key is found
+	adiw ZL,1 ; point to next key code of that column
+	rjmp KeyRowFound ; repeat shift
+KeyFound: ; pressed key is found 
+	lpm ; read key code to R0
+	rjmp KeyProc ; countinue key processing
+NoKey:
+	rjmp NoKeyPressed ; no key pressed
+;
+; Table for code conversion
+;
+KeyTable:
+.DB 0x0A,0x07,0x04,0x01 ; First column, keys *, 7, 4 und 1
+.DB 0x00,0x08,0x05,0x02 ; second column, keys 0, 8, 5 und 2
+.DB 0x0B,0x09,0x06,0x03 ; third column, keys #, 9, 6 und 3
+</code></pre>
+<h3>Debouncing</h3>
+The routines KeyProc and NoKeyPressed have to debounce the pressed
+key. For example by counting a counter up whenever the same key is
+identified. Repeat this for e.g. 50 milliseconds. The NoKeyPressed
+routine clears the counter and the key pressed. Because the timing
+depends on other necessary timing requirements of the AVR program,
+it is not shown here.
+<h3>Hints, Disadvantages</h3>
+The routines shown above do not leave more time between the setting of
+the column address and the reading of the row information. At high
+clock frequencies and/or longer connections between keypad and
+processor it is necessary to leave more time between write and read
+(e.g. by inserting NOP instructions).<br>
+The internal pull-ups resistors have values around 50&nbsp;k&#937;.
+Long lines or a noisy environment might interfere and produce
+glitches. If you like it less sensitive, add four external pull-ups.
+<br><br>
+A disadvantage of the circuit is that it requires seven port lines
+exclusively. The modification with an AD converter and a resistor
+network (see chapter 3) is more economic and saves port lines.
+
+<br><br><a href="#top">To the top of that page</a><br><br>
+
+<h2><a name="adc">3. Connection to an ADC with a resistor matrix</a><a></a></h2><a>
+Most of the Tiny and Mega-AVR devices nowadays have an AD converter on
+board. Without additional external hardware these are capable of measuring
+analog voltages and resolve these with 10 bit resolution. Those who want
+to save I/O ports only have to get the keypad to produce an analog
+voltage. That's the task for a resistor matrix.<br><br>
+Hint: An improved version of this text with more examples, a commandline
+software tool etc. is available </a><a href="http://www.avr-asm-tutorial.net/avr_en/keypad/resmatrix/resmatrix.html">here</a>!
+A graphical software tool for studying different scheme versions and
+sizes can be found <a href="http://www.avr-asm-tutorial.net/avr_en/keypad/rmatrix/rmatrix.html">here</a>.
+<h3>Resistor matrix</h3>
+<img src="Connecting%20a%20keypad%20to%20an%20AVR_files/adc-matrix.gif" alt="resistor matrix" align="LEFT">This is
+such a resistor matrix. The columns are connected to ground, in between
+the column connections are three stacked resistors. The rows are
+connected via four such stacked resistors to the operating voltage
+(e.g. 5 V). The AD converter input is blocked by a condensator of
+1&nbsp;nF because the ADC doesn't like high frequencies, that could
+be caught by the keys, the resistors and the more or less long lines
+in between all this.<br>
+If the key "5" is pressed, a voltage divider gets active:<br><br>
+ * 1&nbsp;k + 820&nbsp;&#937; = 1,82k to ground,<br>
+ * 3,3&nbsp;k + 680&nbsp;&#937; + 180&nbsp;&#937; = 4,16k to plus.<br><br>
+At an operating voltage of 5 Volt a divided voltage of<br><br>
+5&nbsp;*&nbsp;1,82&nbsp;/&nbsp;(1,82&nbsp;+&nbsp;4,16) = 1,522 Volt<br><br>
+is seen on the AD converter input. If we consider 5% tolerance of the resistors,
+the resulting voltage is somewhere between 1,468 and 1,627&nbsp;Volts.
+The 10-bit AD converter converts this (at 5&nbsp;V reference voltage)
+to a value between 300 and 333. If we ignore the lower two bits of the
+result (e.g. divide the AD result by four or left-adjusting the result -
+if the ADC provides that function) this yields an 8-bit-value between
+74 and 78.<br>
+Each key pressed produces a typical voltage range, to be converted to
+the key code.
+<br clear="ALL">
+<h3>Voltages and key recognition</h3>
+The combinations of resistors yield the voltages assembled in the
+following table. Given are the voltage ranges of the keys, the
+8-bit-AD converter values for these keys and the optimal detection
+values between the different keys.<br>
+<table border="2">
+<tbody><tr><th rowspan="2">Key</th><th colspan="3">Voltage</th>
+<th colspan="3">8-bit-AD value</th><th>Detection</th></tr>
+<tr><th>V(min.)</th><th>V(typ.)</th><th>V(max.)</th><th>min.</th>
+<th>typ.</th><th>max.</th><th>(from AD value)</th></tr>
+<tr><td align="CENTER">1</td><td align="RIGHT">0,225</td>
+  <td align="RIGHT">0,248</td><td align="RIGHT">0,272</td>
+  <td align="RIGHT">11</td><td align="RIGHT">13</td>
+  <td align="RIGHT">14</td><td align="RIGHT">7</td></tr>
+<tr><td align="CENTER">2</td><td align="RIGHT">0,396</td>
+  <td align="RIGHT">0,434</td><td align="RIGHT">0,474</td>
+  <td align="RIGHT">20</td><td align="RIGHT">22</td>
+  <td align="RIGHT">25</td><td align="RIGHT">18</td></tr>
+<tr><td align="CENTER">3</td><td align="RIGHT">0,588</td>
+  <td align="RIGHT">0,641</td><td align="RIGHT">0,698</td>
+  <td align="RIGHT">29</td><td align="RIGHT">33</td>
+  <td align="RIGHT">36</td><td align="RIGHT">28</td></tr>
+<tr><td align="CENTER">4</td><td align="RIGHT">0,930</td>
+  <td align="RIGHT">0,969</td><td align="RIGHT">1,048</td>
+  <td align="RIGHT">47</td><td align="RIGHT">49</td>
+  <td align="RIGHT">54</td><td align="RIGHT">42</td></tr>
+<tr><td align="CENTER">5</td><td align="RIGHT">1,468</td>
+  <td align="RIGHT">1,522</td><td align="RIGHT">1,627</td>
+  <td align="RIGHT">74</td><td align="RIGHT">78</td>
+  <td align="RIGHT">84</td><td align="RIGHT">64</td></tr>
+<tr><td align="CENTER">6</td><td align="RIGHT">1,959</td>
+  <td align="RIGHT">2,020</td><td align="RIGHT">2,139</td>
+  <td align="RIGHT">99</td><td align="RIGHT">103</td>
+  <td align="RIGHT">110</td><td align="RIGHT">91</td></tr>
+<tr><td align="CENTER">7</td><td align="RIGHT">2,563</td>
+  <td align="RIGHT">2,688</td><td align="RIGHT">2,809</td>
+  <td align="RIGHT">130</td><td align="RIGHT">137</td>
+  <td align="RIGHT">144</td><td align="RIGHT">121</td></tr>
+<tr><td align="CENTER">8</td><td align="RIGHT">3,285</td>
+  <td align="RIGHT">3,396</td><td align="RIGHT">3,500</td>
+  <td align="RIGHT">167</td><td align="RIGHT">173</td>
+  <td align="RIGHT">180</td><td align="RIGHT">156</td></tr>
+<tr><td align="CENTER">9</td><td align="RIGHT">3,740</td>
+  <td align="RIGHT">3,832</td><td align="RIGHT">3,917</td>
+  <td align="RIGHT">190</td><td align="RIGHT">195</td>
+  <td align="RIGHT">201</td><td align="RIGHT">185</td></tr>
+<tr><td align="CENTER">*</td><td align="RIGHT">4,170</td>
+  <td align="RIGHT">4,237</td><td align="RIGHT">4,298</td>
+  <td align="RIGHT">212</td><td align="RIGHT">216</td>
+  <td align="RIGHT">221</td><td align="RIGHT">207</td></tr>
+<tr><td align="CENTER">0</td><td align="RIGHT">4,507</td>
+  <td align="RIGHT">4,550</td><td align="RIGHT">4,588</td>
+  <td align="RIGHT">229</td><td align="RIGHT">232</td>
+  <td align="RIGHT">235</td><td align="RIGHT">225</td></tr>
+<tr><td align="CENTER">#</td><td align="RIGHT">4,671</td>
+  <td align="RIGHT">4,700</td><td align="RIGHT">4,726</td>
+  <td align="RIGHT">238</td><td align="RIGHT">240</td>
+  <td align="RIGHT">242</td><td align="RIGHT">237</td></tr>
+</tbody></table><br>
+As can be seen from the table, there is no overlapping of the different
+detection values for the keys, taking 5% tolerance of the resistors into
+account.<br><br>
+Those who like to play around with other resistor combinations, can
+download the calculation sheet
+(<a href="http://www.avr-asm-tutorial.net/avr_en/keypad/resistor-encoder.ods">as Open-Office-Format</a>,
+<a href="http://www.avr-asm-tutorial.net/avr_en/keypad/resistor-encoder.xls">as Excel-XP-Format</a>).
+<h3>Hints for the AD converter hardware</h3>
+ATtiny devices in the most cases provide only the opportunity to use
+an internally generated voltage or the supply voltage of the AVR
+as reference for the AD converter. For the keypad conversion only
+the supply voltage is suitable as reference. This option has to be
+selected when initiating the AD converter hardware at program start.
+<br><br>
+Many ATmega types can connect the reference voltage to an external
+pin, AREF. This pin can either be input or output. It is an output if
+either the supply voltage or the internal reference are selected as
+AD converter reference. In this case the AREF pin should have a
+condensator to ground to further reduce noise on the reference voltage.
+The AREF pin is an input, if an external reference source is selected
+as option. In this case an external source provides the reference
+voltage. If an external source provides the reference voltage, the
+keypad matrix should also be supplied by this source. Note in that
+case that the keypad consumes up to 10&nbsp;mA, to improve noise
+sensitivity.<br><br>
+ATmega devices allow to supply the AD converter from an extra pin
+(AVCC) to further reduce noise. If only the keypad uses AD conversion
+the low necessary resolution of 8 bits does not require a separate
+supply for the AVCC pin, it can be tied to the normal supply voltage.
+If other measuring tasks have to be performed on other channels, the
+AVCC pin should be connected to the supply voltage via a coil of
+22&nbsp;µH and should be blocked by a condensator of 100&nbsp;nF
+to ground.
+<h3>Initiation and reading the AD converter result</h3>
+For reading the keypad matrix voltage one AD converter channel is
+required. The AD converter is initiated once during program start.
+The two example codes show a start sequence for single conversion,
+here for an ATmega8, and one for an interrupt driven automatic start
+of the ADC, here for an ATtiny13.
+<h4>ATmega8: manual start of the ADC</h4>
+The first example shows a routine for an ATmega8, without interrupts,
+with a manual start and stop of the the AD converter. The keypad
+signal is connected to AD channel ADC0.
+<pre><code>
+.DEF rKey = R15 ; Register for AD value
+.DEF rmp = R16 ; Multi purpose register
+	; set MUX to channel 0, left adjust the result, AREF taken from AVCC
+	ldi rmp,(1&lt;&lt;REFS0)|(1&lt;&lt;ADLAR) ; ADMUX channel 0, AREF from AVCC
+	out ADMUX,rmp
+	; switch AD conversion on, start conversion, divider rate = 128
+	ldi rmp,(1&lt;&lt;ADEN)|(1&lt;&lt;ADSC)|(1&lt;&lt;ADPS2)|(1&lt;&lt;ADPS1)|(1&lt;&lt;ADPS0)
+	out ADCSRA,rmp
+	; wait until the AD conversion is complete
+WaitAdc1:
+	; check ADSC bit, conversion complete if bit is zero
+	sbic ADCSRA,ADSC ; conversion ready?
+	rjmp WaitAdc1 ; not yet
+	; read MSB of the AD conversion result
+	in rKey,ADCH
+	; switch AD converter off
+	ldi rmp,(1&lt;&lt;ADPS2)|(1&lt;&lt;ADPS1)|(1&lt;&lt;ADPS0) ; switch ADC off
+	out ADCSRA,rmp
+</code></pre>
+Please note that this single conversion requires 25 * 128 clock
+cycles, at 1 Mcs/s clock 3.2 milli-seconds. Only do this that way,
+running around in circles, if you don't need to care for other things in
+between this time delay (except if these other things are done inside interrupts).
+
+<h4>ATtiny13: Autostart AD conversion, interrupt-driven</h4>
+Yes, an ATtiny13 with its 8 pins can read our keypad matrix (we cannot
+connect the keypad matrix itself due to the limited number of I/O pins).
+<br><br>
+A typical routine for this task would be the following sequence, that
+converts the voltage on ADC3 (pin 2 of the ATtiny13) continously (after
+conversion complete, the next conversion is started automatically).
+<pre><code>
+;
+; Start AD converter
+;
+	; PB3=ADC3 is used for the conversion
+	ldi rmp,0b00001000 ; disconnect the PB3 digital driver, saves supply current
+	out DIDR0,rmp
+	; Reference = supply voltage, Left-adjust the result
+	;   ADMUX to ADC3
+	ldi rmp,0b00100011 ; reference voltage = supply voltage, chose ADC3
+	out ADMUX,rmp
+	; select autostart option
+	ldi rmp,0b00000000 ; free-running conversion (autostart)
+	out ADCSRB,rmp
+	; start ADC, allow interrupt, select clock divider
+	ldi rmp,0b11101111 ; start ADC, autostart,
+	out ADCSRA,rmp ;  Int Enable, clock divider to 128
+; initiation complete
+</code></pre>
+Running in interrupt mode requires defining the respective int jump vector,
+e.g.
+<pre><code>
+;
+; Reset and int vectors, ATtiny13
+;
+.CSEG ; assemble into code segment
+.ORG $0000 ; at the beginning of the code segment
+	rjmp main ; Reset vector
+	reti ; Int0 interrupt vector
+	reti ; PCINT0 vector
+	reti ; TC0 overflow vector
+	reti ; Eeprom ready vector
+	reti ; Analog comparator int vector
+	reti ; TC0 CompA vector
+	reti ; TC0 CompB vector
+	reti ; WDT vector
+	rjmp intadc ; ADC conversion complete vector
+;
+</code></pre>
+Of course, the stack must be initiated to use interrupts, and the
+interrupt status flag must be set (SEI).<br><br>
+The service routine intadc reads the AD conversion result. Because
+Left-Adjust has been selected, it is sufficient to read the MSB of
+the result:
+<pre><code>
+;
+; Interrupt Service Routine AD conversion
+;
+.DEF rKey = R15 ; result register for the conversion result
+intadc:
+	in rKey,ADCH ; read AD converter MSB
+	reti ; return from interrupt
+;
+</code></pre>
+The register rKey continously provides the current value of the
+resistor matrix.
+<h3>Converting the AD result to the key code</h3>
+The conversion result is, as such, not very useful. The voltages and
+the conversion result do not follow easy mathematical laws (the
+resistor values 4.7 - 5.6 - 6.8 - 8.2 must have been designed by a
+drunken math professor, the formula
+V&nbsp;=&nbsp;R1&nbsp;/&nbsp;(R1&nbsp;+&nbsp;R2) is not very easy
+to handle), so that we better
+use a table to resolve our key codes. The table cannot be a primitive
+look-up table, because we have 256 different possible results of the
+conversion, and we like more slim tables.<br><br>
+Like a monkey, we climb the matrix tree by going step by step through
+the following table:
+<pre><code>
+KeyTable:
+.DB 7, 255, 18, 1, 28, 2, 42, 3, 64, 4, 91, 5
+.DB 121, 6, 156, 7, 185, 8, 207, 9, 225, 10, 237, 0, 255, 11
+</code></pre>
+The first byte is the compare value for our conversion result, the
+second byte is the key code, if this compare value is greater than our
+result. If the result is between 0 and &lt;7: no key is pressed (key
+code is 255), if it is between 7 and &lt;18 the key code is 1, etc.
+<br><br>
+Or, if you prefer ASCII for the key codes:
+<pre><code>
+KeyTable:
+.DB 7, 0 , 18, '1', 28, '2', 42, '3', 64, '4', 91, '5'
+.DB 121, '6', 156, '7', 185, '8', 207, '9', 225, '*', 237, '0', 255, '#'
+</code></pre>
+The code for key translation goes like this:
+<pre><code>
+;
+; Converting a AD result to a key code
+;
+GetKeyCode:
+	; if the AD result can change in between, the result must be copied first
+	mov R1,rKey ; copy AD result to R1
+	ldi ZH,HIGH(2*KeyTable) ; Z points to conversion table
+	ldi ZL,LOW(2*KeyTable)
+GetKeyCode1:
+	lpm ; read one table value
+	cp R1,R0 ; compare AD result with table value
+	brcs GetKeyCode2 ; less than table value, key identified
+	inc R0 ; test, if table end is reached
+	breq GetKeyCode2 ; reached end of table
+	adiw ZL,2 ; point to next table entry
+	rjmp GetKeyCode1 ; go on comparing next entry
+GetKeyCode2:
+	adiw ZL,1 ; point to MSB = key code
+	lpm ; read key code to R0
+;
+</code></pre>
+Of course we have to check, if no key is pressed (R0 = 0xFF resp. if ASCII:
+R0 = 0) and we have to check for glitches (if the same key code comes
+20 or more times, I take it for serious ...).
+<h3>Experiences</h3>
+The hard- and software work very reliable. In the first version the
+resistor values of the matrix were ten times higher. This version was
+more vulnerable to HF noise, e.g. when transmitting with a 2&nbsp;W
+VHF transmitter nearby.<br><br>
+
+<br><br><a href="#top">To the top of the page</a><br><br>
+<small>
+©2006-2009 by <a href="http://www.avr-asm-tutorial.net/">http://www.avr-asm-tutorial.net</a>
+</small>
+
+
+</body></html>

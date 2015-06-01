@@ -1,0 +1,21 @@
+A328Pn3310DS18x20_n.elf  :
+section            size       addr
+.data             0x1a2   0x800100
+.text            0x5626        0x0
+.bss              0x447   0x8002a2
+.eeprom            0x28   0x810000
+.fuse               0x3   0x820000
+.stab            0x1ae8        0x0
+.stabstr          0x8d8        0x0
+.comment           0x2f        0x0
+.debug_aranges    0x140        0x0
+.debug_info      0x1476        0x0
+.debug_abbrev     0xb19        0x0
+.debug_line       0xf11        0x0
+.debug_frame      0x1f8        0x0
+.debug_str        0x5b5        0x0
+.debug_loc        0xc9c        0x0
+.debug_ranges      0x98        0x0
+Total            0xc4ea
+
+
