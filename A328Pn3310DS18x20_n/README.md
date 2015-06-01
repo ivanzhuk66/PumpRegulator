@@ -53,7 +53,7 @@ A. Processing of sensor values.
 		  and:
 			- DIFFMAX < (Tsupply - Treturn) then ==> TCA - off, TSN0 - ON TSN1 - ON;
 			- (DIFFMIN + DIFFMAX) / 2 <(Tsupply - Treturn) <= DIFFMAX then ==> TCA - off, TSN0 - ON TSN1 - off;
-			- DIFFMIN <(Tsupply - Treturn) <= (DIFFMIN + DIFFMAX) / 2 then ==> TCA - off, TSN0 - off, TSN1 - 				  off;
+			- DIFFMIN <(Tsupply - Treturn) <= (DIFFMIN + DIFFMAX) / 2 then ==> TCA - off, TSN0 - off, TSN1 - off;
 			- (Tsupply - Treturn) <= DIFFMIN then ==> TCA - ON TSN0 - ON TSN1 - off.
 	  Where Tsupply - supply flow temperature, Treturn - return flow temperature.
 
@@ -64,14 +64,16 @@ B. CONTROL OF THE PRESENCE OF POWER SUPPLY 220V or 3-phase power.
 	pin PD3 - signal presence of a POWER SUPPLY connection.
 
 	While PD3 == 0 the controller works (during work it changes value of the pin PB0(0 or 1) every 1-5 seconds);
-	if PD3 == 1 during from 1 to 2 minutes then - the controller sends SMS "01-Power Gone!" using USART (pins - PD0, 	 PD1 to which it is necessary to connect a GSM modem or phone) and stops (value of PB0 pin does not change that in 	  turn triggers a signal conditioner ALARM ).
+	if PD3 == 1 during from 1 to 2 minutes then - the controller sends SMS "01-Power Gone!" using USART (pins - PD0, 	 
+	PD1 to which it is necessary to connect a GSM modem or phone) and stops (value of PB0 pin does not change that in 	  
+	turn triggers a signal conditioner ALARM ).
 
 C. The signal conditioner ALARM.
 	The circuit in logic elements generates a short pulse MV_SRC on a rising edge signal WATCHDOG_PIN.
 	MV_SRC amplifying with transistor Q2 to MV_OUT signal which is supplied to two circuits:
 		- Driver permits alarm;
-		- To reset the timer that controls the microcontroller operation . (Ansence of the signal puls MV_OUT
-		  will generate ALARM by flipflop U6.A U6.B)
+		- To reset the timer that controls the micro-controller operation . (Absence of the signal pulse MV_OUT
+		  will generate ALARM by flip-flop U6.A U6.B)
 
 D. KEYBOARD
 	Connection is carried out using the ADC (pin ADC7) and comparator (pins PD6, PD7).
