@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.WDT_off,"ax",@progbits
+	.text
 .global	WDT_off
 	.type	WDT_off, @function
 WDT_off:
@@ -36,7 +36,6 @@ WDT_off:
 /* #NOAPP */
 	ret
 	.size	WDT_off, .-WDT_off
-	.section	.text.__vector_6,"ax",@progbits
 .global	__vector_6
 	.type	__vector_6, @function
 __vector_6:
@@ -67,7 +66,6 @@ __vector_6:
 	pop r1
 	reti
 	.size	__vector_6, .-__vector_6
-	.section	.text.WDT_setup,"ax",@progbits
 .global	WDT_setup
 	.type	WDT_setup, @function
 WDT_setup:
@@ -96,7 +94,6 @@ WDT_setup:
 /* #NOAPP */
 	ret
 	.size	WDT_setup, .-WDT_setup
-	.section	.text.init_clock,"ax",@progbits
 .global	init_clock
 	.type	init_clock, @function
 init_clock:
@@ -152,7 +149,6 @@ init_clock:
 /* #NOAPP */
 	ret
 	.size	init_clock, .-init_clock
-	.section	.text.not_leap,"ax",@progbits
 .global	not_leap
 	.type	not_leap, @function
 not_leap:
@@ -203,7 +199,6 @@ not_leap:
 	andi r24,lo8(3)
 	ret
 	.size	not_leap, .-not_leap
-	.section	.text.__vector_9,"ax",@progbits
 .global	__vector_9
 	.type	__vector_9, @function
 __vector_9:
@@ -353,7 +348,7 @@ __vector_9:
 	reti
 	.size	__vector_9, .-__vector_9
 .global	wait_powergone
-	.section	.bss.wait_powergone,"aw",@nobits
+	.section .bss
 	.type	wait_powergone, @object
 	.size	wait_powergone, 1
 wait_powergone:
@@ -361,7 +356,7 @@ wait_powergone:
 	.comm	CheckNoReadySNCounter,1,1
 	.comm	TimeKeyPressed,1,1
 .global	tAsync
-	.section	.data.tAsync,"aw",@progbits
+	.data
 	.type	tAsync, @object
 	.size	tAsync, 7
 tAsync:

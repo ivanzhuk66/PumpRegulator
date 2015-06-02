@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.LCD_send_bit,"ax",@progbits
+	.text
 .global	LCD_send_bit
 	.type	LCD_send_bit, @function
 LCD_send_bit:
@@ -35,7 +35,6 @@ LCD_send_bit:
 	rjmp .
 	ret
 	.size	LCD_send_bit, .-LCD_send_bit
-	.section	.text.LCD_send_byte,"ax",@progbits
 .global	LCD_send_byte
 	.type	LCD_send_byte, @function
 LCD_send_byte:
@@ -70,7 +69,6 @@ LCD_send_byte:
 	pop r16
 	ret
 	.size	LCD_send_byte, .-LCD_send_byte
-	.section	.text.LCD_send_command,"ax",@progbits
 .global	LCD_send_command
 	.type	LCD_send_command, @function
 LCD_send_command:
@@ -82,7 +80,6 @@ LCD_send_command:
 	call LCD_send_byte
 	ret
 	.size	LCD_send_command, .-LCD_send_command
-	.section	.text.LCD_send_data,"ax",@progbits
 .global	LCD_send_data
 	.type	LCD_send_data, @function
 LCD_send_data:
@@ -94,7 +91,6 @@ LCD_send_data:
 	call LCD_send_byte
 	ret
 	.size	LCD_send_data, .-LCD_send_data
-	.section	.text.LCD_Clear_Screen,"ax",@progbits
 .global	LCD_Clear_Screen
 	.type	LCD_Clear_Screen, @function
 LCD_Clear_Screen:
@@ -125,7 +121,6 @@ LCD_Clear_Screen:
 	pop r28
 	ret
 	.size	LCD_Clear_Screen, .-LCD_Clear_Screen
-	.section	.text.LCD_initialize2,"ax",@progbits
 .global	LCD_initialize2
 	.type	LCD_initialize2, @function
 LCD_initialize2:
@@ -202,7 +197,6 @@ LCD_initialize2:
 	nop
 	ret
 	.size	LCD_initialize2, .-LCD_initialize2
-	.section	.text.LCD_Update,"ax",@progbits
 .global	LCD_Update
 	.type	LCD_Update, @function
 LCD_Update:
@@ -320,7 +314,6 @@ LCD_Update:
 	pop r9
 	ret
 	.size	LCD_Update, .-LCD_Update
-	.section	.text.LCD_UpdateBox,"ax",@progbits
 .global	LCD_UpdateBox
 	.type	LCD_UpdateBox, @function
 LCD_UpdateBox:
@@ -366,7 +359,6 @@ LCD_UpdateBox:
 .L18:
 	ret
 	.size	LCD_UpdateBox, .-LCD_UpdateBox
-	.section	.text.LCD_Clear,"ax",@progbits
 .global	LCD_Clear
 	.type	LCD_Clear, @function
 LCD_Clear:
@@ -400,7 +392,6 @@ LCD_Clear:
 	sts y,__zero_reg__
 	ret
 	.size	LCD_Clear, .-LCD_Clear
-	.section	.text.LCD_drawPixel,"ax",@progbits
 .global	LCD_drawPixel
 	.type	LCD_drawPixel, @function
 LCD_drawPixel:
@@ -524,7 +515,6 @@ LCD_drawPixel:
 .L26:
 	ret
 	.size	LCD_drawPixel, .-LCD_drawPixel
-	.section	.text.LCD_set_position2,"ax",@progbits
 .global	LCD_set_position2
 	.type	LCD_set_position2, @function
 LCD_set_position2:
@@ -558,7 +548,6 @@ LCD_set_position2:
 	sts Cursor_Y,r22
 	ret
 	.size	LCD_set_position2, .-LCD_set_position2
-	.section	.text.LCD_drawLine,"ax",@progbits
 .global	LCD_drawLine
 	.type	LCD_drawLine, @function
 LCD_drawLine:
@@ -731,7 +720,6 @@ LCD_drawLine:
 	pop r2
 	ret
 	.size	LCD_drawLine, .-LCD_drawLine
-	.section	.text.LCD_drawFastVLine,"ax",@progbits
 .global	LCD_drawFastVLine
 	.type	LCD_drawFastVLine, @function
 LCD_drawFastVLine:
@@ -754,7 +742,6 @@ LCD_drawFastVLine:
 	pop r16
 	ret
 	.size	LCD_drawFastVLine, .-LCD_drawFastVLine
-	.section	.text.LCD_fillRect,"ax",@progbits
 .global	LCD_fillRect
 	.type	LCD_fillRect, @function
 LCD_fillRect:
@@ -805,7 +792,6 @@ LCD_fillRect:
 	pop r10
 	ret
 	.size	LCD_fillRect, .-LCD_fillRect
-	.section	.text.LCD_drawChar,"ax",@progbits
 .global	LCD_drawChar
 	.type	LCD_drawChar, @function
 LCD_drawChar:
@@ -1039,7 +1025,6 @@ LCD_drawChar:
 	pop r2
 	ret
 	.size	LCD_drawChar, .-LCD_drawChar
-	.section	.text.LCD_write2,"ax",@progbits
 .global	LCD_write2
 	.type	LCD_write2, @function
 LCD_write2:
@@ -1129,7 +1114,6 @@ LCD_write2:
 	pop r14
 	ret
 	.size	LCD_write2, .-LCD_write2
-	.section	.text.LCD_draw_string2,"ax",@progbits
 .global	LCD_draw_string2
 	.type	LCD_draw_string2, @function
 LCD_draw_string2:
@@ -1161,7 +1145,6 @@ LCD_draw_string2:
 	pop r17
 	ret
 	.size	LCD_draw_string2, .-LCD_draw_string2
-	.section	.text.LCD_draw_string3,"ax",@progbits
 .global	LCD_draw_string3
 	.type	LCD_draw_string3, @function
 LCD_draw_string3:
@@ -1181,7 +1164,6 @@ LCD_draw_string3:
 	call LCD_draw_string2
 	ret
 	.size	LCD_draw_string3, .-LCD_draw_string3
-	.section	.text.LCD_drawFastHLine,"ax",@progbits
 .global	LCD_drawFastHLine
 	.type	LCD_drawFastHLine, @function
 LCD_drawFastHLine:
@@ -1203,7 +1185,6 @@ LCD_drawFastHLine:
 	pop r16
 	ret
 	.size	LCD_drawFastHLine, .-LCD_drawFastHLine
-	.section	.text.LCD_setTextSize,"ax",@progbits
 .global	LCD_setTextSize
 	.type	LCD_setTextSize, @function
 LCD_setTextSize:
@@ -1218,7 +1199,6 @@ LCD_setTextSize:
 	sts textsize,r24
 	ret
 	.size	LCD_setTextSize, .-LCD_setTextSize
-	.section	.text.NoneFunc,"ax",@progbits
 .global	NoneFunc
 	.type	NoneFunc, @function
 NoneFunc:
@@ -1228,7 +1208,6 @@ NoneFunc:
 .L__stack_usage = 0
 	ret
 	.size	NoneFunc, .-NoneFunc
-	.section	.text.LcdPutInt,"ax",@progbits
 .global	LcdPutInt
 	.type	LcdPutInt, @function
 LcdPutInt:
@@ -1265,7 +1244,6 @@ LcdPutInt:
 	pop r28
 	ret
 	.size	LcdPutInt, .-LcdPutInt
-	.section	.text.LcdNextStr,"ax",@progbits
 .global	LcdNextStr
 	.type	LcdNextStr, @function
 LcdNextStr:
@@ -1289,7 +1267,6 @@ LcdNextStr:
 	call LCD_Clear
 	ret
 	.size	LcdNextStr, .-LcdNextStr
-	.section	.text.LcdFirstLine,"ax",@progbits
 .global	LcdFirstLine
 	.type	LcdFirstLine, @function
 LcdFirstLine:
@@ -1302,7 +1279,6 @@ LcdFirstLine:
 	call LCD_set_position2
 	ret
 	.size	LcdFirstLine, .-LcdFirstLine
-	.section	.text.ReturnXPos,"ax",@progbits
 .global	ReturnXPos
 	.type	ReturnXPos, @function
 ReturnXPos:
@@ -1344,7 +1320,6 @@ ReturnXPos:
 	call LCD_set_position2
 	ret
 	.size	ReturnXPos, .-ReturnXPos
-	.section	.text.LcdWrite,"ax",@progbits
 .global	LcdWrite
 	.type	LcdWrite, @function
 LcdWrite:
@@ -1365,7 +1340,7 @@ LcdWrite:
 	ldi r25,0
 	ret
 	.size	LcdWrite, .-LcdWrite
-	.section	.progmem.data.font,"a",@progbits
+	.section	.progmem.data,"a",@progbits
 	.type	font, @object
 	.size	font, 1275
 font:
@@ -2644,54 +2619,43 @@ font:
 	.byte	0
 	.byte	0
 	.byte	0
-	.section	.data.textsize,"aw",@progbits
+	.data
 	.type	textsize, @object
 	.size	textsize, 1
 textsize:
 	.byte	1
-	.section	.bss.Cursor_Y,"aw",@nobits
-	.type	Cursor_Y, @object
-	.size	Cursor_Y, 1
-Cursor_Y:
-	.zero	1
-	.section	.bss.Cursor_X,"aw",@nobits
-	.type	Cursor_X, @object
-	.size	Cursor_X, 1
-Cursor_X:
-	.zero	1
+	.local	Cursor_Y
+	.comm	Cursor_Y,1,1
+	.local	Cursor_X
+	.comm	Cursor_X,1,1
 .global	yUpdateMax
-	.section	.data.yUpdateMax,"aw",@progbits
 	.type	yUpdateMax, @object
 	.size	yUpdateMax, 1
 yUpdateMax:
 	.byte	64
 .global	xUpdateMax
-	.section	.data.xUpdateMax,"aw",@progbits
 	.type	xUpdateMax, @object
 	.size	xUpdateMax, 1
 xUpdateMax:
 	.byte	95
 .global	yUpdateMin
-	.section	.bss.yUpdateMin,"aw",@nobits
+	.section .bss
 	.type	yUpdateMin, @object
 	.size	yUpdateMin, 1
 yUpdateMin:
 	.zero	1
 .global	xUpdateMin
-	.section	.bss.xUpdateMin,"aw",@nobits
 	.type	xUpdateMin, @object
 	.size	xUpdateMin, 1
 xUpdateMin:
 	.zero	1
 	.comm	LCDCache,864,1
 .global	y
-	.section	.bss.y,"aw",@nobits
 	.type	y, @object
 	.size	y, 2
 y:
 	.zero	2
 .global	x
-	.section	.bss.x,"aw",@nobits
 	.type	x, @object
 	.size	x, 2
 x:

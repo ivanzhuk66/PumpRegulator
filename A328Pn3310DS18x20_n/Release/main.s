@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.search_sensors_n,"ax",@progbits
+	.text
 	.type	search_sensors_n, @function
 search_sensors_n:
 	push r8
@@ -23,7 +23,7 @@ search_sensors_n:
 	cbi 0xb,5
 	ldi r24,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r24
 	brne 1b
  ;  0 "" 2
@@ -99,7 +99,6 @@ search_sensors_n:
 	pop r8
 	ret
 	.size	search_sensors_n, .-search_sensors_n
-	.section	.text.LcdPutTemp,"ax",@progbits
 .global	LcdPutTemp
 	.type	LcdPutTemp, @function
 LcdPutTemp:
@@ -142,7 +141,6 @@ LcdPutTemp:
 	pop r28
 	ret
 	.size	LcdPutTemp, .-LcdPutTemp
-	.section	.text.ShutOffADC,"ax",@progbits
 .global	ShutOffADC
 	.type	ShutOffADC, @function
 ShutOffADC:
@@ -159,7 +157,6 @@ ShutOffADC:
 	sts 127,r24
 	ret
 	.size	ShutOffADC, .-ShutOffADC
-	.section	.text.test_SN_sensors,"ax",@progbits
 .global	test_SN_sensors
 	.type	test_SN_sensors, @function
 test_SN_sensors:
@@ -217,7 +214,6 @@ test_SN_sensors:
 	pop r15
 	ret
 	.size	test_SN_sensors, .-test_SN_sensors
-	.section	.text.copyrSNsTogSNs,"ax",@progbits
 .global	copyrSNsTogSNs
 	.type	copyrSNsTogSNs, @function
 copyrSNsTogSNs:
@@ -249,7 +245,6 @@ copyrSNsTogSNs:
 /* epilogue start */
 	ret
 	.size	copyrSNsTogSNs, .-copyrSNsTogSNs
-	.section	.text.LcdPowerGoneStr,"ax",@progbits
 .global	LcdPowerGoneStr
 	.type	LcdPowerGoneStr, @function
 LcdPowerGoneStr:
@@ -286,7 +281,6 @@ LcdPowerGoneStr:
 	pop __tmp_reg__
 	ret
 	.size	LcdPowerGoneStr, .-LcdPowerGoneStr
-	.section	.text.DisplayTemperature,"ax",@progbits
 .global	DisplayTemperature
 	.type	DisplayTemperature, @function
 DisplayTemperature:
@@ -473,7 +467,6 @@ DisplayTemperature:
 	pop r28
 	ret
 	.size	DisplayTemperature, .-DisplayTemperature
-	.section	.text.DoWatchDog,"ax",@progbits
 .global	DoWatchDog
 	.type	DoWatchDog, @function
 DoWatchDog:
@@ -504,7 +497,6 @@ DoWatchDog:
 .L33:
 	ret
 	.size	DoWatchDog, .-DoWatchDog
-	.section	.text.getTemperature,"ax",@progbits
 .global	getTemperature
 	.type	getTemperature, @function
 getTemperature:
@@ -585,7 +577,6 @@ getTemperature:
 	pop r15
 	ret
 	.size	getTemperature, .-getTemperature
-	.section	.text.manageTemperatureEvent,"ax",@progbits
 .global	manageTemperatureEvent
 	.type	manageTemperatureEvent, @function
 manageTemperatureEvent:
@@ -836,7 +827,6 @@ manageTemperatureEvent:
 	pop r16
 	ret
 	.size	manageTemperatureEvent, .-manageTemperatureEvent
-	.section	.text.ValidSensorCode,"ax",@progbits
 .global	ValidSensorCode
 	.type	ValidSensorCode, @function
 ValidSensorCode:
@@ -869,7 +859,6 @@ ValidSensorCode:
 	ldi r24,0
 	ret
 	.size	ValidSensorCode, .-ValidSensorCode
-	.section	.text.checkPresenceSN,"ax",@progbits
 .global	checkPresenceSN
 	.type	checkPresenceSN, @function
 checkPresenceSN:
@@ -961,7 +950,7 @@ checkPresenceSN:
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
 	.string	"%02X%02X%02X%02X%02X%02X%02X"
-	.section	.text.manage_new_sensors,"ax",@progbits
+	.text
 .global	manage_new_sensors
 	.type	manage_new_sensors, @function
 manage_new_sensors:
@@ -1406,7 +1395,6 @@ manage_new_sensors:
 	pop r2
 	ret
 	.size	manage_new_sensors, .-manage_new_sensors
-	.section	.text.resetSensNumber,"ax",@progbits
 .global	resetSensNumber
 	.type	resetSensNumber, @function
 resetSensNumber:
@@ -1430,7 +1418,6 @@ resetSensNumber:
 /* epilogue start */
 	ret
 	.size	resetSensNumber, .-resetSensNumber
-	.section	.text.sms_noready_sens,"ax",@progbits
 .global	sms_noready_sens
 	.type	sms_noready_sens, @function
 sms_noready_sens:
@@ -1589,7 +1576,6 @@ sms_noready_sens:
 	pop r11
 	ret
 	.size	sms_noready_sens, .-sms_noready_sens
-	.section	.text.sms_pumpStarted,"ax",@progbits
 .global	sms_pumpStarted
 	.type	sms_pumpStarted, @function
 sms_pumpStarted:
@@ -1637,7 +1623,6 @@ sms_pumpStarted:
 	pop r16
 	ret
 	.size	sms_pumpStarted, .-sms_pumpStarted
-	.section	.text.sms_powerGone,"ax",@progbits
 .global	sms_powerGone
 	.type	sms_powerGone, @function
 sms_powerGone:
@@ -1726,7 +1711,6 @@ sms_powerGone:
 	pop r16
 	ret
 	.size	sms_powerGone, .-sms_powerGone
-	.section	.text.ManageOutdoorTempEvent,"ax",@progbits
 .global	ManageOutdoorTempEvent
 	.type	ManageOutdoorTempEvent, @function
 ManageOutdoorTempEvent:
@@ -1760,7 +1744,6 @@ ManageOutdoorTempEvent:
 .L121:
 	ret
 	.size	ManageOutdoorTempEvent, .-ManageOutdoorTempEvent
-	.section	.text.TestNoReadySensors,"ax",@progbits
 .global	TestNoReadySensors
 	.type	TestNoReadySensors, @function
 TestNoReadySensors:
@@ -1875,7 +1858,6 @@ TestNoReadySensors:
 	pop r8
 	ret
 	.size	TestNoReadySensors, .-TestNoReadySensors
-	.section	.text.ClearEEPROMSensCodes,"ax",@progbits
 .global	ClearEEPROMSensCodes
 	.type	ClearEEPROMSensCodes, @function
 ClearEEPROMSensCodes:
@@ -1918,7 +1900,7 @@ ClearEEPROMSensCodes:
 	.string	"%02X "
 .LC2:
 	.string	"\n%02X%02X%02X%02X%02X%02X%02X"
-	.section	.text.main,"ax",@progbits
+	.text
 .global	main
 	.type	main, @function
 main:
@@ -2092,7 +2074,7 @@ main:
 	ldi r25,0
 	call ow_set_bus
 /* #APP */
- ;  426 "../main.c" 1
+ ;  428 "../main.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -2407,14 +2389,14 @@ main:
 	call abort
 .L157:
 /* #APP */
- ;  611 "../main.c" 1
+ ;  613 "../main.c" 1
 	cli
  ;  0 "" 2
 /* #NOAPP */
 	sts powergone,__zero_reg__
 	sts wait_powergone,__zero_reg__
 /* #APP */
- ;  614 "../main.c" 1
+ ;  616 "../main.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -2478,7 +2460,7 @@ main:
 	subi r30,lo8(-(gs(.L166)))
 	sbci r31,hi8(-(gs(.L166)))
 	jmp __tablejump2__
-	.section	.progmem.gcc_sw_table.main,"a",@progbits
+	.section	.progmem.gcc_sw_table,"a",@progbits
 	.p2align	1
 .L166:
 	.word gs(.L165)
@@ -2504,7 +2486,7 @@ main:
 	.word gs(.L174)
 	.word gs(.L175)
 	.word gs(.L176)
-	.section	.text.main
+	.text
 .L167:
 	lds r24,MenuPhase
 	cpse r24,__zero_reg__
@@ -2604,7 +2586,7 @@ main:
 	subi r30,lo8(-(gs(.L188)))
 	sbci r31,hi8(-(gs(.L188)))
 	jmp __tablejump2__
-	.section	.progmem.gcc_sw_table.main
+	.section	.progmem.gcc_sw_table,"a",@progbits
 	.p2align	1
 .L188:
 	.word gs(.L187)
@@ -2619,7 +2601,7 @@ main:
 	.word gs(.L189)
 	.word gs(.L190)
 	.word gs(.L191)
-	.section	.text.main
+	.text
 .L187:
 	lds r24,fl
 	tst r24
@@ -3770,7 +3752,7 @@ main:
 	subi r30,lo8(-(gs(.L220)))
 	sbci r31,hi8(-(gs(.L220)))
 	jmp __tablejump2__
-	.section	.progmem.gcc_sw_table.main
+	.section	.progmem.gcc_sw_table,"a",@progbits
 	.p2align	1
 .L220:
 	.word gs(.L219)
@@ -3785,7 +3767,7 @@ main:
 	.word gs(.L229)
 	.word gs(.L230)
 	.word gs(.L231)
-	.section	.text.main
+	.text
 .L219:
 	call LCD_Clear
 	ldi r24,lo8(nextStr)
@@ -4699,13 +4681,13 @@ main:
 	sts MainLoopPhase,__zero_reg__
 	sts fl,__zero_reg__
 /* #APP */
- ;  1246 "../main.c" 1
+ ;  1248 "../main.c" 1
 	cli
  ;  0 "" 2
 /* #NOAPP */
 	sts TimeKeyPressed,__zero_reg__
 /* #APP */
- ;  1248 "../main.c" 1
+ ;  1250 "../main.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -4720,14 +4702,14 @@ main:
 	sts MainLoopPhase,r24
 	sts fl,__zero_reg__
 /* #APP */
- ;  1256 "../main.c" 1
+ ;  1258 "../main.c" 1
 	cli
  ;  0 "" 2
 /* #NOAPP */
 	sts TimeKeyPressed,__zero_reg__
 	sts extstate,__zero_reg__
 /* #APP */
- ;  1259 "../main.c" 1
+ ;  1261 "../main.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -4754,13 +4736,13 @@ main:
 	brlo .L254
 	call TestNoReadySensors
 /* #APP */
- ;  1278 "../main.c" 1
+ ;  1280 "../main.c" 1
 	cli
  ;  0 "" 2
 /* #NOAPP */
 	sts CheckNoReadySNCounter,__zero_reg__
 /* #APP */
- ;  1280 "../main.c" 1
+ ;  1282 "../main.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -4789,482 +4771,387 @@ main:
 	jmp .L255
 	jmp .L156
 	.size	main, .-main
-	.section	.progmem.data.__c.3188,"a",@progbits
+	.section	.progmem.data,"a",@progbits
 	.type	__c.3188, @object
 	.size	__c.3188, 19
 __c.3188:
 	.string	" at %02d:%02d:%02d"
-	.section	.progmem.data.__c.3171,"a",@progbits
 	.type	__c.3171, @object
 	.size	__c.3171, 19
 __c.3171:
 	.string	" at %02d:%02d:%02d"
-	.section	.progmem.data.__c.3169,"a",@progbits
 	.type	__c.3169, @object
 	.size	__c.3169, 5
 __c.3169:
 	.string	"%d: "
-	.section	.progmem.data.__c.3144,"a",@progbits
 	.type	__c.3144, @object
 	.size	__c.3144, 7
 __c.3144:
 	.string	"\n%i-%S"
-	.section	.progmem.data.__c.3142,"a",@progbits
 	.type	__c.3142, @object
 	.size	__c.3142, 7
 __c.3142:
 	.string	"\n%i-%S"
-	.section	.progmem.data.__c.3140,"a",@progbits
 	.type	__c.3140, @object
 	.size	__c.3140, 7
 __c.3140:
 	.string	"\n%i-%S"
-	.section	.progmem.data.__c.3138,"a",@progbits
 	.type	__c.3138, @object
 	.size	__c.3138, 7
 __c.3138:
 	.string	"\n%i-%S"
-	.section	.progmem.data.__c.3136,"a",@progbits
 	.type	__c.3136, @object
 	.size	__c.3136, 7
 __c.3136:
 	.string	"\n%S %S"
-	.section	.progmem.data.__c.3094,"a",@progbits
 	.type	__c.3094, @object
 	.size	__c.3094, 9
 __c.3094:
 	.string	"\n %S: %i"
-	.section	.progmem.data.__c.3092,"a",@progbits
 	.type	__c.3092, @object
 	.size	__c.3092, 9
 __c.3092:
 	.string	"\n %S: %i"
-	.section	.progmem.data.__c.3090,"a",@progbits
 	.type	__c.3090, @object
 	.size	__c.3090, 9
 __c.3090:
 	.string	"\n %S: %i"
-	.section	.progmem.data.__c.3088,"a",@progbits
 	.type	__c.3088, @object
 	.size	__c.3088, 9
 __c.3088:
 	.string	"\n %S: %i"
-	.section	.progmem.data.__c.3086,"a",@progbits
 	.type	__c.3086, @object
 	.size	__c.3086, 18
 __c.3086:
 	.string	"  %02d:%02d:%02d\n"
-	.section	.progmem.data.__c.3076,"a",@progbits
 	.type	__c.3076, @object
 	.size	__c.3076, 3
 __c.3076:
 	.string	"%S"
-	.section	.progmem.data.__c.3036,"a",@progbits
 	.type	__c.3036, @object
 	.size	__c.3036, 3
 __c.3036:
 	.string	"  "
-	.section	.progmem.data.__c.3033,"a",@progbits
 	.type	__c.3033, @object
 	.size	__c.3033, 5
 __c.3033:
 	.string	"\n%S:"
-	.section	.progmem.data.__c.3030,"a",@progbits
 	.type	__c.3030, @object
 	.size	__c.3030, 5
 __c.3030:
 	.string	"\n%S:"
-	.section	.progmem.data.__c.3026,"a",@progbits
 	.type	__c.3026, @object
 	.size	__c.3026, 5
 __c.3026:
 	.string	"\n%S:"
-	.section	.progmem.data.__c.3022,"a",@progbits
 	.type	__c.3022, @object
 	.size	__c.3022, 16
 __c.3022:
 	.string	"\n%02d:%02d:%02d"
-	.section	.progmem.data.__c.3019,"a",@progbits
 	.type	__c.3019, @object
 	.size	__c.3019, 13
 __c.3019:
 	.string	"\nValue is:%i"
-	.section	.progmem.data.__c.3015,"a",@progbits
 	.type	__c.3015, @object
 	.size	__c.3015, 9
 __c.3015:
 	.string	"\n%SD %S!"
-	.section	.progmem.data.__c.3012,"a",@progbits
 	.type	__c.3012, @object
 	.size	__c.3012, 8
 __c.3012:
 	.string	"%S %S?\n"
-	.section	.progmem.data.__c.3009,"a",@progbits
 	.type	__c.3009, @object
 	.size	__c.3009, 5
 __c.3009:
 	.string	" %S:"
-	.section	.progmem.data.__c.3007,"a",@progbits
 	.type	__c.3007, @object
 	.size	__c.3007, 7
 __c.3007:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.3005,"a",@progbits
 	.type	__c.3005, @object
 	.size	__c.3005, 7
 __c.3005:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.3002,"a",@progbits
 	.type	__c.3002, @object
 	.size	__c.3002, 5
 __c.3002:
 	.string	" %S:"
-	.section	.progmem.data.__c.3000,"a",@progbits
 	.type	__c.3000, @object
 	.size	__c.3000, 7
 __c.3000:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2998,"a",@progbits
 	.type	__c.2998, @object
 	.size	__c.2998, 7
 __c.2998:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2995,"a",@progbits
 	.type	__c.2995, @object
 	.size	__c.2995, 5
 __c.2995:
 	.string	" %S:"
-	.section	.progmem.data.__c.2993,"a",@progbits
 	.type	__c.2993, @object
 	.size	__c.2993, 7
 __c.2993:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2991,"a",@progbits
 	.type	__c.2991, @object
 	.size	__c.2991, 7
 __c.2991:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2988,"a",@progbits
 	.type	__c.2988, @object
 	.size	__c.2988, 5
 __c.2988:
 	.string	" %S:"
-	.section	.progmem.data.__c.2986,"a",@progbits
 	.type	__c.2986, @object
 	.size	__c.2986, 7
 __c.2986:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2984,"a",@progbits
 	.type	__c.2984, @object
 	.size	__c.2984, 7
 __c.2984:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2981,"a",@progbits
 	.type	__c.2981, @object
 	.size	__c.2981, 5
 __c.2981:
 	.string	" %S:"
-	.section	.progmem.data.__c.2979,"a",@progbits
 	.type	__c.2979, @object
 	.size	__c.2979, 7
 __c.2979:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2977,"a",@progbits
 	.type	__c.2977, @object
 	.size	__c.2977, 7
 __c.2977:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2974,"a",@progbits
 	.type	__c.2974, @object
 	.size	__c.2974, 5
 __c.2974:
 	.string	" %S:"
-	.section	.progmem.data.__c.2972,"a",@progbits
 	.type	__c.2972, @object
 	.size	__c.2972, 7
 __c.2972:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2970,"a",@progbits
 	.type	__c.2970, @object
 	.size	__c.2970, 7
 __c.2970:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2967,"a",@progbits
 	.type	__c.2967, @object
 	.size	__c.2967, 5
 __c.2967:
 	.string	" %S:"
-	.section	.progmem.data.__c.2965,"a",@progbits
 	.type	__c.2965, @object
 	.size	__c.2965, 7
 __c.2965:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2963,"a",@progbits
 	.type	__c.2963, @object
 	.size	__c.2963, 7
 __c.2963:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2959,"a",@progbits
 	.type	__c.2959, @object
 	.size	__c.2959, 5
 __c.2959:
 	.string	" %S:"
-	.section	.progmem.data.__c.2957,"a",@progbits
 	.type	__c.2957, @object
 	.size	__c.2957, 7
 __c.2957:
 	.string	" %S%S\n"
-	.section	.progmem.data.__c.2955,"a",@progbits
 	.type	__c.2955, @object
 	.size	__c.2955, 7
 __c.2955:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2951,"a",@progbits
 	.type	__c.2951, @object
 	.size	__c.2951, 9
 __c.2951:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2949,"a",@progbits
 	.type	__c.2949, @object
 	.size	__c.2949, 9
 __c.2949:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2947,"a",@progbits
 	.type	__c.2947, @object
 	.size	__c.2947, 9
 __c.2947:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2945,"a",@progbits
 	.type	__c.2945, @object
 	.size	__c.2945, 9
 __c.2945:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2943,"a",@progbits
 	.type	__c.2943, @object
 	.size	__c.2943, 9
 __c.2943:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2941,"a",@progbits
 	.type	__c.2941, @object
 	.size	__c.2941, 9
 __c.2941:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2939,"a",@progbits
 	.type	__c.2939, @object
 	.size	__c.2939, 9
 __c.2939:
 	.string	"\n%S%S:%i"
-	.section	.progmem.data.__c.2937,"a",@progbits
 	.type	__c.2937, @object
 	.size	__c.2937, 8
 __c.2937:
 	.string	"%S%S:%i"
-	.section	.progmem.data.__c.2934,"a",@progbits
 	.type	__c.2934, @object
 	.size	__c.2934, 7
 __c.2934:
 	.string	"\n   %S"
-	.section	.progmem.data.__c.2932,"a",@progbits
 	.type	__c.2932, @object
 	.size	__c.2932, 11
 __c.2932:
 	.string	"\n%S%i - %S"
-	.section	.progmem.data.__c.2930,"a",@progbits
 	.type	__c.2930, @object
 	.size	__c.2930, 11
 __c.2930:
 	.string	"\n%S%i - %S"
-	.section	.progmem.data.__c.2928,"a",@progbits
 	.type	__c.2928, @object
 	.size	__c.2928, 11
 __c.2928:
 	.string	"\n%S%i - %S"
-	.section	.progmem.data.__c.2926,"a",@progbits
 	.type	__c.2926, @object
 	.size	__c.2926, 10
 __c.2926:
 	.string	"%S%i - %S"
-	.section	.progmem.data.__c.2923,"a",@progbits
 	.type	__c.2923, @object
 	.size	__c.2923, 7
 __c.2923:
 	.string	"    %S"
-	.section	.progmem.data.__c.2918,"a",@progbits
 	.type	__c.2918, @object
 	.size	__c.2918, 3
 __c.2918:
 	.string	"%S"
-	.section	.progmem.data.__c.2914,"a",@progbits
 	.type	__c.2914, @object
 	.size	__c.2914, 4
 __c.2914:
 	.string	"   "
-	.section	.progmem.data.__c.2912,"a",@progbits
 	.type	__c.2912, @object
 	.size	__c.2912, 10
 __c.2912:
 	.string	"\n %S:%02X"
-	.section	.progmem.data.__c.2906,"a",@progbits
 	.type	__c.2906, @object
 	.size	__c.2906, 9
 __c.2906:
 	.string	" %S %S:\n"
-	.section	.progmem.data.__c.2904,"a",@progbits
 	.type	__c.2904, @object
 	.size	__c.2904, 7
 __c.2904:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2901,"a",@progbits
 	.type	__c.2901, @object
 	.size	__c.2901, 9
 __c.2901:
 	.string	" %S %S:\n"
-	.section	.progmem.data.__c.2899,"a",@progbits
 	.type	__c.2899, @object
 	.size	__c.2899, 7
 __c.2899:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2896,"a",@progbits
 	.type	__c.2896, @object
 	.size	__c.2896, 9
 __c.2896:
 	.string	" %S %S:\n"
-	.section	.progmem.data.__c.2894,"a",@progbits
 	.type	__c.2894, @object
 	.size	__c.2894, 7
 __c.2894:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2890,"a",@progbits
 	.type	__c.2890, @object
 	.size	__c.2890, 9
 __c.2890:
 	.string	" %S %S:\n"
-	.section	.progmem.data.__c.2888,"a",@progbits
 	.type	__c.2888, @object
 	.size	__c.2888, 7
 __c.2888:
 	.string	"%S %S\n"
-	.section	.progmem.data.__c.2883,"a",@progbits
 	.type	__c.2883, @object
 	.size	__c.2883, 9
 __c.2883:
 	.string	"\n%SD %S!"
-	.section	.progmem.data.__c.2880,"a",@progbits
 	.type	__c.2880, @object
 	.size	__c.2880, 4
 __c.2880:
 	.string	"\n%s"
-	.section	.progmem.data.__c.2878,"a",@progbits
 	.type	__c.2878, @object
 	.size	__c.2878, 7
 __c.2878:
 	.string	"\n%S%S?"
-	.section	.progmem.data.__c.2874,"a",@progbits
 	.type	__c.2874, @object
 	.size	__c.2874, 8
 __c.2874:
 	.string	"%S %S:\n"
-	.section	.progmem.data.__c.2870,"a",@progbits
 	.type	__c.2870, @object
 	.size	__c.2870, 9
 __c.2870:
 	.string	"\n%SD %S!"
-	.section	.progmem.data.__c.2868,"a",@progbits
 	.type	__c.2868, @object
 	.size	__c.2868, 9
 __c.2868:
 	.string	"\n%SD %S!"
-	.section	.progmem.data.__c.2865,"a",@progbits
 	.type	__c.2865, @object
 	.size	__c.2865, 9
 __c.2865:
 	.string	"%S %Ss?\n"
-	.section	.progmem.data.__c.2861,"a",@progbits
 	.type	__c.2861, @object
 	.size	__c.2861, 9
 __c.2861:
 	.string	"%i.%S %S"
-	.section	.progmem.data.__c.2859,"a",@progbits
 	.type	__c.2859, @object
 	.size	__c.2859, 10
 __c.2859:
 	.string	"%i.%S %S\n"
-	.section	.progmem.data.__c.2857,"a",@progbits
 	.type	__c.2857, @object
 	.size	__c.2857, 10
 __c.2857:
 	.string	"%i.%S %S\n"
-	.section	.progmem.data.__c.2855,"a",@progbits
 	.type	__c.2855, @object
 	.size	__c.2855, 7
 __c.2855:
 	.string	"%i.%S\n"
-	.section	.progmem.data.__c.2853,"a",@progbits
 	.type	__c.2853, @object
 	.size	__c.2853, 13
 __c.2853:
 	.string	"%i.%S %S-%S\n"
-	.section	.progmem.data.__c.2851,"a",@progbits
 	.type	__c.2851, @object
 	.size	__c.2851, 10
 __c.2851:
 	.string	"%i.%S %S\n"
-	.section	.progmem.data.__c.2849,"a",@progbits
 	.type	__c.2849, @object
 	.size	__c.2849, 11
 __c.2849:
 	.string	"%i.%S %Ss\n"
-	.section	.progmem.data.__c.2847,"a",@progbits
 	.type	__c.2847, @object
 	.size	__c.2847, 10
 __c.2847:
 	.string	"%i.%S %S\n"
-	.section	.progmem.data.__c.2827,"a",@progbits
 	.type	__c.2827, @object
 	.size	__c.2827, 7
 __c.2827:
 	.string	"\n   %S"
-	.section	.progmem.data.__c.2825,"a",@progbits
 	.type	__c.2825, @object
 	.size	__c.2825, 8
 __c.2825:
 	.string	"\n   %Ss"
-	.section	.progmem.data.__c.2823,"a",@progbits
 	.type	__c.2823, @object
 	.size	__c.2823, 8
 __c.2823:
 	.string	"\n    %S"
-	.section	.progmem.data.__c.2821,"a",@progbits
 	.type	__c.2821, @object
 	.size	__c.2821, 7
 __c.2821:
 	.string	"\n   %S"
-	.section	.progmem.data.__c.2819,"a",@progbits
 	.type	__c.2819, @object
 	.size	__c.2819, 12
 __c.2819:
 	.string	"\n   %S:%01i"
-	.section	.progmem.data.__c.2817,"a",@progbits
 	.type	__c.2817, @object
 	.size	__c.2817, 8
 __c.2817:
 	.string	"\n    %S"
-	.section	.progmem.data.__c.2809,"a",@progbits
 	.type	__c.2809, @object
 	.size	__c.2809, 3
 __c.2809:
 	.string	"%S"
-	.section	.progmem.data.__c.2807,"a",@progbits
 	.type	__c.2807, @object
 	.size	__c.2807, 3
 __c.2807:
 	.string	"%S"
-	.section	.progmem.data.__c.2785,"a",@progbits
 	.type	__c.2785, @object
 	.size	__c.2785, 2
 __c.2785:
 	.string	"C"
-	.section	.progmem.data.__c.2783,"a",@progbits
 	.type	__c.2783, @object
 	.size	__c.2783, 2
 __c.2783:
@@ -5272,237 +5159,184 @@ __c.2783:
 	.comm	PrefHeatting,1,1
 	.comm	temp_for_hour,1,1
 	.comm	telNumber,15,1
-	.section	.data.mausure_temperature_ok,"aw",@progbits
+	.data
 	.type	mausure_temperature_ok, @object
 	.size	mausure_temperature_ok, 1
 mausure_temperature_ok:
 	.byte	1
-	.section	.bss.fl,"aw",@nobits
-	.type	fl, @object
-	.size	fl, 1
-fl:
-	.zero	1
-	.section	.bss.MenuPhase,"aw",@nobits
-	.type	MenuPhase, @object
-	.size	MenuPhase, 1
-MenuPhase:
-	.zero	1
-	.section	.bss.LastPhase,"aw",@nobits
-	.type	LastPhase, @object
-	.size	LastPhase, 1
-LastPhase:
-	.zero	1
-	.section	.bss.MainLoopPhase,"aw",@nobits
-	.type	MainLoopPhase, @object
-	.size	MainLoopPhase, 1
-MainLoopPhase:
-	.zero	1
-	.section	.progmem.data.notReadyStr,"a",@progbits
+	.local	fl
+	.comm	fl,1,1
+	.local	MenuPhase
+	.comm	MenuPhase,1,1
+	.local	LastPhase
+	.comm	LastPhase,1,1
+	.local	MainLoopPhase
+	.comm	MainLoopPhase,1,1
+	.section	.progmem.data,"a",@progbits
 	.type	notReadyStr, @object
 	.size	notReadyStr, 12
 notReadyStr:
 	.string	"02-NotReady"
-	.section	.progmem.data.startPowerGoneStr,"a",@progbits
 	.type	startPowerGoneStr, @object
 	.size	startPowerGoneStr, 15
 startPowerGoneStr:
 	.string	"01-Power Gone!"
-	.section	.progmem.data.startRegulatorStr,"a",@progbits
 	.type	startRegulatorStr, @object
 	.size	startRegulatorStr, 22
 startRegulatorStr:
 	.string	"00-Regulator Started!"
-	.section	.progmem.data.errStr,"a",@progbits
 	.type	errStr, @object
 	.size	errStr, 4
 errStr:
 	.string	"Err"
-	.section	.progmem.data.clearStr,"a",@progbits
 	.type	clearStr, @object
 	.size	clearStr, 6
 clearStr:
 	.string	"Clear"
-	.section	.progmem.data.telStr,"a",@progbits
 	.type	telStr, @object
 	.size	telStr, 6
 telStr:
 	.string	"PHONE"
-	.section	.progmem.data.EXT,"a",@progbits
 	.type	EXT, @object
 	.size	EXT, 5
 EXT:
 	.string	"-EXT"
-	.section	.progmem.data.PAR,"a",@progbits
 	.type	PAR, @object
 	.size	PAR, 5
 PAR:
 	.string	"-PAR"
-	.section	.progmem.data.DS1822,"a",@progbits
 	.type	DS1822, @object
 	.size	DS1822, 8
 DS1822:
 	.string	"-DS1822"
-	.section	.progmem.data.DS18B20,"a",@progbits
 	.type	DS18B20, @object
 	.size	DS18B20, 9
 DS18B20:
 	.string	"-DS18B20"
-	.section	.progmem.data.DS18S20,"a",@progbits
 	.type	DS18S20, @object
 	.size	DS18S20, 9
 DS18S20:
 	.string	"-DS18S20"
-	.section	.progmem.data.Sensorsfound,"a",@progbits
 	.type	Sensorsfound, @object
 	.size	Sensorsfound, 14
 Sensorsfound:
 	.string	" Sensorsfound"
-	.section	.progmem.data.temperStr,"a",@progbits
 	.type	temperStr, @object
 	.size	temperStr, 8
 temperStr:
 	.string	"T-EDGES"
-	.section	.progmem.data.missingStr,"a",@progbits
 	.type	missingStr, @object
 	.size	missingStr, 8
 missingStr:
 	.string	"MISSING"
-	.section	.progmem.data.absenceStr,"a",@progbits
 	.type	absenceStr, @object
 	.size	absenceStr, 8
 absenceStr:
 	.string	"ABSENCE"
-	.section	.progmem.data.sensorStr,"a",@progbits
 	.type	sensorStr, @object
 	.size	sensorStr, 7
 sensorStr:
 	.string	"Sensor"
-	.section	.progmem.data.alarmStr,"a",@progbits
 	.type	alarmStr, @object
 	.size	alarmStr, 6
 alarmStr:
 	.string	"ALARM"
-	.section	.progmem.data.secondStr,"a",@progbits
 	.type	secondStr, @object
 	.size	secondStr, 7
 secondStr:
 	.string	"SECOND"
-	.section	.progmem.data.hourStr,"a",@progbits
 	.type	hourStr, @object
 	.size	hourStr, 5
 hourStr:
 	.string	"HOUR"
-	.section	.progmem.data.minuteStr,"a",@progbits
 	.type	minuteStr, @object
 	.size	minuteStr, 7
 minuteStr:
 	.string	"MINUTE"
-	.section	.progmem.data.timeStr,"a",@progbits
 	.type	timeStr, @object
 	.size	timeStr, 5
 timeStr:
 	.string	"TIME"
-	.section	.progmem.data.saveStr,"a",@progbits
 	.type	saveStr, @object
 	.size	saveStr, 5
 saveStr:
 	.string	"SAVE"
-	.section	.progmem.data.toeepromStr,"a",@progbits
 	.type	toeepromStr, @object
 	.size	toeepromStr, 10
 toeepromStr:
 	.string	"TO EEPROM"
-	.section	.progmem.data.diffStr,"a",@progbits
 	.type	diffStr, @object
 	.size	diffStr, 5
 diffStr:
 	.string	"DIFF"
-	.section	.progmem.data.tempStr,"a",@progbits
 	.type	tempStr, @object
 	.size	tempStr, 5
 tempStr:
 	.string	"TEMP"
-	.section	.progmem.data.maxStr,"a",@progbits
 	.type	maxStr, @object
 	.size	maxStr, 4
 maxStr:
 	.string	"MAX"
-	.section	.progmem.data.minStr,"a",@progbits
 	.type	minStr, @object
 	.size	minStr, 4
 minStr:
 	.string	"MIN"
-	.section	.progmem.data.assignStr,"a",@progbits
 	.type	assignStr, @object
 	.size	assignStr, 8
 assignStr:
 	.string	"ASSIGNs"
-	.section	.progmem.data.viewStr,"a",@progbits
 	.type	viewStr, @object
 	.size	viewStr, 5
 viewStr:
 	.string	"VIEW"
-	.section	.progmem.data.setStr,"a",@progbits
 	.type	setStr, @object
 	.size	setStr, 4
 setStr:
 	.string	"SET"
-	.section	.progmem.data.checksumStr,"a",@progbits
 	.type	checksumStr, @object
 	.size	checksumStr, 9
 checksumStr:
 	.string	"CHECKSUM"
-	.section	.progmem.data.nsupdownStr,"a",@progbits
 	.type	nsupdownStr, @object
 	.size	nsupdownStr, 15
 nsupdownStr:
 	.string	"Ns-UPSIDE-DOWN"
-	.section	.progmem.data.returnStr,"a",@progbits
 	.type	returnStr, @object
 	.size	returnStr, 7
 returnStr:
 	.string	"RETURN"
-	.section	.progmem.data.supplyStr,"a",@progbits
 	.type	supplyStr, @object
 	.size	supplyStr, 7
 supplyStr:
 	.string	"SUPPLY"
-	.section	.progmem.data.outdoorStr,"a",@progbits
 	.type	outdoorStr, @object
 	.size	outdoorStr, 8
 outdoorStr:
 	.string	"OUTDOOR"
-	.section	.progmem.data.indoorStr,"a",@progbits
 	.type	indoorStr, @object
 	.size	indoorStr, 7
 indoorStr:
 	.string	"INDOOR"
-	.section	.progmem.data.snStr,"a",@progbits
 	.type	snStr, @object
 	.size	snStr, 3
 snStr:
 	.string	"SN"
-	.section	.progmem.data.nextStr,"a",@progbits
 	.type	nextStr, @object
 	.size	nextStr, 7
 nextStr:
 	.string	"*-NEXT"
-	.section	.progmem.data.exitStr,"a",@progbits
 	.type	exitStr, @object
 	.size	exitStr, 7
 exitStr:
 	.string	"#-EXIT"
-	.section	.progmem.data.helloStr2,"a",@progbits
 	.type	helloStr2, @object
 	.size	helloStr2, 10
 helloStr2:
 	.string	"REGULATOR"
-	.section	.progmem.data.helloStr1,"a",@progbits
 	.type	helloStr1, @object
 	.size	helloStr1, 5
 helloStr1:
 	.string	"PUMP"
-	.section	.progmem.data.okStr,"a",@progbits
 	.type	okStr, @object
 	.size	okStr, 3
 okStr:
@@ -5590,19 +5424,13 @@ TempInDoorMax:
 	.size	TempInDoorMin, 1
 TempInDoorMin:
 	.byte	18
-	.section	.bss.TempAct,"aw",@nobits
-	.type	TempAct, @object
-	.size	TempAct, 2
-TempAct:
-	.zero	2
+	.local	TempAct
+	.comm	TempAct,2,1
 	.comm	rSensorIDs,2,1
-	.section	.bss.gSensorIDs,"aw",@nobits
-	.type	gSensorIDs, @object
-	.size	gSensorIDs, 32
-gSensorIDs:
-	.zero	32
+	.local	gSensorIDs
+	.comm	gSensorIDs,32,1
 	.comm	wbuffer,31,1
-	.section	.data.lcd_str,"aw",@progbits
+	.data
 	.type	lcd_str, @object
 	.size	lcd_str, 14
 lcd_str:
@@ -5612,41 +5440,20 @@ lcd_str:
 	.word	gs(LcdWrite)
 	.word	0
 	.word	0
-	.section	.bss.oldDisplaySens,"aw",@nobits
-	.type	oldDisplaySens, @object
-	.size	oldDisplaySens, 1
-oldDisplaySens:
-	.zero	1
-	.section	.bss.kg,"aw",@nobits
-	.type	kg, @object
-	.size	kg, 1
-kg:
-	.zero	1
-	.section	.bss.noready_sens,"aw",@nobits
-	.type	noready_sens, @object
-	.size	noready_sens, 4
-noready_sens:
-	.zero	4
-	.section	.bss.btest_new_sensors,"aw",@nobits
-	.type	btest_new_sensors, @object
-	.size	btest_new_sensors, 1
-btest_new_sensors:
-	.zero	1
-	.section	.bss.nwSen_Phase,"aw",@nobits
-	.type	nwSen_Phase, @object
-	.size	nwSen_Phase, 1
-nwSen_Phase:
-	.zero	1
-	.section	.bss.sn_noready_counter,"aw",@nobits
-	.type	sn_noready_counter, @object
-	.size	sn_noready_counter, 4
-sn_noready_counter:
-	.zero	4
-	.section	.bss.sn_presence,"aw",@nobits
-	.type	sn_presence, @object
-	.size	sn_presence, 4
-sn_presence:
-	.zero	4
+	.local	oldDisplaySens
+	.comm	oldDisplaySens,1,1
+	.local	kg
+	.comm	kg,1,1
+	.local	noready_sens
+	.comm	noready_sens,4,1
+	.local	btest_new_sensors
+	.comm	btest_new_sensors,1,1
+	.local	nwSen_Phase
+	.comm	nwSen_Phase,1,1
+	.local	sn_noready_counter
+	.comm	sn_noready_counter,4,1
+	.local	sn_presence
+	.comm	sn_presence,4,1
 	.comm	temper,4,1
 	.comm	nSensors,1,1
 	.comm	rTempDiffSupplyReturnMax,1,1
@@ -5658,13 +5465,12 @@ sn_presence:
 	.comm	rTempInDoorMax,1,1
 	.comm	rTempInDoorMin,1,1
 .global	TLastWatchDog
-	.section	.bss.TLastWatchDog,"aw",@nobits
+	.section .bss
 	.type	TLastWatchDog, @object
 	.size	TLastWatchDog, 1
 TLastWatchDog:
 	.zero	1
 .global	WATCHDOG_STATE
-	.section	.bss.WATCHDOG_STATE,"aw",@nobits
 	.type	WATCHDOG_STATE, @object
 	.size	WATCHDOG_STATE, 1
 WATCHDOG_STATE:

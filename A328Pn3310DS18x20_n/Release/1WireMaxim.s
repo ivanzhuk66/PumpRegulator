@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.ResetDiscrepancy,"ax",@progbits
+	.text
 .global	ResetDiscrepancy
 	.type	ResetDiscrepancy, @function
 ResetDiscrepancy:
@@ -17,7 +17,6 @@ ResetDiscrepancy:
 	sts LastFamilyDiscrepancy,__zero_reg__
 	ret
 	.size	ResetDiscrepancy, .-ResetDiscrepancy
-	.section	.text.OWReset,"ax",@progbits
 .global	OWReset
 	.type	OWReset, @function
 OWReset:
@@ -127,7 +126,6 @@ OWReset:
 .L4:
 	ret
 	.size	OWReset, .-OWReset
-	.section	.text.OWWriteBit,"ax",@progbits
 .global	OWWriteBit
 	.type	OWWriteBit, @function
 OWWriteBit:
@@ -197,7 +195,6 @@ OWWriteBit:
 	nop
 	ret
 	.size	OWWriteBit, .-OWWriteBit
-	.section	.text.OWWriteByte,"ax",@progbits
 .global	OWWriteByte
 	.type	OWWriteByte, @function
 OWWriteByte:
@@ -238,7 +235,6 @@ OWWriteByte:
 	pop r14
 	ret
 	.size	OWWriteByte, .-OWWriteByte
-	.section	.text.OWReadBit,"ax",@progbits
 .global	OWReadBit
 	.type	OWReadBit, @function
 OWReadBit:
@@ -299,7 +295,6 @@ OWReadBit:
 .L15:
 	ret
 	.size	OWReadBit, .-OWReadBit
-	.section	.text.OWMatchRom,"ax",@progbits
 .global	OWMatchRom
 	.type	OWMatchRom, @function
 OWMatchRom:
@@ -330,7 +325,6 @@ OWMatchRom:
 	pop r16
 	ret
 	.size	OWMatchRom, .-OWMatchRom
-	.section	.text.docrc8,"ax",@progbits
 .global	docrc8
 	.type	docrc8, @function
 docrc8:
@@ -348,7 +342,6 @@ docrc8:
 	sts crc8m,r24
 	ret
 	.size	docrc8, .-docrc8
-	.section	.text.OWSearch,"ax",@progbits
 .global	OWSearch
 	.type	OWSearch, @function
 OWSearch:
@@ -499,7 +492,6 @@ OWSearch:
 	pop r13
 	ret
 	.size	OWSearch, .-OWSearch
-	.section	.text.OWFirst,"ax",@progbits
 .global	OWFirst
 	.type	OWFirst, @function
 OWFirst:
@@ -513,7 +505,6 @@ OWFirst:
 	call OWSearch
 	ret
 	.size	OWFirst, .-OWFirst
-	.section	.text.OWNext,"ax",@progbits
 .global	OWNext
 	.type	OWNext, @function
 OWNext:
@@ -524,7 +515,6 @@ OWNext:
 	call OWSearch
 	ret
 	.size	OWNext, .-OWNext
-	.section	.text.OWVerify,"ax",@progbits
 .global	OWVerify
 	.type	OWVerify, @function
 OWVerify:
@@ -627,7 +617,7 @@ OWVerify:
 	pop r15
 	ret
 	.size	OWVerify, .-OWVerify
-	.section	.rodata.dscrc_table,"a",@progbits
+	.section	.rodata
 	.type	dscrc_table, @object
 	.size	dscrc_table, 256
 dscrc_table:

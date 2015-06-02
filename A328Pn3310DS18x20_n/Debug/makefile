@@ -66,13 +66,13 @@ A328Pn3310DS18x20_n.lss: A328Pn3310DS18x20_n.elf
 
 A328Pn3310DS18x20_n.hex: A328Pn3310DS18x20_n.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex A328Pn3310DS18x20_n.elf  "A328Pn3310DS18x20_n.hex"
+	-avr-objcopy -R .eeprom -O ihex A328Pn3310DS18x20_n.elf  "A328Pn3310DS18x20_n.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 sizedummy: A328Pn3310DS18x20_n.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=berkeley -t A328Pn3310DS18x20_n.elf
+	-avr-size --format=avr --mcu=atmega328p A328Pn3310DS18x20_n.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 

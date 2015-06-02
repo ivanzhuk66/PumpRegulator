@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.__vector_18,"ax",@progbits
+	.text
 .global	__vector_18
 	.type	__vector_18, @function
 __vector_18:
@@ -53,7 +53,6 @@ __vector_18:
 	pop r1
 	reti
 	.size	__vector_18, .-__vector_18
-	.section	.text.__vector_19,"ax",@progbits
 .global	__vector_19
 	.type	__vector_19, @function
 __vector_19:
@@ -102,7 +101,6 @@ __vector_19:
 	pop r1
 	reti
 	.size	__vector_19, .-__vector_19
-	.section	.text.uart_init,"ax",@progbits
 .global	uart_init
 	.type	uart_init, @function
 uart_init:
@@ -128,7 +126,6 @@ uart_init:
 	sts 194,r24
 	ret
 	.size	uart_init, .-uart_init
-	.section	.text.uart_getc,"ax",@progbits
 .global	uart_getc
 	.type	uart_getc, @function
 uart_getc:
@@ -160,7 +157,6 @@ uart_getc:
 	ldi r25,lo8(1)
 	ret
 	.size	uart_getc, .-uart_getc
-	.section	.text.uart_putc,"ax",@progbits
 .global	uart_putc
 	.type	uart_putc, @function
 uart_putc:
@@ -188,7 +184,6 @@ uart_putc:
 	st Z,r24
 	ret
 	.size	uart_putc, .-uart_putc
-	.section	.text.uart_puts,"ax",@progbits
 .global	uart_puts
 	.type	uart_puts, @function
 uart_puts:
@@ -214,7 +209,6 @@ uart_puts:
 	pop r28
 	ret
 	.size	uart_puts, .-uart_puts
-	.section	.text.uart_puts_p,"ax",@progbits
 .global	uart_puts_p
 	.type	uart_puts_p, @function
 uart_puts_p:
@@ -253,7 +247,6 @@ uart_puts_p:
 	pop r28
 	ret
 	.size	uart_puts_p, .-uart_puts_p
-	.section	.text.uart_available,"ax",@progbits
 .global	uart_available
 	.type	uart_available, @function
 uart_available:
@@ -272,7 +265,6 @@ uart_available:
 	call __divmodhi4
 	ret
 	.size	uart_available, .-uart_available
-	.section	.text.uart_flush,"ax",@progbits
 .global	uart_flush
 	.type	uart_flush, @function
 uart_flush:
@@ -284,40 +276,19 @@ uart_flush:
 	sts UART_RxHead,r24
 	ret
 	.size	uart_flush, .-uart_flush
-	.section	.bss.UART_LastRxError,"aw",@nobits
-	.type	UART_LastRxError, @object
-	.size	UART_LastRxError, 1
-UART_LastRxError:
-	.zero	1
-	.section	.bss.UART_RxTail,"aw",@nobits
-	.type	UART_RxTail, @object
-	.size	UART_RxTail, 1
-UART_RxTail:
-	.zero	1
-	.section	.bss.UART_RxHead,"aw",@nobits
-	.type	UART_RxHead, @object
-	.size	UART_RxHead, 1
-UART_RxHead:
-	.zero	1
-	.section	.bss.UART_TxTail,"aw",@nobits
-	.type	UART_TxTail, @object
-	.size	UART_TxTail, 1
-UART_TxTail:
-	.zero	1
-	.section	.bss.UART_TxHead,"aw",@nobits
-	.type	UART_TxHead, @object
-	.size	UART_TxHead, 1
-UART_TxHead:
-	.zero	1
-	.section	.bss.UART_RxBuf,"aw",@nobits
-	.type	UART_RxBuf, @object
-	.size	UART_RxBuf, 32
-UART_RxBuf:
-	.zero	32
-	.section	.bss.UART_TxBuf,"aw",@nobits
-	.type	UART_TxBuf, @object
-	.size	UART_TxBuf, 32
-UART_TxBuf:
-	.zero	32
+	.local	UART_LastRxError
+	.comm	UART_LastRxError,1,1
+	.local	UART_RxTail
+	.comm	UART_RxTail,1,1
+	.local	UART_RxHead
+	.comm	UART_RxHead,1,1
+	.local	UART_TxTail
+	.comm	UART_TxTail,1,1
+	.local	UART_TxHead
+	.comm	UART_TxHead,1,1
+	.local	UART_RxBuf
+	.comm	UART_RxBuf,32,1
+	.local	UART_TxBuf
+	.comm	UART_TxBuf,32,1
 	.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.4.5_1522) 4.8.1"
 .global __do_clear_bss

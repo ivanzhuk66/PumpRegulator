@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.ow_set_bus,"ax",@progbits
+	.text
 .global	ow_set_bus
 	.type	ow_set_bus, @function
 ow_set_bus:
@@ -30,7 +30,6 @@ ow_set_bus:
 	sts OW_PIN,r18
 	ret
 	.size	ow_set_bus, .-ow_set_bus
-	.section	.text.ow_input_pin_state,"ax",@progbits
 .global	ow_input_pin_state
 	.type	ow_input_pin_state, @function
 ow_input_pin_state:
@@ -45,7 +44,6 @@ ow_input_pin_state:
 	and r24,r25
 	ret
 	.size	ow_input_pin_state, .-ow_input_pin_state
-	.section	.text.ow_parasite_enable,"ax",@progbits
 .global	ow_parasite_enable
 	.type	ow_parasite_enable, @function
 ow_parasite_enable:
@@ -67,7 +65,6 @@ ow_parasite_enable:
 	st Z,r24
 	ret
 	.size	ow_parasite_enable, .-ow_parasite_enable
-	.section	.text.ow_bit_io_intern,"ax",@progbits
 	.type	ow_bit_io_intern, @function
 ow_bit_io_intern:
 	push r28
@@ -79,7 +76,7 @@ ow_bit_io_intern:
 	mov r28,r24
 	in r29,__SREG__
 /* #APP */
- ;  50 "/AtmelAvrToolchain/avr/include/util/atomic.h" 1
+ ;  50 "/avr8-gnu-toolchain-linux_x86/avr/include/util/atomic.h" 1
 	cli
  ;  0 "" 2
 /* #NOAPP */
@@ -158,7 +155,6 @@ ow_bit_io_intern:
 	pop r28
 	ret
 	.size	ow_bit_io_intern, .-ow_bit_io_intern
-	.section	.text.ow_parasite_disable,"ax",@progbits
 .global	ow_parasite_disable
 	.type	ow_parasite_disable, @function
 ow_parasite_disable:
@@ -175,7 +171,6 @@ ow_parasite_disable:
 	st Z,r24
 	ret
 	.size	ow_parasite_disable, .-ow_parasite_disable
-	.section	.text.ow_bit_io,"ax",@progbits
 .global	ow_bit_io
 	.type	ow_bit_io, @function
 ow_bit_io:
@@ -188,7 +183,6 @@ ow_bit_io:
 	call ow_bit_io_intern
 	ret
 	.size	ow_bit_io, .-ow_bit_io
-	.section	.text.ow_byte_wr,"ax",@progbits
 .global	ow_byte_wr
 	.type	ow_byte_wr, @function
 ow_byte_wr:
@@ -216,7 +210,6 @@ ow_byte_wr:
 	pop r28
 	ret
 	.size	ow_byte_wr, .-ow_byte_wr
-	.section	.text.ow_byte_wr_with_parasite_enable,"ax",@progbits
 .global	ow_byte_wr_with_parasite_enable
 	.type	ow_byte_wr_with_parasite_enable, @function
 ow_byte_wr_with_parasite_enable:
@@ -254,7 +247,6 @@ ow_byte_wr_with_parasite_enable:
 	pop r28
 	ret
 	.size	ow_byte_wr_with_parasite_enable, .-ow_byte_wr_with_parasite_enable
-	.section	.text.ow_command_intern,"ax",@progbits
 	.type	ow_command_intern, @function
 ow_command_intern:
 	push r14
@@ -307,7 +299,6 @@ ow_command_intern:
 	pop r14
 	ret
 	.size	ow_command_intern, .-ow_command_intern
-	.section	.text.ow_byte_rd,"ax",@progbits
 .global	ow_byte_rd
 	.type	ow_byte_rd, @function
 ow_byte_rd:
@@ -319,7 +310,6 @@ ow_byte_rd:
 	call ow_byte_wr
 	ret
 	.size	ow_byte_rd, .-ow_byte_rd
-	.section	.text.ow_command,"ax",@progbits
 .global	ow_command
 	.type	ow_command, @function
 ow_command:
@@ -331,7 +321,6 @@ ow_command:
 	call ow_command_intern
 	ret
 	.size	ow_command, .-ow_command
-	.section	.text.ow_command_with_parasite_enable,"ax",@progbits
 .global	ow_command_with_parasite_enable
 	.type	ow_command_with_parasite_enable, @function
 ow_command_with_parasite_enable:

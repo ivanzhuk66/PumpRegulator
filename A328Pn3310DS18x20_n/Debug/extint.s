@@ -7,7 +7,6 @@ __zero_reg__ = 1
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.ExtInt0Enable,"ax",@progbits
 .global	ExtInt0Enable
 	.type	ExtInt0Enable, @function
 ExtInt0Enable:
@@ -43,7 +42,6 @@ ExtInt0Enable:
 	.cfi_endproc
 .LFE0:
 	.size	ExtInt0Enable, .-ExtInt0Enable
-	.section	.text.ExtInt0Disable,"ax",@progbits
 .global	ExtInt0Disable
 	.type	ExtInt0Disable, @function
 ExtInt0Disable:
@@ -62,7 +60,6 @@ ExtInt0Disable:
 	.cfi_endproc
 .LFE1:
 	.size	ExtInt0Disable, .-ExtInt0Disable
-	.section	.text.__vector_1,"ax",@progbits
 .global	__vector_1
 	.type	__vector_1, @function
 __vector_1:
@@ -111,7 +108,6 @@ __vector_1:
 	.cfi_endproc
 .LFE2:
 	.size	__vector_1, .-__vector_1
-	.section	.text.ExtInt1Enable,"ax",@progbits
 .global	ExtInt1Enable
 	.type	ExtInt1Enable, @function
 ExtInt1Enable:
@@ -151,7 +147,6 @@ ExtInt1Enable:
 	.cfi_endproc
 .LFE3:
 	.size	ExtInt1Enable, .-ExtInt1Enable
-	.section	.text.ExtInt1Disable,"ax",@progbits
 .global	ExtInt1Disable
 	.type	ExtInt1Disable, @function
 ExtInt1Disable:
@@ -170,7 +165,6 @@ ExtInt1Disable:
 	.cfi_endproc
 .LFE4:
 	.size	ExtInt1Disable, .-ExtInt1Disable
-	.section	.text.__vector_2,"ax",@progbits
 .global	__vector_2
 	.type	__vector_2, @function
 __vector_2:
@@ -229,23 +223,22 @@ __vector_2:
 .LFE5:
 	.size	__vector_2, .-__vector_2
 .global	powergone
-	.section	.bss.powergone,"aw",@nobits
+	.section .bss
 	.type	powergone, @object
 	.size	powergone, 1
 powergone:
 	.zero	1
 .global	extstate
-	.section	.bss.extstate,"aw",@nobits
 	.type	extstate, @object
 	.size	extstate, 1
 extstate:
 	.zero	1
 	.text
 .Letext0:
-	.file 2 "/AtmelAvrToolchain/avr/include/stdint.h"
+	.file 2 "/avr8-gnu-toolchain-linux_x86/avr/include/stdint.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x125
+	.long	0x121
 	.word	0x2
 	.long	.Ldebug_abbrev0
 	.byte	0x4
@@ -254,9 +247,8 @@ extstate:
 	.byte	0x1
 	.long	.LASF18
 	.long	.LASF19
-	.long	.Ldebug_ranges0+0
-	.long	0
-	.long	0
+	.long	.Ltext0
+	.long	.Letext0
 	.long	.Ldebug_line0
 	.uleb128 0x2
 	.byte	0x1
@@ -266,7 +258,7 @@ extstate:
 	.long	.LASF20
 	.byte	0x2
 	.byte	0x7a
-	.long	0x3b
+	.long	0x37
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x8
@@ -371,7 +363,7 @@ extstate:
 	.long	.LASF13
 	.byte	0x1
 	.byte	0xb
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -380,7 +372,7 @@ extstate:
 	.long	.LASF14
 	.byte	0x1
 	.byte	0xc
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -389,7 +381,7 @@ extstate:
 	.long	.LASF15
 	.byte	0x1
 	.byte	0xd
-	.long	0x121
+	.long	0x11d
 	.byte	0x1
 	.byte	0x1
 	.uleb128 0x2
@@ -410,11 +402,9 @@ extstate:
 	.uleb128 0xe
 	.uleb128 0x1b
 	.uleb128 0xe
-	.uleb128 0x55
-	.uleb128 0x6
 	.uleb128 0x11
 	.uleb128 0x1
-	.uleb128 0x52
+	.uleb128 0x12
 	.uleb128 0x1
 	.uleb128 0x10
 	.uleb128 0x6
@@ -539,26 +529,26 @@ extstate:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 .LLST0:
-	.long	.LFB2
-	.long	.LCFI0
+	.long	.LFB2-.Ltext0
+	.long	.LCFI0-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI0
-	.long	.LCFI1
+	.long	.LCFI0-.Ltext0
+	.long	.LCFI1-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI1
-	.long	.LCFI2
+	.long	.LCFI1-.Ltext0
+	.long	.LCFI2-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 4
-	.long	.LCFI2
-	.long	.LFE2
+	.long	.LCFI2-.Ltext0
+	.long	.LFE2-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -566,26 +556,26 @@ extstate:
 	.long	0
 	.long	0
 .LLST1:
-	.long	.LFB5
-	.long	.LCFI3
+	.long	.LFB5-.Ltext0
+	.long	.LCFI3-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI3
-	.long	.LCFI4
+	.long	.LCFI3-.Ltext0
+	.long	.LCFI4-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI4
-	.long	.LCFI5
+	.long	.LCFI4-.Ltext0
+	.long	.LCFI5-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 4
-	.long	.LCFI5
-	.long	.LFE5
+	.long	.LCFI5-.Ltext0
+	.long	.LFE5-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -593,41 +583,15 @@ extstate:
 	.long	0
 	.long	0
 	.section	.debug_aranges,"",@progbits
-	.long	0x44
+	.long	0x1c
 	.word	0x2
 	.long	.Ldebug_info0
 	.byte	0x4
 	.byte	0
 	.word	0
 	.word	0
-	.long	.LFB0
-	.long	.LFE0-.LFB0
-	.long	.LFB1
-	.long	.LFE1-.LFB1
-	.long	.LFB2
-	.long	.LFE2-.LFB2
-	.long	.LFB3
-	.long	.LFE3-.LFB3
-	.long	.LFB4
-	.long	.LFE4-.LFB4
-	.long	.LFB5
-	.long	.LFE5-.LFB5
-	.long	0
-	.long	0
-	.section	.debug_ranges,"",@progbits
-.Ldebug_ranges0:
-	.long	.LFB0
-	.long	.LFE0
-	.long	.LFB1
-	.long	.LFE1
-	.long	.LFB2
-	.long	.LFE2
-	.long	.LFB3
-	.long	.LFE3
-	.long	.LFB4
-	.long	.LFE4
-	.long	.LFB5
-	.long	.LFE5
+	.long	.Ltext0
+	.long	.Letext0-.Ltext0
 	.long	0
 	.long	0
 	.section	.debug_line,"",@progbits
@@ -635,8 +599,6 @@ extstate:
 	.section	.debug_str,"MS",@progbits,1
 .LASF13:
 	.string	"extstate"
-.LASF19:
-	.string	"/home/izhuk/workspace/A328Pn3310DS18x20_n/Debug"
 .LASF11:
 	.string	"ExtInt1Disable"
 .LASF18:
@@ -647,8 +609,8 @@ extstate:
 	.string	"ExtInt0Disable"
 .LASF4:
 	.string	"long unsigned int"
-.LASF17:
-	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields"
+.LASF19:
+	.string	"/home/izhuk/git/PumpRegulator/A328Pn3310DS18x20_n/Debug"
 .LASF14:
 	.string	"powergone"
 .LASF2:
@@ -669,6 +631,8 @@ extstate:
 	.string	"__vector_1"
 .LASF12:
 	.string	"__vector_2"
+.LASF17:
+	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields"
 .LASF3:
 	.string	"long int"
 .LASF0:

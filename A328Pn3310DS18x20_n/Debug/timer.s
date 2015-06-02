@@ -7,43 +7,42 @@ __zero_reg__ = 1
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.WDT_off,"ax",@progbits
 .global	WDT_off
 	.type	WDT_off, @function
 WDT_off:
 .LFB0:
 	.file 1 "../timer/timer.c"
-	.loc 1 17 0
+	.loc 1 18 0
 	.cfi_startproc
 /* prologue: function */
 /* frame size = 0 */
 /* stack size = 0 */
 .L__stack_usage = 0
-	.loc 1 18 0
+	.loc 1 19 0
 /* #APP */
- ;  18 "../timer/timer.c" 1
+ ;  19 "../timer/timer.c" 1
 	cli
  ;  0 "" 2
-	.loc 1 19 0
- ;  19 "../timer/timer.c" 1
+	.loc 1 20 0
+ ;  20 "../timer/timer.c" 1
 	wdr
  ;  0 "" 2
-	.loc 1 21 0
+	.loc 1 22 0
 /* #NOAPP */
 	in r24,0x34
 	andi r24,lo8(-9)
 	out 0x34,r24
-	.loc 1 25 0
+	.loc 1 26 0
 	ldi r30,lo8(96)
 	ldi r31,0
 	ld r24,Z
 	ori r24,lo8(24)
 	st Z,r24
-	.loc 1 27 0
-	st Z,__zero_reg__
 	.loc 1 28 0
+	st Z,__zero_reg__
+	.loc 1 29 0
 /* #APP */
- ;  28 "../timer/timer.c" 1
+ ;  29 "../timer/timer.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -51,12 +50,11 @@ WDT_off:
 	.cfi_endproc
 .LFE0:
 	.size	WDT_off, .-WDT_off
-	.section	.text.__vector_6,"ax",@progbits
 .global	__vector_6
 	.type	__vector_6, @function
 __vector_6:
 .LFB1:
-	.loc 1 33 0
+	.loc 1 34 0
 	.cfi_startproc
 	push r1
 .LCFI0:
@@ -73,21 +71,21 @@ __vector_6:
 /* frame size = 0 */
 /* stack size = 3 */
 .L__stack_usage = 3
-	.loc 1 34 0
-/* #APP */
- ;  34 "../timer/timer.c" 1
-	cli
- ;  0 "" 2
 	.loc 1 35 0
+/* #APP */
  ;  35 "../timer/timer.c" 1
-	wdr
+	cli
  ;  0 "" 2
 	.loc 1 36 0
  ;  36 "../timer/timer.c" 1
+	wdr
+ ;  0 "" 2
+	.loc 1 37 0
+ ;  37 "../timer/timer.c" 1
 	sei
  ;  0 "" 2
 /* epilogue start */
-	.loc 1 37 0
+	.loc 1 38 0
 /* #NOAPP */
 	pop r0
 	out __SREG__,r0
@@ -97,38 +95,37 @@ __vector_6:
 	.cfi_endproc
 .LFE1:
 	.size	__vector_6, .-__vector_6
-	.section	.text.WDT_setup,"ax",@progbits
 .global	WDT_setup
 	.type	WDT_setup, @function
 WDT_setup:
 .LFB2:
-	.loc 1 40 0
+	.loc 1 41 0
 	.cfi_startproc
 /* prologue: function */
 /* frame size = 0 */
 /* stack size = 0 */
 .L__stack_usage = 0
-	.loc 1 42 0
+	.loc 1 43 0
 /* #APP */
- ;  42 "../timer/timer.c" 1
+ ;  43 "../timer/timer.c" 1
 	cli
  ;  0 "" 2
-	.loc 1 43 0
+	.loc 1 44 0
 /* #NOAPP */
 	in r24,0x34
 	andi r24,lo8(-9)
 	out 0x34,r24
-	.loc 1 44 0
+	.loc 1 45 0
 	ldi r30,lo8(96)
 	ldi r31,0
 	ldi r24,lo8(24)
 	st Z,r24
-	.loc 1 45 0
+	.loc 1 46 0
 	ldi r24,lo8(97)
 	st Z,r24
-	.loc 1 47 0
+	.loc 1 48 0
 /* #APP */
- ;  47 "../timer/timer.c" 1
+ ;  48 "../timer/timer.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -136,19 +133,18 @@ WDT_setup:
 	.cfi_endproc
 .LFE2:
 	.size	WDT_setup, .-WDT_setup
-	.section	.text.init_clock,"ax",@progbits
 .global	init_clock
 	.type	init_clock, @function
 init_clock:
 .LFB3:
-	.loc 1 53 0
+	.loc 1 54 0
 	.cfi_startproc
 /* prologue: function */
 /* frame size = 0 */
 /* stack size = 0 */
 .L__stack_usage = 0
 .LVL0:
-	.loc 1 53 0
+	.loc 1 54 0
 	ldi r18,lo8(64)
 	ldi r19,0
 	ldi r21,lo8(-1)
@@ -158,57 +154,57 @@ init_clock:
 .L8:
 	sbiw r24,1
 .LVL2:
-	.loc 1 59 0 discriminator 2
+	.loc 1 60 0 discriminator 2
 	sbiw r24,0
 	brne .L8
 .LVL3:
 	subi r18,1
 	sbc r19,__zero_reg__
 .LVL4:
-	.loc 1 57 0
+	.loc 1 58 0
 	cp r18,__zero_reg__
 	cpc r19,__zero_reg__
 	breq .L7
 .LVL5:
 .L5:
-	.loc 1 53 0 discriminator 1
+	.loc 1 54 0 discriminator 1
 	mov r24,r21
 	mov r25,r20
 	rjmp .L8
 .LVL6:
 .L7:
-	.loc 1 62 0
+	.loc 1 63 0
 	ldi r30,lo8(112)
 	ldi r31,0
 	ld r24,Z
 .LVL7:
 	andi r24,lo8(-8)
 	st Z,r24
-	.loc 1 63 0
+	.loc 1 64 0
 	ldi r30,lo8(-74)
 	ldi r31,0
 	ld r24,Z
 	ori r24,lo8(32)
 	st Z,r24
-	.loc 1 65 0
-	sts 178,__zero_reg__
 	.loc 1 66 0
+	sts 178,__zero_reg__
+	.loc 1 67 0
 	ldi r24,lo8(5)
 	sts 177,r24
 .L10:
-	.loc 1 68 0 discriminator 1
+	.loc 1 69 0 discriminator 1
 	ld r24,Z
 	andi r24,lo8(31)
 	brne .L10
-	.loc 1 69 0
+	.loc 1 70 0
 	ldi r30,lo8(112)
 	ldi r31,0
 	ld r24,Z
 	ori r24,lo8(1)
 	st Z,r24
-	.loc 1 70 0
+	.loc 1 71 0
 /* #APP */
- ;  70 "../timer/timer.c" 1
+ ;  71 "../timer/timer.c" 1
 	sei
  ;  0 "" 2
 /* #NOAPP */
@@ -216,18 +212,17 @@ init_clock:
 	.cfi_endproc
 .LFE3:
 	.size	init_clock, .-init_clock
-	.section	.text.not_leap,"ax",@progbits
 .global	not_leap
 	.type	not_leap, @function
 not_leap:
 .LFB5:
-	.loc 1 130 0
+	.loc 1 132 0
 	.cfi_startproc
 /* prologue: function */
 /* frame size = 0 */
 /* stack size = 0 */
 .L__stack_usage = 0
-	.loc 1 131 0
+	.loc 1 133 0
 	lds r20,tAsync+5
 	lds r21,tAsync+5+1
 	movw r18,r20
@@ -249,7 +244,7 @@ not_leap:
 	cp r20,r18
 	cpc r21,r19
 	brne .L12
-	.loc 1 132 0
+	.loc 1 134 0
 	movw r18,r20
 	swap r19
 	swap r18
@@ -268,20 +263,19 @@ not_leap:
 	mov r24,r25
 	ret
 .L12:
-	.loc 1 134 0
+	.loc 1 136 0
 	mov r24,r20
 	andi r24,lo8(3)
-	.loc 1 135 0
+	.loc 1 137 0
 	ret
 	.cfi_endproc
 .LFE5:
 	.size	not_leap, .-not_leap
-	.section	.text.__vector_9,"ax",@progbits
 .global	__vector_9
 	.type	__vector_9, @function
 __vector_9:
 .LFB4:
-	.loc 1 74 0
+	.loc 1 75 0
 	.cfi_startproc
 	push r1
 .LCFI2:
@@ -346,7 +340,7 @@ __vector_9:
 /* frame size = 0 */
 /* stack size = 15 */
 .L__stack_usage = 15
-	.loc 1 76 0
+	.loc 1 77 0
 	lds r24,tAsync
 	subi r24,lo8(-(1))
 	cpi r24,lo8(60)
@@ -354,13 +348,17 @@ __vector_9:
 	sts tAsync,r24
 	rjmp .L14
 .L15:
-	.loc 1 78 0
-	sts tAsync,__zero_reg__
 	.loc 1 79 0
+	sts tAsync,__zero_reg__
+	.loc 1 80 0
 	lds r24,TimeKeyPressed
 	subi r24,lo8(-(1))
 	sts TimeKeyPressed,r24
-	.loc 1 80 0
+	.loc 1 81 0
+	lds r24,CheckNoReadySNCounter
+	subi r24,lo8(-(1))
+	sts CheckNoReadySNCounter,r24
+	.loc 1 82 0
 	lds r24,tAsync+1
 	subi r24,lo8(-(1))
 	cpi r24,lo8(60)
@@ -368,9 +366,9 @@ __vector_9:
 	sts tAsync+1,r24
 	rjmp .L18
 .L17:
-	.loc 1 82 0
+	.loc 1 84 0
 	sts tAsync+1,__zero_reg__
-	.loc 1 83 0
+	.loc 1 85 0
 	lds r24,tAsync+2
 	subi r24,lo8(-(1))
 	cpi r24,lo8(24)
@@ -378,9 +376,9 @@ __vector_9:
 	sts tAsync+2,r24
 	rjmp .L18
 .L19:
-	.loc 1 85 0
+	.loc 1 87 0
 	sts tAsync+2,__zero_reg__
-	.loc 1 86 0
+	.loc 1 88 0
 	ldi r30,lo8(tAsync+3)
 	ldi r31,hi8(tAsync+3)
 	ld r24,Z
@@ -388,80 +386,80 @@ __vector_9:
 	st Z,r24
 	cpi r24,lo8(32)
 	brne .L20
-	.loc 1 88 0
+	.loc 1 90 0
 	ldi r30,lo8(tAsync+4)
 	ldi r31,hi8(tAsync+4)
 	ld r24,Z
 	subi r24,lo8(-(1))
 	st Z,r24
-	.loc 1 89 0
+	.loc 1 91 0
 	ldi r24,lo8(1)
 	sts tAsync+3,r24
 	rjmp .L21
 .L20:
-	.loc 1 91 0
+	.loc 1 93 0
 	cpi r24,lo8(31)
 	brne .L22
-	.loc 1 93 0
+	.loc 1 95 0
 	lds r24,tAsync+4
 	mov r25,r24
 	andi r25,lo8(-3)
 	cpi r25,lo8(4)
 	breq .L23
-	.loc 1 93 0 is_stmt 0 discriminator 1
+	.loc 1 95 0 is_stmt 0 discriminator 1
 	cpi r25,lo8(9)
 	brne .L21
 .L23:
-	.loc 1 95 0 is_stmt 1
+	.loc 1 97 0 is_stmt 1
 	subi r24,lo8(-(1))
 	sts tAsync+4,r24
-	.loc 1 96 0
+	.loc 1 98 0
 	ldi r24,lo8(1)
 	sts tAsync+3,r24
 	rjmp .L21
 .L22:
-	.loc 1 99 0
+	.loc 1 101 0
 	cpi r24,lo8(30)
 	brne .L24
-	.loc 1 101 0
+	.loc 1 103 0
 	lds r24,tAsync+4
 	cpi r24,lo8(2)
 	brne .L21
-	.loc 1 103 0
+	.loc 1 105 0
 	ldi r24,lo8(3)
 	sts tAsync+4,r24
-	.loc 1 104 0
+	.loc 1 106 0
 	ldi r24,lo8(1)
 	sts tAsync+3,r24
 	rjmp .L21
 .L24:
-	.loc 1 107 0
+	.loc 1 109 0
 	cpi r24,lo8(29)
 	brne .L21
-	.loc 1 109 0
+	.loc 1 111 0
 	lds r24,tAsync+4
 	cpi r24,lo8(2)
 	brne .L21
-	.loc 1 109 0 is_stmt 0 discriminator 1
+	.loc 1 111 0 is_stmt 0 discriminator 1
 	call not_leap
 .LVL8:
 	tst r24
 	breq .L18
-	.loc 1 111 0 is_stmt 1
+	.loc 1 113 0 is_stmt 1
 	ldi r24,lo8(3)
 	sts tAsync+4,r24
-	.loc 1 112 0
+	.loc 1 114 0
 	ldi r24,lo8(1)
 	sts tAsync+3,r24
 .L21:
-	.loc 1 115 0
+	.loc 1 117 0
 	lds r24,tAsync+4
 	cpi r24,lo8(13)
 	brne .L18
-	.loc 1 117 0
+	.loc 1 119 0
 	ldi r24,lo8(1)
 	sts tAsync+4,r24
-	.loc 1 118 0
+	.loc 1 120 0
 	ldi r30,lo8(tAsync+5)
 	ldi r31,hi8(tAsync+5)
 	ld r24,Z
@@ -470,16 +468,16 @@ __vector_9:
 	std Z+1,r25
 	st Z,r24
 .L18:
-	.loc 1 123 0
+	.loc 1 125 0
 	lds r24,wait_powergone
 	tst r24
 	breq .L14
-	.loc 1 123 0 is_stmt 0 discriminator 1
+	.loc 1 125 0 is_stmt 0 discriminator 1
 	subi r24,lo8(-(1))
 	sts wait_powergone,r24
 .L14:
 /* epilogue start */
-	.loc 1 127 0 is_stmt 1
+	.loc 1 129 0 is_stmt 1
 	pop r31
 	pop r30
 	pop r27
@@ -501,14 +499,15 @@ __vector_9:
 .LFE4:
 	.size	__vector_9, .-__vector_9
 .global	wait_powergone
-	.section	.bss.wait_powergone,"aw",@nobits
+	.section .bss
 	.type	wait_powergone, @object
 	.size	wait_powergone, 1
 wait_powergone:
 	.zero	1
+	.comm	CheckNoReadySNCounter,1,1
 	.comm	TimeKeyPressed,1,1
 .global	tAsync
-	.section	.data.tAsync,"aw",@progbits
+	.data
 	.type	tAsync, @object
 	.size	tAsync, 7
 tAsync:
@@ -521,21 +520,20 @@ tAsync:
 	.text
 .Letext0:
 	.file 2 "../timer/timer.h"
-	.file 3 "/AtmelAvrToolchain/avr/include/stdint.h"
+	.file 3 "/avr8-gnu-toolchain-linux_x86/avr/include/stdint.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x1c7
+	.long	0x1d5
 	.word	0x2
 	.long	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-	.long	.LASF26
-	.byte	0x1
 	.long	.LASF27
+	.byte	0x1
 	.long	.LASF28
-	.long	.Ldebug_ranges0+0
-	.long	0
-	.long	0
+	.long	.LASF29
+	.long	.Ltext0
+	.long	.Letext0
 	.long	.Ldebug_line0
 	.uleb128 0x2
 	.byte	0x1
@@ -545,7 +543,7 @@ tAsync:
 	.long	.LASF13
 	.byte	0x3
 	.byte	0x7a
-	.long	0x3b
+	.long	0x37
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x8
@@ -578,12 +576,12 @@ tAsync:
 	.byte	0x7
 	.byte	0x2
 	.byte	0xb
-	.long	0xc9
+	.long	0xc5
 	.uleb128 0x6
 	.long	.LASF7
 	.byte	0x2
 	.byte	0xc
-	.long	0x3b
+	.long	0x37
 	.byte	0x2
 	.byte	0x23
 	.uleb128 0
@@ -591,7 +589,7 @@ tAsync:
 	.long	.LASF8
 	.byte	0x2
 	.byte	0xd
-	.long	0x3b
+	.long	0x37
 	.byte	0x2
 	.byte	0x23
 	.uleb128 0x1
@@ -599,7 +597,7 @@ tAsync:
 	.long	.LASF9
 	.byte	0x2
 	.byte	0xe
-	.long	0x3b
+	.long	0x37
 	.byte	0x2
 	.byte	0x23
 	.uleb128 0x2
@@ -607,7 +605,7 @@ tAsync:
 	.long	.LASF10
 	.byte	0x2
 	.byte	0xf
-	.long	0x3b
+	.long	0x37
 	.byte	0x2
 	.byte	0x23
 	.uleb128 0x3
@@ -615,7 +613,7 @@ tAsync:
 	.long	.LASF11
 	.byte	0x2
 	.byte	0x10
-	.long	0x3b
+	.long	0x37
 	.byte	0x2
 	.byte	0x23
 	.uleb128 0x4
@@ -623,7 +621,7 @@ tAsync:
 	.long	.LASF12
 	.byte	0x2
 	.byte	0x11
-	.long	0x49
+	.long	0x45
 	.byte	0x2
 	.byte	0x23
 	.uleb128 0x5
@@ -632,12 +630,12 @@ tAsync:
 	.long	.LASF14
 	.byte	0x2
 	.byte	0x12
-	.long	0x6c
+	.long	0x68
 	.uleb128 0x7
 	.byte	0x1
 	.long	.LASF15
 	.byte	0x1
-	.byte	0x10
+	.byte	0x11
 	.byte	0x1
 	.long	.LFB0
 	.long	.LFE0
@@ -650,7 +648,7 @@ tAsync:
 	.byte	0x1
 	.long	.LASF16
 	.byte	0x1
-	.byte	0x20
+	.byte	0x21
 	.byte	0x1
 	.long	.LFB1
 	.long	.LFE1
@@ -660,7 +658,7 @@ tAsync:
 	.byte	0x1
 	.long	.LASF17
 	.byte	0x1
-	.byte	0x27
+	.byte	0x28
 	.byte	0x1
 	.long	.LFB2
 	.long	.LFE2
@@ -673,7 +671,7 @@ tAsync:
 	.byte	0x1
 	.long	.LASF21
 	.byte	0x1
-	.byte	0x34
+	.byte	0x35
 	.byte	0x1
 	.long	.LFB3
 	.long	.LFE3
@@ -682,27 +680,27 @@ tAsync:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0x14f
+	.long	0x14b
 	.uleb128 0xa
 	.long	.LASF18
 	.byte	0x1
-	.byte	0x37
-	.long	0x42
+	.byte	0x38
+	.long	0x3e
 	.long	.LLST1
 	.uleb128 0xa
 	.long	.LASF19
 	.byte	0x1
-	.byte	0x37
-	.long	0x42
+	.byte	0x38
+	.long	0x3e
 	.long	.LLST2
 	.byte	0
 	.uleb128 0xb
 	.byte	0x1
-	.long	.LASF29
+	.long	.LASF30
 	.byte	0x1
-	.byte	0x81
+	.byte	0x83
 	.byte	0x1
-	.long	0x169
+	.long	0x165
 	.long	.LFB5
 	.long	.LFE5
 	.byte	0x3
@@ -718,22 +716,22 @@ tAsync:
 	.byte	0x1
 	.long	.LASF22
 	.byte	0x1
-	.byte	0x49
+	.byte	0x4a
 	.byte	0x1
 	.long	.LFB4
 	.long	.LFE4
 	.long	.LLST3
 	.byte	0x1
-	.long	0x194
+	.long	0x190
 	.uleb128 0xd
 	.long	.LVL8
-	.long	0x14f
+	.long	0x14b
 	.byte	0
 	.uleb128 0xe
 	.long	.LASF23
 	.byte	0x1
 	.byte	0xc
-	.long	0xc9
+	.long	0xc5
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -742,7 +740,7 @@ tAsync:
 	.long	.LASF24
 	.byte	0x1
 	.byte	0xd
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -751,7 +749,16 @@ tAsync:
 	.long	.LASF25
 	.byte	0x1
 	.byte	0xe
-	.long	0x169
+	.long	0x2c
+	.byte	0x1
+	.byte	0x5
+	.byte	0x3
+	.long	CheckNoReadySNCounter
+	.uleb128 0xe
+	.long	.LASF26
+	.byte	0x1
+	.byte	0xf
+	.long	0x165
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -770,11 +777,9 @@ tAsync:
 	.uleb128 0xe
 	.uleb128 0x1b
 	.uleb128 0xe
-	.uleb128 0x55
-	.uleb128 0x6
 	.uleb128 0x11
 	.uleb128 0x1
-	.uleb128 0x52
+	.uleb128 0x12
 	.uleb128 0x1
 	.uleb128 0x10
 	.uleb128 0x6
@@ -1009,20 +1014,20 @@ tAsync:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 .LLST0:
-	.long	.LFB1
-	.long	.LCFI0
+	.long	.LFB1-.Ltext0
+	.long	.LCFI0-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI0
-	.long	.LCFI1
+	.long	.LCFI0-.Ltext0
+	.long	.LCFI1-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI1
-	.long	.LFE1
+	.long	.LCFI1-.Ltext0
+	.long	.LFE1-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -1030,13 +1035,13 @@ tAsync:
 	.long	0
 	.long	0
 .LLST1:
-	.long	.LVL0
-	.long	.LVL1
+	.long	.LVL0-.Ltext0
+	.long	.LVL1-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
-	.long	.LVL1
-	.long	.LVL3
+	.long	.LVL1-.Ltext0
+	.long	.LVL3-.Ltext0
 	.word	0x6
 	.byte	0x8
 	.byte	0x40
@@ -1044,8 +1049,8 @@ tAsync:
 	.sleb128 0
 	.byte	0x1c
 	.byte	0x9f
-	.long	.LVL3
-	.long	.LVL4
+	.long	.LVL3-.Ltext0
+	.long	.LVL4-.Ltext0
 	.word	0x6
 	.byte	0x8
 	.byte	0x41
@@ -1053,8 +1058,8 @@ tAsync:
 	.sleb128 0
 	.byte	0x1c
 	.byte	0x9f
-	.long	.LVL4
-	.long	.LFE3
+	.long	.LVL4-.Ltext0
+	.long	.LFE3-.Ltext0
 	.word	0x6
 	.byte	0x8
 	.byte	0x40
@@ -1065,27 +1070,27 @@ tAsync:
 	.long	0
 	.long	0
 .LLST2:
-	.long	.LVL1
-	.long	.LVL2
+	.long	.LVL1-.Ltext0
+	.long	.LVL2-.Ltext0
 	.word	0x4
 	.byte	0x88
 	.sleb128 0
 	.byte	0x1f
 	.byte	0x9f
-	.long	.LVL2
-	.long	.LVL5
+	.long	.LVL2-.Ltext0
+	.long	.LVL5-.Ltext0
 	.word	0x4
 	.byte	0x88
 	.sleb128 0
 	.byte	0x20
 	.byte	0x9f
-	.long	.LVL5
-	.long	.LVL6
+	.long	.LVL5-.Ltext0
+	.long	.LVL6-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
-	.long	.LVL6
-	.long	.LVL7
+	.long	.LVL6-.Ltext0
+	.long	.LVL7-.Ltext0
 	.word	0x4
 	.byte	0x88
 	.sleb128 0
@@ -1094,92 +1099,92 @@ tAsync:
 	.long	0
 	.long	0
 .LLST3:
-	.long	.LFB4
-	.long	.LCFI2
+	.long	.LFB4-.Ltext0
+	.long	.LCFI2-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI2
-	.long	.LCFI3
+	.long	.LCFI2-.Ltext0
+	.long	.LCFI3-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI3
-	.long	.LCFI4
+	.long	.LCFI3-.Ltext0
+	.long	.LCFI4-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 4
-	.long	.LCFI4
-	.long	.LCFI5
+	.long	.LCFI4-.Ltext0
+	.long	.LCFI5-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 5
-	.long	.LCFI5
-	.long	.LCFI6
+	.long	.LCFI5-.Ltext0
+	.long	.LCFI6-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 6
-	.long	.LCFI6
-	.long	.LCFI7
+	.long	.LCFI6-.Ltext0
+	.long	.LCFI7-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 7
-	.long	.LCFI7
-	.long	.LCFI8
+	.long	.LCFI7-.Ltext0
+	.long	.LCFI8-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 8
-	.long	.LCFI8
-	.long	.LCFI9
+	.long	.LCFI8-.Ltext0
+	.long	.LCFI9-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 9
-	.long	.LCFI9
-	.long	.LCFI10
+	.long	.LCFI9-.Ltext0
+	.long	.LCFI10-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 10
-	.long	.LCFI10
-	.long	.LCFI11
+	.long	.LCFI10-.Ltext0
+	.long	.LCFI11-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 11
-	.long	.LCFI11
-	.long	.LCFI12
+	.long	.LCFI11-.Ltext0
+	.long	.LCFI12-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 12
-	.long	.LCFI12
-	.long	.LCFI13
+	.long	.LCFI12-.Ltext0
+	.long	.LCFI13-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 13
-	.long	.LCFI13
-	.long	.LCFI14
+	.long	.LCFI13-.Ltext0
+	.long	.LCFI14-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 14
-	.long	.LCFI14
-	.long	.LCFI15
+	.long	.LCFI14-.Ltext0
+	.long	.LCFI15-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 15
-	.long	.LCFI15
-	.long	.LFE4
+	.long	.LCFI15-.Ltext0
+	.long	.LFE4-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -1187,50 +1192,22 @@ tAsync:
 	.long	0
 	.long	0
 	.section	.debug_aranges,"",@progbits
-	.long	0x44
+	.long	0x1c
 	.word	0x2
 	.long	.Ldebug_info0
 	.byte	0x4
 	.byte	0
 	.word	0
 	.word	0
-	.long	.LFB0
-	.long	.LFE0-.LFB0
-	.long	.LFB1
-	.long	.LFE1-.LFB1
-	.long	.LFB2
-	.long	.LFE2-.LFB2
-	.long	.LFB3
-	.long	.LFE3-.LFB3
-	.long	.LFB5
-	.long	.LFE5-.LFB5
-	.long	.LFB4
-	.long	.LFE4-.LFB4
-	.long	0
-	.long	0
-	.section	.debug_ranges,"",@progbits
-.Ldebug_ranges0:
-	.long	.LFB0
-	.long	.LFE0
-	.long	.LFB1
-	.long	.LFE1
-	.long	.LFB2
-	.long	.LFE2
-	.long	.LFB3
-	.long	.LFE3
-	.long	.LFB5
-	.long	.LFE5
-	.long	.LFB4
-	.long	.LFE4
+	.long	.Ltext0
+	.long	.Letext0-.Ltext0
 	.long	0
 	.long	0
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF27:
-	.string	"../timer/timer.c"
 .LASF28:
-	.string	"/home/izhuk/workspace/A328Pn3310DS18x20_n/Debug"
+	.string	"../timer/timer.c"
 .LASF12:
 	.string	"year"
 .LASF8:
@@ -1245,7 +1222,7 @@ tAsync:
 	.string	"unsigned char"
 .LASF24:
 	.string	"TimeKeyPressed"
-.LASF29:
+.LASF30:
 	.string	"not_leap"
 .LASF4:
 	.string	"long unsigned int"
@@ -1253,10 +1230,10 @@ tAsync:
 	.string	"WDT_setup"
 .LASF7:
 	.string	"second"
-.LASF26:
-	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields"
 .LASF21:
 	.string	"init_clock"
+.LASF29:
+	.string	"/home/izhuk/git/PumpRegulator/A328Pn3310DS18x20_n/Debug"
 .LASF2:
 	.string	"unsigned int"
 .LASF6:
@@ -1275,6 +1252,8 @@ tAsync:
 	.string	"temp0"
 .LASF19:
 	.string	"temp1"
+.LASF27:
+	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields"
 .LASF23:
 	.string	"tAsync"
 .LASF16:
@@ -1285,8 +1264,10 @@ tAsync:
 	.string	"__vector_9"
 .LASF0:
 	.string	"signed char"
-.LASF25:
+.LASF26:
 	.string	"wait_powergone"
+.LASF25:
+	.string	"CheckNoReadySNCounter"
 	.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.4.5_1522) 4.8.1"
 .global __do_copy_data
 .global __do_clear_bss

@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.gsm_init,"ax",@progbits
+	.text
 .global	gsm_init
 	.type	gsm_init, @function
 gsm_init:
@@ -21,7 +21,7 @@ gsm_init:
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
 	.string	"\n"
-	.section	.text.gsm_del_sms,"ax",@progbits
+	.text
 .global	gsm_del_sms
 	.type	gsm_del_sms, @function
 gsm_del_sms:
@@ -57,7 +57,6 @@ gsm_del_sms:
 	pop r28
 	ret
 	.size	gsm_del_sms, .-gsm_del_sms
-	.section	.text.gsm_read_token,"ax",@progbits
 .global	gsm_read_token
 	.type	gsm_read_token, @function
 gsm_read_token:
@@ -157,7 +156,6 @@ gsm_read_token:
 	pop r9
 	ret
 	.size	gsm_read_token, .-gsm_read_token
-	.section	.text.gsm_remove_char,"ax",@progbits
 .global	gsm_remove_char
 	.type	gsm_remove_char, @function
 gsm_remove_char:
@@ -226,7 +224,6 @@ gsm_remove_char:
 	pop r13
 	ret
 	.size	gsm_remove_char, .-gsm_remove_char
-	.section	.text.gsm_command,"ax",@progbits
 .global	gsm_command
 	.type	gsm_command, @function
 gsm_command:
@@ -255,7 +252,7 @@ gsm_command:
 	.section	.rodata.str1.1
 .LC1:
 	.string	"AT+CMGF=1"
-	.section	.text.gsm_text_sms,"ax",@progbits
+	.text
 .global	gsm_text_sms
 	.type	gsm_text_sms, @function
 gsm_text_sms:
@@ -268,7 +265,6 @@ gsm_text_sms:
 	call gsm_command
 	ret
 	.size	gsm_text_sms, .-gsm_text_sms
-	.section	.text.gsm_flush_buffer,"ax",@progbits
 .global	gsm_flush_buffer
 	.type	gsm_flush_buffer, @function
 gsm_flush_buffer:
@@ -286,7 +282,6 @@ gsm_flush_buffer:
 /* epilogue start */
 	ret
 	.size	gsm_flush_buffer, .-gsm_flush_buffer
-	.section	.text.gsm_readline,"ax",@progbits
 .global	gsm_readline
 	.type	gsm_readline, @function
 gsm_readline:
@@ -370,7 +365,7 @@ gsm_readline:
 	.string	"REC UNREAD"
 .LC5:
 	.string	","
-	.section	.text.gsm_read_sms,"ax",@progbits
+	.text
 .global	gsm_read_sms
 	.type	gsm_read_sms, @function
 gsm_read_sms:
@@ -556,7 +551,7 @@ gsm_read_sms:
 	.string	"AT+CMGL"
 .LC7:
 	.string	":"
-	.section	.text.gsm_check_new_sms,"ax",@progbits
+	.text
 .global	gsm_check_new_sms
 	.type	gsm_check_new_sms, @function
 gsm_check_new_sms:
@@ -753,7 +748,7 @@ gsm_check_new_sms:
 	.string	"+CMGS"
 .LC10:
 	.string	"+CDS: 6"
-	.section	.text.gsm_send_sms,"ax",@progbits
+	.text
 .global	gsm_send_sms
 	.type	gsm_send_sms, @function
 gsm_send_sms:
@@ -1068,7 +1063,7 @@ gsm_send_sms:
 	.string	"+CPMS"
 .LC13:
 	.string	"SM"
-	.section	.text.gsm_SIM_mem_used,"ax",@progbits
+	.text
 .global	gsm_SIM_mem_used
 	.type	gsm_SIM_mem_used, @function
 gsm_SIM_mem_used:
@@ -1210,44 +1205,36 @@ gsm_SIM_mem_used:
 	pop r10
 	ret
 	.size	gsm_SIM_mem_used, .-gsm_SIM_mem_used
-	.section	.progmem.data.__c.2382,"a",@progbits
+	.section	.progmem.data,"a",@progbits
 	.type	__c.2382, @object
 	.size	__c.2382, 9
 __c.2382:
 	.string	"AT+CMGD="
-	.section	.progmem.data.__c.2354,"a",@progbits
 	.type	__c.2354, @object
 	.size	__c.2354, 3
 __c.2354:
 	.string	"\"\n"
-	.section	.progmem.data.__c.2352,"a",@progbits
 	.type	__c.2352, @object
 	.size	__c.2352, 10
 __c.2352:
 	.string	"AT+CMGS=\""
-	.section	.progmem.data.__c.2334,"a",@progbits
 	.type	__c.2334, @object
 	.size	__c.2334, 2
 __c.2334:
 	.string	"\n"
-	.section	.progmem.data.__c.2332,"a",@progbits
 	.type	__c.2332, @object
 	.size	__c.2332, 9
 __c.2332:
 	.string	"AT+CMGR="
-	.section	.bss.index.2312,"aw",@nobits
-	.type	index.2312, @object
-	.size	index.2312, 15
-index.2312:
-	.zero	15
+	.local	index.2312
+	.comm	index.2312,15,1
 .global	gsm_send_byte
-	.section	.data.gsm_send_byte,"aw",@progbits
+	.data
 	.type	gsm_send_byte, @object
 	.size	gsm_send_byte, 2
 gsm_send_byte:
 	.word	gs(uart_putc)
 .global	gsm_get_byte
-	.section	.data.gsm_get_byte,"aw",@progbits
 	.type	gsm_get_byte, @object
 	.size	gsm_get_byte, 2
 gsm_get_byte:

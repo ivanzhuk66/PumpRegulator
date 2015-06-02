@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.__vector_21,"ax",@progbits
+	.text
 .global	__vector_21
 	.type	__vector_21, @function
 __vector_21:
@@ -20,7 +20,6 @@ __vector_21:
 /* epilogue start */
 /* #NOAPP */
 	.size	__vector_21, .-__vector_21
-	.section	.text.__vector_23,"ax",@progbits
 .global	__vector_23
 	.type	__vector_23, @function
 __vector_23:

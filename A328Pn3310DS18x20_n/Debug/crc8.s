@@ -7,7 +7,6 @@ __zero_reg__ = 1
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.crc8,"ax",@progbits
 .global	crc8
 	.type	crc8, @function
 crc8:
@@ -87,12 +86,11 @@ crc8:
 	.cfi_endproc
 .LFE0:
 	.size	crc8, .-crc8
-	.text
 .Letext0:
-	.file 2 "/AtmelAvrToolchain/avr/include/stdint.h"
+	.file 2 "/avr8-gnu-toolchain-linux_x86/avr/include/stdint.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x100
+	.long	0xfc
 	.word	0x2
 	.long	.Ldebug_abbrev0
 	.byte	0x4
@@ -101,9 +99,8 @@ crc8:
 	.byte	0x1
 	.long	.LASF15
 	.long	.LASF16
-	.long	.Ldebug_ranges0+0
-	.long	0
-	.long	0
+	.long	.Ltext0
+	.long	.Letext0
 	.long	.Ldebug_line0
 	.uleb128 0x2
 	.byte	0x1
@@ -113,7 +110,7 @@ crc8:
 	.long	.LASF2
 	.byte	0x2
 	.byte	0x7a
-	.long	0x3b
+	.long	0x37
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x8
@@ -126,7 +123,7 @@ crc8:
 	.long	.LASF3
 	.byte	0x2
 	.byte	0x7c
-	.long	0x54
+	.long	0x50
 	.uleb128 0x2
 	.byte	0x2
 	.byte	0x7
@@ -153,7 +150,7 @@ crc8:
 	.byte	0x1
 	.byte	0x8
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB0
 	.long	.LFE0
 	.byte	0x3
@@ -161,53 +158,53 @@ crc8:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0xfd
+	.long	0xf9
 	.uleb128 0x6
 	.long	.LASF9
 	.byte	0x1
 	.byte	0x8
-	.long	0xfd
+	.long	0xf9
 	.long	.LLST0
 	.uleb128 0x6
 	.long	.LASF10
 	.byte	0x1
 	.byte	0x8
-	.long	0x49
+	.long	0x45
 	.long	.LLST1
 	.uleb128 0x7
 	.string	"crc"
 	.byte	0x1
 	.byte	0xa
-	.long	0x30
+	.long	0x2c
 	.long	.LLST2
 	.uleb128 0x8
 	.long	.LASF11
 	.byte	0x1
 	.byte	0xb
-	.long	0x49
+	.long	0x45
 	.long	.LLST3
 	.uleb128 0x8
 	.long	.LASF12
 	.byte	0x1
 	.byte	0xc
-	.long	0x30
+	.long	0x2c
 	.long	.LLST4
 	.uleb128 0x7
 	.string	"b"
 	.byte	0x1
 	.byte	0xd
-	.long	0x30
+	.long	0x2c
 	.long	.LLST5
 	.uleb128 0x8
 	.long	.LASF13
 	.byte	0x1
 	.byte	0xe
-	.long	0x30
+	.long	0x2c
 	.long	.LLST6
 	.byte	0
 	.uleb128 0x9
 	.byte	0x2
-	.long	0x30
+	.long	0x2c
 	.byte	0
 	.section	.debug_abbrev,"",@progbits
 .Ldebug_abbrev0:
@@ -222,11 +219,9 @@ crc8:
 	.uleb128 0xe
 	.uleb128 0x1b
 	.uleb128 0xe
-	.uleb128 0x55
-	.uleb128 0x6
 	.uleb128 0x11
 	.uleb128 0x1
-	.uleb128 0x52
+	.uleb128 0x12
 	.uleb128 0x1
 	.uleb128 0x10
 	.uleb128 0x6
@@ -352,8 +347,8 @@ crc8:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 .LLST0:
-	.long	.LVL0
-	.long	.LVL2
+	.long	.LVL0-.Ltext0
+	.long	.LVL2-.Ltext0
 	.word	0x6
 	.byte	0x68
 	.byte	0x93
@@ -361,8 +356,8 @@ crc8:
 	.byte	0x69
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL2
-	.long	.LVL3
+	.long	.LVL2-.Ltext0
+	.long	.LVL3-.Ltext0
 	.word	0x6
 	.byte	0x6e
 	.byte	0x93
@@ -370,15 +365,15 @@ crc8:
 	.byte	0x6f
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL3
-	.long	.LVL12
+	.long	.LVL3-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
 	.byte	0x68
 	.byte	0x9f
-	.long	.LVL12
-	.long	.LVL13
+	.long	.LVL12-.Ltext0
+	.long	.LVL13-.Ltext0
 	.word	0x6
 	.byte	0x68
 	.byte	0x93
@@ -386,8 +381,8 @@ crc8:
 	.byte	0x69
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL13
-	.long	.LFE0
+	.long	.LVL13-.Ltext0
+	.long	.LFE0-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -396,8 +391,8 @@ crc8:
 	.long	0
 	.long	0
 .LLST1:
-	.long	.LVL0
-	.long	.LVL1
+	.long	.LVL0-.Ltext0
+	.long	.LVL1-.Ltext0
 	.word	0x6
 	.byte	0x66
 	.byte	0x93
@@ -405,15 +400,15 @@ crc8:
 	.byte	0x67
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL1
-	.long	.LVL12
+	.long	.LVL1-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
 	.byte	0x66
 	.byte	0x9f
-	.long	.LVL12
-	.long	.LVL14
+	.long	.LVL12-.Ltext0
+	.long	.LVL14-.Ltext0
 	.word	0x6
 	.byte	0x66
 	.byte	0x93
@@ -421,8 +416,8 @@ crc8:
 	.byte	0x67
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL14
-	.long	.LFE0
+	.long	.LVL14-.Ltext0
+	.long	.LFE0-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -431,34 +426,34 @@ crc8:
 	.long	0
 	.long	0
 .LLST2:
-	.long	.LVL0
-	.long	.LVL3
+	.long	.LVL0-.Ltext0
+	.long	.LVL3-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
-	.long	.LVL3
-	.long	.LVL12
+	.long	.LVL3-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL12
-	.long	.LVL14
+	.long	.LVL12-.Ltext0
+	.long	.LVL14-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
-	.long	.LVL14
-	.long	.LFE0
+	.long	.LVL14-.Ltext0
+	.long	.LFE0-.Ltext0
 	.word	0x1
 	.byte	0x68
 	.long	0
 	.long	0
 .LLST3:
-	.long	.LVL0
-	.long	.LVL3
+	.long	.LVL0-.Ltext0
+	.long	.LVL3-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
-	.long	.LVL3
-	.long	.LVL4
+	.long	.LVL3-.Ltext0
+	.long	.LVL4-.Ltext0
 	.word	0x7
 	.byte	0x8e
 	.sleb128 0
@@ -467,8 +462,8 @@ crc8:
 	.byte	0x68
 	.byte	0x1c
 	.byte	0x9f
-	.long	.LVL4
-	.long	.LVL11
+	.long	.LVL4-.Ltext0
+	.long	.LVL11-.Ltext0
 	.word	0x8
 	.byte	0xf3
 	.uleb128 0x1
@@ -478,8 +473,8 @@ crc8:
 	.sleb128 0
 	.byte	0x22
 	.byte	0x9f
-	.long	.LVL11
-	.long	.LVL12
+	.long	.LVL11-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x7
 	.byte	0x8e
 	.sleb128 0
@@ -488,13 +483,13 @@ crc8:
 	.byte	0x68
 	.byte	0x1c
 	.byte	0x9f
-	.long	.LVL12
-	.long	.LVL14
+	.long	.LVL12-.Ltext0
+	.long	.LVL14-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
-	.long	.LVL14
-	.long	.LFE0
+	.long	.LVL14-.Ltext0
+	.long	.LFE0-.Ltext0
 	.word	0x8
 	.byte	0xf3
 	.uleb128 0x1
@@ -507,45 +502,45 @@ crc8:
 	.long	0
 	.long	0
 .LLST4:
-	.long	.LVL4
-	.long	.LVL5
+	.long	.LVL4-.Ltext0
+	.long	.LVL5-.Ltext0
 	.word	0x2
 	.byte	0x38
 	.byte	0x9f
-	.long	.LVL5
-	.long	.LVL9
+	.long	.LVL5-.Ltext0
+	.long	.LVL9-.Ltext0
 	.word	0x1
 	.byte	0x69
-	.long	.LVL9
-	.long	.LVL10
+	.long	.LVL9-.Ltext0
+	.long	.LVL10-.Ltext0
 	.word	0x3
 	.byte	0x89
 	.sleb128 -1
 	.byte	0x9f
-	.long	.LVL10
-	.long	.LVL12
+	.long	.LVL10-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x1
 	.byte	0x69
-	.long	.LVL14
-	.long	.LFE0
+	.long	.LVL14-.Ltext0
+	.long	.LFE0-.Ltext0
 	.word	0x1
 	.byte	0x69
 	.long	0
 	.long	0
 .LLST5:
-	.long	.LVL4
-	.long	.LVL12
+	.long	.LVL4-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x1
 	.byte	0x62
-	.long	.LVL14
-	.long	.LFE0
+	.long	.LVL14-.Ltext0
+	.long	.LFE0-.Ltext0
 	.word	0x1
 	.byte	0x62
 	.long	0
 	.long	0
 .LLST6:
-	.long	.LVL5
-	.long	.LVL6
+	.long	.LVL5-.Ltext0
+	.long	.LVL6-.Ltext0
 	.word	0x8
 	.byte	0x82
 	.sleb128 0
@@ -555,8 +550,8 @@ crc8:
 	.byte	0x31
 	.byte	0x1a
 	.byte	0x9f
-	.long	.LVL14
-	.long	.LVL15
+	.long	.LVL14-.Ltext0
+	.long	.LVL15-.Ltext0
 	.word	0x8
 	.byte	0x82
 	.sleb128 0
@@ -576,21 +571,13 @@ crc8:
 	.byte	0
 	.word	0
 	.word	0
-	.long	.LFB0
-	.long	.LFE0-.LFB0
-	.long	0
-	.long	0
-	.section	.debug_ranges,"",@progbits
-.Ldebug_ranges0:
-	.long	.LFB0
-	.long	.LFE0
+	.long	.Ltext0
+	.long	.Letext0-.Ltext0
 	.long	0
 	.long	0
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF16:
-	.string	"/home/izhuk/workspace/A328Pn3310DS18x20_n/Debug"
 .LASF15:
 	.string	"../ds18x20/crc8.c"
 .LASF9:
@@ -601,8 +588,8 @@ crc8:
 	.string	"long unsigned int"
 .LASF10:
 	.string	"number_of_bytes_in_data"
-.LASF14:
-	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields"
+.LASF16:
+	.string	"/home/izhuk/git/PumpRegulator/A328Pn3310DS18x20_n/Debug"
 .LASF12:
 	.string	"bit_counter"
 .LASF4:
@@ -619,6 +606,8 @@ crc8:
 	.string	"long long int"
 .LASF3:
 	.string	"uint16_t"
+.LASF14:
+	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields"
 .LASF13:
 	.string	"feedback_bit"
 .LASF5:

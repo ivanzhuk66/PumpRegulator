@@ -7,7 +7,6 @@ __zero_reg__ = 1
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.ow_set_bus,"ax",@progbits
 .global	ow_set_bus
 	.type	ow_set_bus, @function
 ow_set_bus:
@@ -46,7 +45,6 @@ ow_set_bus:
 	.cfi_endproc
 .LFE11:
 	.size	ow_set_bus, .-ow_set_bus
-	.section	.text.ow_input_pin_state,"ax",@progbits
 .global	ow_input_pin_state
 	.type	ow_input_pin_state, @function
 ow_input_pin_state:
@@ -68,7 +66,6 @@ ow_input_pin_state:
 	.cfi_endproc
 .LFE12:
 	.size	ow_input_pin_state, .-ow_input_pin_state
-	.section	.text.ow_parasite_enable,"ax",@progbits
 .global	ow_parasite_enable
 	.type	ow_parasite_enable, @function
 ow_parasite_enable:
@@ -97,7 +94,6 @@ ow_parasite_enable:
 	.cfi_endproc
 .LFE13:
 	.size	ow_parasite_enable, .-ow_parasite_enable
-	.section	.text.ow_bit_io_intern,"ax",@progbits
 	.type	ow_bit_io_intern, @function
 ow_bit_io_intern:
 .LFB15:
@@ -123,10 +119,10 @@ ow_bit_io_intern:
 .LVL3:
 .LBB16:
 .LBB17:
-	.file 2 "/AtmelAvrToolchain/avr/include/util/atomic.h"
+	.file 2 "/avr8-gnu-toolchain-linux_x86/avr/include/util/atomic.h"
 	.loc 2 50 0
 /* #APP */
- ;  50 "/AtmelAvrToolchain/avr/include/util/atomic.h" 1
+ ;  50 "/avr8-gnu-toolchain-linux_x86/avr/include/util/atomic.h" 1
 	cli
  ;  0 "" 2
 .LVL4:
@@ -152,7 +148,7 @@ ow_bit_io_intern:
 .LVL6:
 .LBB18:
 .LBB19:
-	.file 3 "/AtmelAvrToolchain/avr/include/util/delay.h"
+	.file 3 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay.h"
 	.loc 3 245 0
 	ldi r24,lo8(5)
 	1: dec r24
@@ -258,7 +254,6 @@ ow_bit_io_intern:
 	.cfi_endproc
 .LFE15:
 	.size	ow_bit_io_intern, .-ow_bit_io_intern
-	.section	.text.ow_parasite_disable,"ax",@progbits
 .global	ow_parasite_disable
 	.type	ow_parasite_disable, @function
 ow_parasite_disable:
@@ -281,7 +276,6 @@ ow_parasite_disable:
 	.cfi_endproc
 .LFE14:
 	.size	ow_parasite_disable, .-ow_parasite_disable
-	.section	.text.ow_bit_io,"ax",@progbits
 .global	ow_bit_io
 	.type	ow_bit_io, @function
 ow_bit_io:
@@ -304,7 +298,6 @@ ow_bit_io:
 	.cfi_endproc
 .LFE16:
 	.size	ow_bit_io, .-ow_bit_io
-	.section	.text.ow_byte_wr,"ax",@progbits
 .global	ow_byte_wr
 	.type	ow_byte_wr, @function
 ow_byte_wr:
@@ -360,7 +353,6 @@ ow_byte_wr:
 	.cfi_endproc
 .LFE17:
 	.size	ow_byte_wr, .-ow_byte_wr
-	.section	.text.ow_byte_wr_with_parasite_enable,"ax",@progbits
 .global	ow_byte_wr_with_parasite_enable
 	.type	ow_byte_wr_with_parasite_enable, @function
 ow_byte_wr_with_parasite_enable:
@@ -430,7 +422,6 @@ ow_byte_wr_with_parasite_enable:
 	.cfi_endproc
 .LFE18:
 	.size	ow_byte_wr_with_parasite_enable, .-ow_byte_wr_with_parasite_enable
-	.section	.text.ow_command_intern,"ax",@progbits
 	.type	ow_command_intern, @function
 ow_command_intern:
 .LFB20:
@@ -528,7 +519,6 @@ ow_command_intern:
 	.cfi_endproc
 .LFE20:
 	.size	ow_command_intern, .-ow_command_intern
-	.section	.text.ow_byte_rd,"ax",@progbits
 .global	ow_byte_rd
 	.type	ow_byte_rd, @function
 ow_byte_rd:
@@ -548,7 +538,6 @@ ow_byte_rd:
 	.cfi_endproc
 .LFE19:
 	.size	ow_byte_rd, .-ow_byte_rd
-	.section	.text.ow_command,"ax",@progbits
 .global	ow_command
 	.type	ow_command, @function
 ow_command:
@@ -568,7 +557,6 @@ ow_command:
 	.cfi_endproc
 .LFE21:
 	.size	ow_command, .-ow_command
-	.section	.text.ow_command_with_parasite_enable,"ax",@progbits
 .global	ow_command_with_parasite_enable
 	.type	ow_command_with_parasite_enable, @function
 ow_command_with_parasite_enable:
@@ -593,12 +581,11 @@ ow_command_with_parasite_enable:
 	.comm	OW_IN,2,1
 	.comm	OW_PIN_MASK,1,1
 	.comm	OW_PIN,1,1
-	.text
 .Letext0:
-	.file 4 "/AtmelAvrToolchain/avr/include/stdint.h"
+	.file 4 "/avr8-gnu-toolchain-linux_x86/avr/include/stdint.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x633
+	.long	0x62f
 	.word	0x2
 	.long	.Ldebug_abbrev0
 	.byte	0x4
@@ -607,9 +594,8 @@ ow_command_with_parasite_enable:
 	.byte	0x1
 	.long	.LASF35
 	.long	.LASF36
-	.long	.Ldebug_ranges0+0
-	.long	0
-	.long	0
+	.long	.Ltext0
+	.long	.Letext0
 	.long	.Ldebug_line0
 	.uleb128 0x2
 	.byte	0x1
@@ -619,7 +605,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF2
 	.byte	0x4
 	.byte	0x7a
-	.long	0x3b
+	.long	0x37
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x8
@@ -632,7 +618,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF3
 	.byte	0x4
 	.byte	0x7c
-	.long	0x54
+	.long	0x50
 	.uleb128 0x2
 	.byte	0x2
 	.byte	0x7
@@ -645,7 +631,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF6
 	.byte	0x4
 	.byte	0x7e
-	.long	0x6d
+	.long	0x69
 	.uleb128 0x2
 	.byte	0x4
 	.byte	0x7
@@ -663,7 +649,7 @@ ow_command_with_parasite_enable:
 	.byte	0x2
 	.byte	0x30
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.byte	0x3
 	.uleb128 0x6
 	.long	.LASF13
@@ -671,22 +657,22 @@ ow_command_with_parasite_enable:
 	.byte	0xe0
 	.byte	0x1
 	.byte	0x3
-	.long	0xc8
+	.long	0xc4
 	.uleb128 0x7
 	.long	.LASF15
 	.byte	0x3
 	.byte	0xe0
-	.long	0xc8
+	.long	0xc4
 	.uleb128 0x8
 	.long	.LASF10
 	.byte	0x3
 	.byte	0xe2
-	.long	0xc8
+	.long	0xc4
 	.uleb128 0x8
 	.long	.LASF11
 	.byte	0x3
 	.byte	0xe6
-	.long	0x62
+	.long	0x5e
 	.uleb128 0x9
 	.byte	0x1
 	.long	.LASF38
@@ -705,18 +691,18 @@ ow_command_with_parasite_enable:
 	.byte	0x44
 	.byte	0x1
 	.byte	0x3
-	.long	0xe8
+	.long	0xe4
 	.uleb128 0xa
 	.string	"__s"
 	.byte	0x2
 	.byte	0x44
-	.long	0xe8
+	.long	0xe4
 	.byte	0
 	.uleb128 0xb
 	.byte	0x2
-	.long	0xee
+	.long	0xea
 	.uleb128 0xc
-	.long	0x30
+	.long	0x2c
 	.uleb128 0xd
 	.byte	0x1
 	.long	.LASF26
@@ -730,18 +716,18 @@ ow_command_with_parasite_enable:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0x14d
+	.long	0x149
 	.uleb128 0xe
 	.string	"in"
 	.byte	0x1
 	.byte	0x22
-	.long	0x14d
+	.long	0x149
 	.long	.LLST0
 	.uleb128 0xf
 	.string	"out"
 	.byte	0x1
 	.byte	0x23
-	.long	0x14d
+	.long	0x149
 	.byte	0x6
 	.byte	0x66
 	.byte	0x93
@@ -753,7 +739,7 @@ ow_command_with_parasite_enable:
 	.string	"ddr"
 	.byte	0x1
 	.byte	0x24
-	.long	0x14d
+	.long	0x149
 	.byte	0x6
 	.byte	0x64
 	.byte	0x93
@@ -765,22 +751,22 @@ ow_command_with_parasite_enable:
 	.string	"pin"
 	.byte	0x1
 	.byte	0x25
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.byte	0x62
 	.byte	0
 	.uleb128 0xb
 	.byte	0x2
-	.long	0x153
+	.long	0x14f
 	.uleb128 0x10
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x11
 	.byte	0x1
 	.long	.LASF39
 	.byte	0x1
 	.byte	0x31
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB12
 	.long	.LFE12
 	.byte	0x3
@@ -806,152 +792,152 @@ ow_command_with_parasite_enable:
 	.byte	0x1
 	.byte	0x6d
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB15
 	.long	.LFE15
 	.long	.LLST1
 	.byte	0x1
-	.long	0x303
+	.long	0x2ff
 	.uleb128 0xe
 	.string	"b"
 	.byte	0x1
 	.byte	0x6d
-	.long	0x30
+	.long	0x2c
 	.long	.LLST2
 	.uleb128 0x14
 	.long	.LASF16
 	.byte	0x1
 	.byte	0x6d
-	.long	0x30
+	.long	0x2c
 	.long	.LLST3
 	.uleb128 0x15
 	.long	.LBB15
 	.long	.LBE15
-	.long	0x2ce
+	.long	0x2ca
 	.uleb128 0x16
 	.long	.LASF17
 	.byte	0x1
 	.byte	0x6f
-	.long	0x30
+	.long	0x2c
 	.long	.LLST4
 	.uleb128 0x16
 	.long	.LASF18
 	.byte	0x1
 	.byte	0x6f
-	.long	0x30
+	.long	0x2c
 	.long	.LLST5
 	.uleb128 0x17
-	.long	0x82
+	.long	0x7e
 	.long	.LBB16
 	.long	.LBE16
 	.byte	0x1
 	.byte	0x6f
 	.uleb128 0x18
-	.long	0x8f
+	.long	0x8b
 	.long	.LBB18
 	.long	.LBE18
 	.byte	0x1
 	.byte	0x74
-	.long	0x233
+	.long	0x22f
 	.uleb128 0x19
-	.long	0x9c
+	.long	0x98
 	.byte	0x4
 	.long	0x40000000
 	.uleb128 0x1a
 	.long	.LBB19
 	.long	.LBE19
 	.uleb128 0x1b
-	.long	0xa7
+	.long	0xa3
 	.byte	0x4
 	.long	0x41800000
 	.uleb128 0x1c
-	.long	0xb2
+	.long	0xae
 	.byte	0x10
 	.byte	0
 	.byte	0
 	.uleb128 0x18
-	.long	0x8f
+	.long	0x8b
 	.long	.LBB20
 	.long	.LBE20
 	.byte	0x1
 	.byte	0x80
-	.long	0x26b
+	.long	0x267
 	.uleb128 0x19
-	.long	0x9c
+	.long	0x98
 	.byte	0x4
 	.long	0x41400000
 	.uleb128 0x1a
 	.long	.LBB21
 	.long	.LBE21
 	.uleb128 0x1b
-	.long	0xa7
+	.long	0xa3
 	.byte	0x4
 	.long	0x42c00000
 	.uleb128 0x1c
-	.long	0xb2
+	.long	0xae
 	.byte	0x60
 	.byte	0
 	.byte	0
 	.uleb128 0x18
-	.long	0x8f
+	.long	0x8b
 	.long	.LBB22
 	.long	.LBE22
 	.byte	0x1
 	.byte	0x86
-	.long	0x2a4
+	.long	0x2a0
 	.uleb128 0x19
-	.long	0x9c
+	.long	0x98
 	.byte	0x4
 	.long	0x42300000
 	.uleb128 0x1a
 	.long	.LBB23
 	.long	.LBE23
 	.uleb128 0x1b
-	.long	0xa7
+	.long	0xa3
 	.byte	0x4
 	.long	0x43b00000
 	.uleb128 0x1d
-	.long	0xb2
+	.long	0xae
 	.word	0x160
 	.byte	0
 	.byte	0
 	.uleb128 0x18
-	.long	0xcf
+	.long	0xcb
 	.long	.LBB24
 	.long	.LBE24
 	.byte	0x1
 	.byte	0x6f
-	.long	0x2c4
+	.long	0x2c0
 	.uleb128 0x1e
-	.long	0xdc
+	.long	0xd8
 	.byte	0x6
 	.byte	0xf2
-	.long	.Ldebug_info0+462
+	.long	.Ldebug_info0+458
 	.sleb128 0
 	.byte	0
 	.uleb128 0x1f
 	.long	.LVL9
-	.long	0x172
+	.long	0x16e
 	.byte	0
 	.uleb128 0x20
-	.long	0x8f
+	.long	0x8b
 	.long	.LBB26
 	.long	.LBE26
 	.byte	0x1
 	.byte	0x92
 	.uleb128 0x19
-	.long	0x9c
+	.long	0x98
 	.byte	0x4
 	.long	0x41200000
 	.uleb128 0x1a
 	.long	.LBB27
 	.long	.LBE27
 	.uleb128 0x1b
-	.long	0xa7
+	.long	0xa3
 	.byte	0x4
 	.long	0x42a00000
 	.uleb128 0x1c
-	.long	0xb2
+	.long	0xae
 	.byte	0x50
 	.byte	0
 	.byte	0
@@ -975,7 +961,7 @@ ow_command_with_parasite_enable:
 	.byte	0x1
 	.byte	0x97
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB16
 	.long	.LFE16
 	.byte	0x3
@@ -983,16 +969,16 @@ ow_command_with_parasite_enable:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0x35d
+	.long	0x359
 	.uleb128 0xe
 	.string	"b"
 	.byte	0x1
 	.byte	0x97
-	.long	0x30
+	.long	0x2c
 	.long	.LLST6
 	.uleb128 0x22
 	.long	.LVL15
-	.long	0x188
+	.long	0x184
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1015,33 +1001,33 @@ ow_command_with_parasite_enable:
 	.byte	0x1
 	.byte	0x9c
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB17
 	.long	.LFE17
 	.long	.LLST7
 	.byte	0x1
-	.long	0x3b5
+	.long	0x3b1
 	.uleb128 0xe
 	.string	"b"
 	.byte	0x1
 	.byte	0x9c
-	.long	0x30
+	.long	0x2c
 	.long	.LLST8
 	.uleb128 0x25
 	.string	"i"
 	.byte	0x1
 	.byte	0x9e
-	.long	0x30
+	.long	0x2c
 	.long	.LLST9
 	.uleb128 0x25
 	.string	"j"
 	.byte	0x1
 	.byte	0x9e
-	.long	0x30
+	.long	0x2c
 	.long	.LLST10
 	.uleb128 0x22
 	.long	.LVL19
-	.long	0x319
+	.long	0x315
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1058,34 +1044,34 @@ ow_command_with_parasite_enable:
 	.byte	0x1
 	.byte	0xab
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB18
 	.long	.LFE18
 	.long	.LLST11
 	.byte	0x1
-	.long	0x42d
+	.long	0x429
 	.uleb128 0xe
 	.string	"b"
 	.byte	0x1
 	.byte	0xab
-	.long	0x30
+	.long	0x2c
 	.long	.LLST12
 	.uleb128 0x25
 	.string	"i"
 	.byte	0x1
 	.byte	0xad
-	.long	0x30
+	.long	0x2c
 	.long	.LLST13
 	.uleb128 0x25
 	.string	"j"
 	.byte	0x1
 	.byte	0xad
-	.long	0x30
+	.long	0x2c
 	.long	.LLST14
 	.uleb128 0x26
 	.long	.LVL29
-	.long	0x188
-	.long	0x415
+	.long	0x184
+	.long	0x411
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1102,7 +1088,7 @@ ow_command_with_parasite_enable:
 	.byte	0
 	.uleb128 0x22
 	.long	.LVL31
-	.long	0x188
+	.long	0x184
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1127,38 +1113,38 @@ ow_command_with_parasite_enable:
 	.long	.LFE20
 	.long	.LLST15
 	.byte	0x1
-	.long	0x4de
+	.long	0x4da
 	.uleb128 0x14
 	.long	.LASF24
 	.byte	0x1
 	.byte	0xfc
-	.long	0x30
+	.long	0x2c
 	.long	.LLST16
 	.uleb128 0xe
 	.string	"id"
 	.byte	0x1
 	.byte	0xfc
-	.long	0x4de
+	.long	0x4da
 	.long	.LLST17
 	.uleb128 0x14
 	.long	.LASF16
 	.byte	0x1
 	.byte	0xfc
-	.long	0x30
+	.long	0x2c
 	.long	.LLST18
 	.uleb128 0x25
 	.string	"i"
 	.byte	0x1
 	.byte	0xfe
-	.long	0x30
+	.long	0x2c
 	.long	.LLST19
 	.uleb128 0x1f
 	.long	.LVL39
-	.long	0x627
+	.long	0x623
 	.uleb128 0x26
 	.long	.LVL40
-	.long	0x35d
-	.long	0x49c
+	.long	0x359
+	.long	0x498
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1168,11 +1154,11 @@ ow_command_with_parasite_enable:
 	.byte	0
 	.uleb128 0x1f
 	.long	.LVL42
-	.long	0x35d
+	.long	0x359
 	.uleb128 0x26
 	.long	.LVL44
-	.long	0x35d
-	.long	0x4b9
+	.long	0x359
+	.long	0x4b5
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1182,8 +1168,8 @@ ow_command_with_parasite_enable:
 	.byte	0
 	.uleb128 0x26
 	.long	.LVL45
-	.long	0x3b5
-	.long	0x4cd
+	.long	0x3b1
+	.long	0x4c9
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1193,7 +1179,7 @@ ow_command_with_parasite_enable:
 	.byte	0
 	.uleb128 0x22
 	.long	.LVL46
-	.long	0x35d
+	.long	0x359
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1204,14 +1190,14 @@ ow_command_with_parasite_enable:
 	.byte	0
 	.uleb128 0xb
 	.byte	0x2
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x21
 	.byte	0x1
 	.long	.LASF25
 	.byte	0x1
 	.byte	0xbf
 	.byte	0x1
-	.long	0x30
+	.long	0x2c
 	.long	.LFB19
 	.long	.LFE19
 	.byte	0x3
@@ -1219,10 +1205,10 @@ ow_command_with_parasite_enable:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0x513
+	.long	0x50f
 	.uleb128 0x22
 	.long	.LVL50
-	.long	0x35d
+	.long	0x359
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1244,22 +1230,22 @@ ow_command_with_parasite_enable:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0x570
+	.long	0x56c
 	.uleb128 0x29
 	.long	.LASF24
 	.byte	0x1
 	.word	0x11a
-	.long	0x30
+	.long	0x2c
 	.long	.LLST20
 	.uleb128 0x2a
 	.string	"id"
 	.byte	0x1
 	.word	0x11a
-	.long	0x4de
+	.long	0x4da
 	.long	.LLST21
 	.uleb128 0x22
 	.long	.LVL52
-	.long	0x42d
+	.long	0x429
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1299,22 +1285,22 @@ ow_command_with_parasite_enable:
 	.uleb128 0x20
 	.sleb128 2
 	.byte	0x1
-	.long	0x5cd
+	.long	0x5c9
 	.uleb128 0x29
 	.long	.LASF24
 	.byte	0x1
 	.word	0x11f
-	.long	0x30
+	.long	0x2c
 	.long	.LLST22
 	.uleb128 0x2a
 	.string	"id"
 	.byte	0x1
 	.word	0x11f
-	.long	0x4de
+	.long	0x4da
 	.long	.LLST23
 	.uleb128 0x22
 	.long	.LVL54
-	.long	0x42d
+	.long	0x429
 	.uleb128 0x23
 	.byte	0x1
 	.byte	0x68
@@ -1345,7 +1331,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF29
 	.byte	0x1
 	.byte	0x1c
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -1354,7 +1340,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF30
 	.byte	0x1
 	.byte	0x1d
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -1363,7 +1349,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF31
 	.byte	0x1
 	.byte	0x1e
-	.long	0x14d
+	.long	0x149
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -1372,7 +1358,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF32
 	.byte	0x1
 	.byte	0x1f
-	.long	0x14d
+	.long	0x149
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -1381,7 +1367,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF33
 	.byte	0x1
 	.byte	0x20
-	.long	0x14d
+	.long	0x149
 	.byte	0x1
 	.byte	0x5
 	.byte	0x3
@@ -1391,7 +1377,7 @@ ow_command_with_parasite_enable:
 	.long	.LASF42
 	.byte	0x1
 	.byte	0x15
-	.long	0x30
+	.long	0x2c
 	.byte	0x1
 	.uleb128 0x2d
 	.byte	0
@@ -1409,11 +1395,9 @@ ow_command_with_parasite_enable:
 	.uleb128 0xe
 	.uleb128 0x1b
 	.uleb128 0xe
-	.uleb128 0x55
-	.uleb128 0x6
 	.uleb128 0x11
 	.uleb128 0x1
-	.uleb128 0x52
+	.uleb128 0x12
 	.uleb128 0x1
 	.uleb128 0x10
 	.uleb128 0x6
@@ -2065,8 +2049,8 @@ ow_command_with_parasite_enable:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 .LLST0:
-	.long	.LVL0
-	.long	.LVL1
+	.long	.LVL0-.Ltext0
+	.long	.LVL1-.Ltext0
 	.word	0x6
 	.byte	0x68
 	.byte	0x93
@@ -2074,28 +2058,28 @@ ow_command_with_parasite_enable:
 	.byte	0x69
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL1
-	.long	.LFE11
+	.long	.LVL1-.Ltext0
+	.long	.LFE11-.Ltext0
 	.word	0x5
 	.byte	0x3
 	.long	OW_IN
 	.long	0
 	.long	0
 .LLST1:
-	.long	.LFB15
-	.long	.LCFI0
+	.long	.LFB15-.Ltext0
+	.long	.LCFI0-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI0
-	.long	.LCFI1
+	.long	.LCFI0-.Ltext0
+	.long	.LCFI1-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI1
-	.long	.LFE15
+	.long	.LCFI1-.Ltext0
+	.long	.LFE15-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -2103,27 +2087,27 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST2:
-	.long	.LVL2
-	.long	.LVL5
+	.long	.LVL2-.Ltext0
+	.long	.LVL5-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL5
-	.long	.LVL12
+	.long	.LVL5-.Ltext0
+	.long	.LVL12-.Ltext0
 	.word	0x1
 	.byte	0x6c
-	.long	.LVL12
-	.long	.LFE15
+	.long	.LVL12-.Ltext0
+	.long	.LFE15-.Ltext0
 	.word	0x1
 	.byte	0x68
 	.long	0
 	.long	0
 .LLST3:
-	.long	.LVL2
-	.long	.LVL9-1
+	.long	.LVL2-.Ltext0
+	.long	.LVL9-1-.Ltext0
 	.word	0x1
 	.byte	0x66
-	.long	.LVL9-1
-	.long	.LFE15
+	.long	.LVL9-1-.Ltext0
+	.long	.LFE15-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2132,37 +2116,37 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST4:
-	.long	.LVL3
-	.long	.LVL11
+	.long	.LVL3-.Ltext0
+	.long	.LVL11-.Ltext0
 	.word	0x1
 	.byte	0x6d
-	.long	.LVL11
-	.long	.LFE15
+	.long	.LVL11-.Ltext0
+	.long	.LFE15-.Ltext0
 	.word	0x2
 	.byte	0x8
 	.byte	0x5f
 	.long	0
 	.long	0
 .LLST5:
-	.long	.LVL4
-	.long	.LVL9
+	.long	.LVL4-.Ltext0
+	.long	.LVL9-.Ltext0
 	.word	0x2
 	.byte	0x31
 	.byte	0x9f
-	.long	.LVL9
-	.long	.LFE15
+	.long	.LVL9-.Ltext0
+	.long	.LFE15-.Ltext0
 	.word	0x2
 	.byte	0x30
 	.byte	0x9f
 	.long	0
 	.long	0
 .LLST6:
-	.long	.LVL13
-	.long	.LVL14
+	.long	.LVL13-.Ltext0
+	.long	.LVL14-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL14
-	.long	.LFE16
+	.long	.LVL14-.Ltext0
+	.long	.LFE16-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2171,20 +2155,20 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST7:
-	.long	.LFB17
-	.long	.LCFI2
+	.long	.LFB17-.Ltext0
+	.long	.LCFI2-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI2
-	.long	.LCFI3
+	.long	.LCFI2-.Ltext0
+	.long	.LCFI3-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI3
-	.long	.LFE17
+	.long	.LCFI3-.Ltext0
+	.long	.LFE17-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -2192,64 +2176,64 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST8:
-	.long	.LVL16
-	.long	.LVL18
+	.long	.LVL16-.Ltext0
+	.long	.LVL18-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL18
-	.long	.LVL25
+	.long	.LVL18-.Ltext0
+	.long	.LVL25-.Ltext0
 	.word	0x1
 	.byte	0x6c
-	.long	.LVL25
-	.long	.LFE17
+	.long	.LVL25-.Ltext0
+	.long	.LFE17-.Ltext0
 	.word	0x1
 	.byte	0x68
 	.long	0
 	.long	0
 .LLST9:
-	.long	.LVL17
-	.long	.LVL18
+	.long	.LVL17-.Ltext0
+	.long	.LVL18-.Ltext0
 	.word	0x2
 	.byte	0x38
 	.byte	0x9f
-	.long	.LVL18
-	.long	.LVL21
+	.long	.LVL18-.Ltext0
+	.long	.LVL21-.Ltext0
 	.word	0x1
 	.byte	0x6d
-	.long	.LVL21
-	.long	.LVL22
+	.long	.LVL21-.Ltext0
+	.long	.LVL22-.Ltext0
 	.word	0x3
 	.byte	0x8d
 	.sleb128 -1
 	.byte	0x9f
-	.long	.LVL22
-	.long	.LVL24
+	.long	.LVL22-.Ltext0
+	.long	.LVL24-.Ltext0
 	.word	0x1
 	.byte	0x6d
 	.long	0
 	.long	0
 .LLST10:
-	.long	.LVL19
-	.long	.LVL23
+	.long	.LVL19-.Ltext0
+	.long	.LVL23-.Ltext0
 	.word	0x1
 	.byte	0x68
 	.long	0
 	.long	0
 .LLST11:
-	.long	.LFB18
-	.long	.LCFI4
+	.long	.LFB18-.Ltext0
+	.long	.LCFI4-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI4
-	.long	.LCFI5
+	.long	.LCFI4-.Ltext0
+	.long	.LCFI5-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI5
-	.long	.LFE18
+	.long	.LCFI5-.Ltext0
+	.long	.LFE18-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -2257,82 +2241,82 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST12:
-	.long	.LVL26
-	.long	.LVL28
+	.long	.LVL26-.Ltext0
+	.long	.LVL28-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL28
-	.long	.LVL37
+	.long	.LVL28-.Ltext0
+	.long	.LVL37-.Ltext0
 	.word	0x1
 	.byte	0x6c
-	.long	.LVL37
-	.long	.LFE18
+	.long	.LVL37-.Ltext0
+	.long	.LFE18-.Ltext0
 	.word	0x1
 	.byte	0x68
 	.long	0
 	.long	0
 .LLST13:
-	.long	.LVL27
-	.long	.LVL28
+	.long	.LVL27-.Ltext0
+	.long	.LVL28-.Ltext0
 	.word	0x2
 	.byte	0x38
 	.byte	0x9f
-	.long	.LVL28
-	.long	.LVL36
+	.long	.LVL28-.Ltext0
+	.long	.LVL36-.Ltext0
 	.word	0x1
 	.byte	0x6d
 	.long	0
 	.long	0
 .LLST14:
-	.long	.LVL29
-	.long	.LVL30
+	.long	.LVL29-.Ltext0
+	.long	.LVL30-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL31
-	.long	.LVL35
+	.long	.LVL31-.Ltext0
+	.long	.LVL35-.Ltext0
 	.word	0x1
 	.byte	0x68
 	.long	0
 	.long	0
 .LLST15:
-	.long	.LFB20
-	.long	.LCFI6
+	.long	.LFB20-.Ltext0
+	.long	.LCFI6-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI6
-	.long	.LCFI7
+	.long	.LCFI6-.Ltext0
+	.long	.LCFI7-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI7
-	.long	.LCFI8
+	.long	.LCFI7-.Ltext0
+	.long	.LCFI8-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 4
-	.long	.LCFI8
-	.long	.LCFI9
+	.long	.LCFI8-.Ltext0
+	.long	.LCFI9-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 5
-	.long	.LCFI9
-	.long	.LCFI10
+	.long	.LCFI9-.Ltext0
+	.long	.LCFI10-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 6
-	.long	.LCFI10
-	.long	.LCFI11
+	.long	.LCFI10-.Ltext0
+	.long	.LCFI11-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 7
-	.long	.LCFI11
-	.long	.LFE20
+	.long	.LCFI11-.Ltext0
+	.long	.LFE20-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
@@ -2340,16 +2324,16 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST16:
-	.long	.LVL38
-	.long	.LVL39-1
+	.long	.LVL38-.Ltext0
+	.long	.LVL39-1-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL39-1
-	.long	.LVL49
+	.long	.LVL39-1-.Ltext0
+	.long	.LVL49-.Ltext0
 	.word	0x1
 	.byte	0x5e
-	.long	.LVL49
-	.long	.LFE20
+	.long	.LVL49-.Ltext0
+	.long	.LFE20-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2358,8 +2342,8 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST17:
-	.long	.LVL38
-	.long	.LVL39-1
+	.long	.LVL38-.Ltext0
+	.long	.LVL39-1-.Ltext0
 	.word	0x6
 	.byte	0x66
 	.byte	0x93
@@ -2367,8 +2351,8 @@ ow_command_with_parasite_enable:
 	.byte	0x67
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL39-1
-	.long	.LVL41
+	.long	.LVL39-1-.Ltext0
+	.long	.LVL41-.Ltext0
 	.word	0x6
 	.byte	0x6c
 	.byte	0x93
@@ -2376,14 +2360,14 @@ ow_command_with_parasite_enable:
 	.byte	0x6d
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL41
-	.long	.LVL42
+	.long	.LVL41-.Ltext0
+	.long	.LVL42-.Ltext0
 	.word	0x3
 	.byte	0x8c
 	.sleb128 -1
 	.byte	0x9f
-	.long	.LVL42
-	.long	.LVL47
+	.long	.LVL42-.Ltext0
+	.long	.LVL47-.Ltext0
 	.word	0x6
 	.byte	0x6c
 	.byte	0x93
@@ -2394,16 +2378,16 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST18:
-	.long	.LVL38
-	.long	.LVL39-1
+	.long	.LVL38-.Ltext0
+	.long	.LVL39-1-.Ltext0
 	.word	0x1
 	.byte	0x64
-	.long	.LVL39-1
-	.long	.LVL48
+	.long	.LVL39-1-.Ltext0
+	.long	.LVL48-.Ltext0
 	.word	0x1
 	.byte	0x5f
-	.long	.LVL48
-	.long	.LFE20
+	.long	.LVL48-.Ltext0
+	.long	.LFE20-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2412,20 +2396,20 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST19:
-	.long	.LVL40
-	.long	.LVL43
+	.long	.LVL40-.Ltext0
+	.long	.LVL43-.Ltext0
 	.word	0x2
 	.byte	0x38
 	.byte	0x9f
 	.long	0
 	.long	0
 .LLST20:
-	.long	.LVL51
-	.long	.LVL52-1
+	.long	.LVL51-.Ltext0
+	.long	.LVL52-1-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL52-1
-	.long	.LFE21
+	.long	.LVL52-1-.Ltext0
+	.long	.LFE21-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2434,8 +2418,8 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST21:
-	.long	.LVL51
-	.long	.LVL52-1
+	.long	.LVL51-.Ltext0
+	.long	.LVL52-1-.Ltext0
 	.word	0x6
 	.byte	0x66
 	.byte	0x93
@@ -2443,8 +2427,8 @@ ow_command_with_parasite_enable:
 	.byte	0x67
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL52-1
-	.long	.LFE21
+	.long	.LVL52-1-.Ltext0
+	.long	.LFE21-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2453,12 +2437,12 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST22:
-	.long	.LVL53
-	.long	.LVL54-1
+	.long	.LVL53-.Ltext0
+	.long	.LVL54-1-.Ltext0
 	.word	0x1
 	.byte	0x68
-	.long	.LVL54-1
-	.long	.LFE22
+	.long	.LVL54-1-.Ltext0
+	.long	.LFE22-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2467,8 +2451,8 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 .LLST23:
-	.long	.LVL53
-	.long	.LVL54-1
+	.long	.LVL53-.Ltext0
+	.long	.LVL54-1-.Ltext0
 	.word	0x6
 	.byte	0x66
 	.byte	0x93
@@ -2476,8 +2460,8 @@ ow_command_with_parasite_enable:
 	.byte	0x67
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL54-1
-	.long	.LFE22
+	.long	.LVL54-1-.Ltext0
+	.long	.LFE22-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -2486,72 +2470,20 @@ ow_command_with_parasite_enable:
 	.long	0
 	.long	0
 	.section	.debug_aranges,"",@progbits
-	.long	0x74
+	.long	0x1c
 	.word	0x2
 	.long	.Ldebug_info0
 	.byte	0x4
 	.byte	0
 	.word	0
 	.word	0
-	.long	.LFB11
-	.long	.LFE11-.LFB11
-	.long	.LFB12
-	.long	.LFE12-.LFB12
-	.long	.LFB13
-	.long	.LFE13-.LFB13
-	.long	.LFB15
-	.long	.LFE15-.LFB15
-	.long	.LFB14
-	.long	.LFE14-.LFB14
-	.long	.LFB16
-	.long	.LFE16-.LFB16
-	.long	.LFB17
-	.long	.LFE17-.LFB17
-	.long	.LFB18
-	.long	.LFE18-.LFB18
-	.long	.LFB20
-	.long	.LFE20-.LFB20
-	.long	.LFB19
-	.long	.LFE19-.LFB19
-	.long	.LFB21
-	.long	.LFE21-.LFB21
-	.long	.LFB22
-	.long	.LFE22-.LFB22
-	.long	0
-	.long	0
-	.section	.debug_ranges,"",@progbits
-.Ldebug_ranges0:
-	.long	.LFB11
-	.long	.LFE11
-	.long	.LFB12
-	.long	.LFE12
-	.long	.LFB13
-	.long	.LFE13
-	.long	.LFB15
-	.long	.LFE15
-	.long	.LFB14
-	.long	.LFE14
-	.long	.LFB16
-	.long	.LFE16
-	.long	.LFB17
-	.long	.LFE17
-	.long	.LFB18
-	.long	.LFE18
-	.long	.LFB20
-	.long	.LFE20
-	.long	.LFB19
-	.long	.LFE19
-	.long	.LFB21
-	.long	.LFE21
-	.long	.LFB22
-	.long	.LFE22
+	.long	.Ltext0
+	.long	.Letext0-.Ltext0
 	.long	0
 	.long	0
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF36:
-	.string	"/home/izhuk/workspace/A328Pn3310DS18x20_n/Debug"
 .LASF30:
 	.string	"OW_PIN_MASK"
 .LASF33:
@@ -2592,14 +2524,14 @@ ow_command_with_parasite_enable:
 	.string	"__iCliRetVal"
 .LASF35:
 	.string	"../onewire/onewire.c"
-.LASF34:
-	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields"
+.LASF29:
+	.string	"OW_PIN"
 .LASF12:
 	.string	"double"
 .LASF10:
 	.string	"__tmp"
-.LASF29:
-	.string	"OW_PIN"
+.LASF36:
+	.string	"/home/izhuk/git/PumpRegulator/A328Pn3310DS18x20_n/Debug"
 .LASF4:
 	.string	"unsigned int"
 .LASF14:
@@ -2626,6 +2558,8 @@ ow_command_with_parasite_enable:
 	.string	"__ticks_dc"
 .LASF3:
 	.string	"uint16_t"
+.LASF34:
+	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields"
 .LASF6:
 	.string	"uint32_t"
 .LASF5:

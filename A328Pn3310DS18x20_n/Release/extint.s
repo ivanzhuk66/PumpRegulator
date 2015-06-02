@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.ExtInt0Enable,"ax",@progbits
+	.text
 .global	ExtInt0Enable
 	.type	ExtInt0Enable, @function
 ExtInt0Enable:
@@ -28,7 +28,6 @@ ExtInt0Enable:
 /* #NOAPP */
 	ret
 	.size	ExtInt0Enable, .-ExtInt0Enable
-	.section	.text.ExtInt0Disable,"ax",@progbits
 .global	ExtInt0Disable
 	.type	ExtInt0Disable, @function
 ExtInt0Disable:
@@ -40,7 +39,6 @@ ExtInt0Disable:
 	sbi 0x1c,0
 	ret
 	.size	ExtInt0Disable, .-ExtInt0Disable
-	.section	.text.__vector_1,"ax",@progbits
 .global	__vector_1
 	.type	__vector_1, @function
 __vector_1:
@@ -71,7 +69,6 @@ __vector_1:
 	pop r1
 	reti
 	.size	__vector_1, .-__vector_1
-	.section	.text.ExtInt1Enable,"ax",@progbits
 .global	ExtInt1Enable
 	.type	ExtInt1Enable, @function
 ExtInt1Enable:
@@ -99,7 +96,6 @@ ExtInt1Enable:
 /* #NOAPP */
 	ret
 	.size	ExtInt1Enable, .-ExtInt1Enable
-	.section	.text.ExtInt1Disable,"ax",@progbits
 .global	ExtInt1Disable
 	.type	ExtInt1Disable, @function
 ExtInt1Disable:
@@ -111,7 +107,6 @@ ExtInt1Disable:
 	sbi 0x1c,1
 	ret
 	.size	ExtInt1Disable, .-ExtInt1Disable
-	.section	.text.__vector_2,"ax",@progbits
 .global	__vector_2
 	.type	__vector_2, @function
 __vector_2:
@@ -150,13 +145,12 @@ __vector_2:
 	reti
 	.size	__vector_2, .-__vector_2
 .global	powergone
-	.section	.bss.powergone,"aw",@nobits
+	.section .bss
 	.type	powergone, @object
 	.size	powergone, 1
 powergone:
 	.zero	1
 .global	extstate
-	.section	.bss.extstate,"aw",@nobits
 	.type	extstate, @object
 	.size	extstate, 1
 extstate:

@@ -7,7 +7,6 @@ __zero_reg__ = 1
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.uart_put_int,"ax",@progbits
 .global	uart_put_int
 	.type	uart_put_int, @function
 uart_put_int:
@@ -43,7 +42,7 @@ uart_put_int:
 .LVL1:
 .LBB6:
 .LBB7:
-	.file 2 "/AtmelAvrToolchain/avr/include/stdlib.h"
+	.file 2 "/avr8-gnu-toolchain-linux_x86/avr/include/stdlib.h"
 	.loc 2 428 0
 	ldi r20,lo8(10)
 	movw r22,r28
@@ -70,12 +69,11 @@ uart_put_int:
 	.cfi_endproc
 .LFE4:
 	.size	uart_put_int, .-uart_put_int
-	.text
 .Letext0:
 	.file 3 "../uart/uart.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x1d4
+	.long	0x1d0
 	.word	0x2
 	.long	.Ldebug_abbrev0
 	.byte	0x4
@@ -84,9 +82,8 @@ uart_put_int:
 	.byte	0x1
 	.long	.LASF16
 	.long	.LASF17
-	.long	.Ldebug_ranges0+0
-	.long	0
-	.long	0
+	.long	.Ltext0
+	.long	.Letext0
 	.long	.Ldebug_line0
 	.uleb128 0x2
 	.byte	0x2
@@ -126,40 +123,40 @@ uart_put_int:
 	.byte	0x2
 	.word	0x1a2
 	.byte	0x1
-	.long	0xcf
+	.long	0xcb
 	.byte	0x3
-	.long	0xcf
+	.long	0xcb
 	.uleb128 0x5
 	.long	.LASF7
 	.byte	0x2
 	.word	0x1a2
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x6
 	.string	"__s"
 	.byte	0x2
 	.word	0x1a2
-	.long	0xcf
+	.long	0xcb
 	.uleb128 0x5
 	.long	.LASF8
 	.byte	0x2
 	.word	0x1a2
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x7
-	.long	0xbd
+	.long	0xb9
 	.uleb128 0x8
 	.byte	0x1
 	.long	.LASF13
 	.byte	0x2
 	.word	0x1a5
 	.byte	0x1
-	.long	0xcf
+	.long	0xcb
 	.byte	0x1
 	.uleb128 0x9
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x9
-	.long	0xcf
+	.long	0xcb
 	.uleb128 0x9
-	.long	0x30
+	.long	0x2c
 	.byte	0
 	.byte	0
 	.uleb128 0xa
@@ -169,13 +166,13 @@ uart_put_int:
 	.byte	0x2
 	.word	0x1ab
 	.byte	0x1
-	.long	0xcf
+	.long	0xcb
 	.byte	0
 	.byte	0
 	.byte	0
 	.uleb128 0xc
 	.byte	0x2
-	.long	0xd5
+	.long	0xd1
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x8
@@ -190,46 +187,46 @@ uart_put_int:
 	.long	.LFE4
 	.long	.LLST0
 	.byte	0x1
-	.long	0x179
+	.long	0x175
 	.uleb128 0xe
 	.string	"val"
 	.byte	0x1
 	.byte	0x1a
-	.long	0x179
+	.long	0x175
 	.long	.LLST1
 	.uleb128 0xf
 	.long	.LASF19
 	.byte	0x1
 	.byte	0x1c
-	.long	0x17e
+	.long	0x17a
 	.byte	0x2
 	.byte	0x8c
 	.sleb128 1
 	.uleb128 0x10
-	.long	0x61
+	.long	0x5d
 	.long	.LBB6
 	.long	.LBE6
 	.byte	0x1
 	.byte	0x1d
-	.long	0x16f
+	.long	0x16b
 	.uleb128 0x11
-	.long	0x8c
+	.long	0x88
 	.byte	0xa
 	.uleb128 0x12
-	.long	0x80
+	.long	0x7c
 	.byte	0x3
 	.byte	0x91
 	.sleb128 -13
 	.byte	0x9f
 	.uleb128 0x13
-	.long	0x74
+	.long	0x70
 	.long	.LLST2
 	.uleb128 0x14
 	.long	.LBB7
 	.long	.LBE7
 	.uleb128 0x15
 	.long	.LVL2
-	.long	0x195
+	.long	0x191
 	.uleb128 0x16
 	.byte	0x6
 	.byte	0x68
@@ -263,15 +260,15 @@ uart_put_int:
 	.byte	0
 	.uleb128 0x17
 	.long	.LVL3
-	.long	0x1b8
+	.long	0x1b4
 	.byte	0
 	.uleb128 0x18
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x19
-	.long	0xd5
-	.long	0x18e
+	.long	0xd1
+	.long	0x18a
 	.uleb128 0x1a
-	.long	0x18e
+	.long	0x18a
 	.byte	0x9
 	.byte	0
 	.uleb128 0x2
@@ -284,15 +281,15 @@ uart_put_int:
 	.byte	0x2
 	.word	0x1ab
 	.byte	0x1
-	.long	0xcf
+	.long	0xcb
 	.byte	0x1
-	.long	0x1b8
+	.long	0x1b4
 	.uleb128 0x9
-	.long	0x30
+	.long	0x2c
 	.uleb128 0x9
-	.long	0xcf
+	.long	0xcb
 	.uleb128 0x9
-	.long	0x45
+	.long	0x41
 	.byte	0
 	.uleb128 0x1c
 	.byte	0x1
@@ -301,15 +298,15 @@ uart_put_int:
 	.byte	0xbf
 	.byte	0x1
 	.byte	0x1
-	.long	0x1cc
+	.long	0x1c8
 	.uleb128 0x9
-	.long	0x1cc
+	.long	0x1c8
 	.byte	0
 	.uleb128 0xc
 	.byte	0x2
-	.long	0x1d2
+	.long	0x1ce
 	.uleb128 0x18
-	.long	0xd5
+	.long	0xd1
 	.byte	0
 	.section	.debug_abbrev,"",@progbits
 .Ldebug_abbrev0:
@@ -324,11 +321,9 @@ uart_put_int:
 	.uleb128 0xe
 	.uleb128 0x1b
 	.uleb128 0xe
-	.uleb128 0x55
-	.uleb128 0x6
 	.uleb128 0x11
 	.uleb128 0x1
-	.uleb128 0x52
+	.uleb128 0x12
 	.uleb128 0x1
 	.uleb128 0x10
 	.uleb128 0x6
@@ -673,39 +668,39 @@ uart_put_int:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 .LLST0:
-	.long	.LFB4
-	.long	.LCFI0
+	.long	.LFB4-.Ltext0
+	.long	.LCFI0-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 2
-	.long	.LCFI0
-	.long	.LCFI1
+	.long	.LCFI0-.Ltext0
+	.long	.LCFI1-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 3
-	.long	.LCFI1
-	.long	.LCFI2
+	.long	.LCFI1-.Ltext0
+	.long	.LCFI2-.Ltext0
 	.word	0x3
 	.byte	0x92
 	.uleb128 0x20
 	.sleb128 4
-	.long	.LCFI2
-	.long	.LCFI3
+	.long	.LCFI2-.Ltext0
+	.long	.LCFI3-.Ltext0
 	.word	0x2
 	.byte	0x8c
 	.sleb128 4
-	.long	.LCFI3
-	.long	.LFE4
+	.long	.LCFI3-.Ltext0
+	.long	.LFE4-.Ltext0
 	.word	0x2
 	.byte	0x8c
 	.sleb128 14
 	.long	0
 	.long	0
 .LLST1:
-	.long	.LVL0
-	.long	.LVL2-1
+	.long	.LVL0-.Ltext0
+	.long	.LVL2-1-.Ltext0
 	.word	0x6
 	.byte	0x68
 	.byte	0x93
@@ -713,8 +708,8 @@ uart_put_int:
 	.byte	0x69
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL2-1
-	.long	.LFE4
+	.long	.LVL2-1-.Ltext0
+	.long	.LFE4-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -723,8 +718,8 @@ uart_put_int:
 	.long	0
 	.long	0
 .LLST2:
-	.long	.LVL1
-	.long	.LVL2-1
+	.long	.LVL1-.Ltext0
+	.long	.LVL2-1-.Ltext0
 	.word	0x6
 	.byte	0x68
 	.byte	0x93
@@ -732,8 +727,8 @@ uart_put_int:
 	.byte	0x69
 	.byte	0x93
 	.uleb128 0x1
-	.long	.LVL2-1
-	.long	.LFE4
+	.long	.LVL2-1-.Ltext0
+	.long	.LFE4-.Ltext0
 	.word	0x4
 	.byte	0xf3
 	.uleb128 0x1
@@ -749,21 +744,13 @@ uart_put_int:
 	.byte	0
 	.word	0
 	.word	0
-	.long	.LFB4
-	.long	.LFE4-.LFB4
-	.long	0
-	.long	0
-	.section	.debug_ranges,"",@progbits
-.Ldebug_ranges0:
-	.long	.LFB4
-	.long	.LFE4
+	.long	.Ltext0
+	.long	.Letext0-.Ltext0
 	.long	0
 	.long	0
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF17:
-	.string	"/home/izhuk/workspace/A328Pn3310DS18x20_n/Debug"
 .LASF13:
 	.string	"__itoa"
 .LASF7:
@@ -780,8 +767,8 @@ uart_put_int:
 	.string	"unsigned char"
 .LASF4:
 	.string	"long unsigned int"
-.LASF15:
-	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields"
+.LASF17:
+	.string	"/home/izhuk/git/PumpRegulator/A328Pn3310DS18x20_n/Debug"
 .LASF0:
 	.string	"unsigned int"
 .LASF6:
@@ -794,6 +781,8 @@ uart_put_int:
 	.string	"char"
 .LASF19:
 	.string	"buffer"
+.LASF15:
+	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields"
 .LASF18:
 	.string	"uart_put_int"
 .LASF1:

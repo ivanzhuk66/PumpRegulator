@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.uart_put_int,"ax",@progbits
+	.text
 .global	uart_put_int
 	.type	uart_put_int, @function
 uart_put_int:

@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.crc8,"ax",@progbits
+	.text
 .global	crc8
 	.type	crc8, @function
 crc8:

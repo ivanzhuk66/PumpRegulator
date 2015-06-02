@@ -4,7 +4,7 @@ __SP_L__ = 0x3d
 __SREG__ = 0x3f
 __tmp_reg__ = 0
 __zero_reg__ = 1
-	.section	.text.DS18X20_raw_to_decicelsius,"ax",@progbits
+	.text
 	.type	DS18X20_raw_to_decicelsius, @function
 DS18X20_raw_to_decicelsius:
 /* prologue: function */
@@ -134,7 +134,6 @@ DS18X20_raw_to_decicelsius:
 	sbc r19,r25
 	rjmp .L11
 	.size	DS18X20_raw_to_decicelsius, .-DS18X20_raw_to_decicelsius
-	.section	.text.read_scratchpad,"ax",@progbits
 	.type	read_scratchpad, @function
 read_scratchpad:
 	push r14
@@ -153,7 +152,7 @@ read_scratchpad:
 	cbi 0xb,5
 	ldi r18,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r18
 	brne 1b
  ;  0 "" 2
@@ -195,7 +194,6 @@ read_scratchpad:
 	pop r14
 	ret
 	.size	read_scratchpad, .-read_scratchpad
-	.section	.text.send_power_10ms,"ax",@progbits
 .global	send_power_10ms
 	.type	send_power_10ms, @function
 send_power_10ms:
@@ -214,14 +212,13 @@ send_power_10ms:
 	cbi 0xb,5
 	ldi r24,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r24
 	brne 1b
  ;  0 "" 2
 /* #NOAPP */
 	ret
 	.size	send_power_10ms, .-send_power_10ms
-	.section	.text.DS18X20_get_power_status,"ax",@progbits
 .global	DS18X20_get_power_status
 	.type	DS18X20_get_power_status, @function
 DS18X20_get_power_status:
@@ -235,7 +232,7 @@ DS18X20_get_power_status:
 	cbi 0xb,5
 	ldi r24,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r24
 	brne 1b
  ;  0 "" 2
@@ -267,7 +264,6 @@ DS18X20_get_power_status:
 	pop r28
 	ret
 	.size	DS18X20_get_power_status, .-DS18X20_get_power_status
-	.section	.text.DS18X20_start_meas,"ax",@progbits
 .global	DS18X20_start_meas
 	.type	DS18X20_start_meas, @function
 DS18X20_start_meas:
@@ -283,7 +279,7 @@ DS18X20_start_meas:
 	cbi 0xb,5
 	ldi r25,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r25
 	brne 1b
  ;  0 "" 2
@@ -343,7 +339,6 @@ DS18X20_start_meas:
 	pop r17
 	ret
 	.size	DS18X20_start_meas, .-DS18X20_start_meas
-	.section	.text.DS18X20_conversion_in_progress,"ax",@progbits
 .global	DS18X20_conversion_in_progress
 	.type	DS18X20_conversion_in_progress, @function
 DS18X20_conversion_in_progress:
@@ -354,7 +349,7 @@ DS18X20_conversion_in_progress:
 	cbi 0xb,5
 	ldi r24,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r24
 	brne 1b
  ;  0 "" 2
@@ -369,7 +364,6 @@ DS18X20_conversion_in_progress:
 	mov r24,r25
 	ret
 	.size	DS18X20_conversion_in_progress, .-DS18X20_conversion_in_progress
-	.section	.text.DS18X20_format_from_decicelsius,"ax",@progbits
 .global	DS18X20_format_from_decicelsius
 	.type	DS18X20_format_from_decicelsius, @function
 DS18X20_format_from_decicelsius:
@@ -525,7 +519,6 @@ DS18X20_format_from_decicelsius:
 	pop r14
 	ret
 	.size	DS18X20_format_from_decicelsius, .-DS18X20_format_from_decicelsius
-	.section	.text.DS18X20_read_decicelsius,"ax",@progbits
 .global	DS18X20_read_decicelsius
 	.type	DS18X20_read_decicelsius, @function
 DS18X20_read_decicelsius:
@@ -553,7 +546,7 @@ DS18X20_read_decicelsius:
 	cbi 0xb,5
 	ldi r24,lo8(10)
 /* #APP */
- ;  83 "/AtmelAvrToolchain/avr/include/util/delay_basic.h" 1
+ ;  83 "/avr8-gnu-toolchain-linux_x86/avr/include/util/delay_basic.h" 1
 	1: dec r24
 	brne 1b
  ;  0 "" 2
@@ -596,7 +589,6 @@ DS18X20_read_decicelsius:
 	pop r13
 	ret
 	.size	DS18X20_read_decicelsius, .-DS18X20_read_decicelsius
-	.section	.text.DS18X20_read_decicelsius_single,"ax",@progbits
 .global	DS18X20_read_decicelsius_single
 	.type	DS18X20_read_decicelsius_single, @function
 DS18X20_read_decicelsius_single:

@@ -7,7 +7,6 @@ __zero_reg__ = 1
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.__vector_21,"ax",@progbits
 .global	__vector_21
 	.type	__vector_21, @function
 __vector_21:
@@ -31,7 +30,6 @@ __vector_21:
 	.cfi_endproc
 .LFE1:
 	.size	__vector_21, .-__vector_21
-	.section	.text.__vector_23,"ax",@progbits
 .global	__vector_23
 	.type	__vector_23, @function
 __vector_23:
@@ -54,11 +52,10 @@ __vector_23:
 	.cfi_endproc
 .LFE2:
 	.size	__vector_23, .-__vector_23
-	.text
 .Letext0:
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x8a
+	.long	0x86
 	.word	0x2
 	.long	.Ldebug_abbrev0
 	.byte	0x4
@@ -67,9 +64,8 @@ __vector_23:
 	.byte	0x1
 	.long	.LASF10
 	.long	.LASF11
-	.long	.Ldebug_ranges0+0
-	.long	0
-	.long	0
+	.long	.Ltext0
+	.long	.Letext0
 	.long	.Ldebug_line0
 	.uleb128 0x2
 	.byte	0x1
@@ -143,11 +139,9 @@ __vector_23:
 	.uleb128 0xe
 	.uleb128 0x1b
 	.uleb128 0xe
-	.uleb128 0x55
-	.uleb128 0x6
 	.uleb128 0x11
 	.uleb128 0x1
-	.uleb128 0x52
+	.uleb128 0x12
 	.uleb128 0x1
 	.uleb128 0x10
 	.uleb128 0x6
@@ -200,25 +194,15 @@ __vector_23:
 	.byte	0
 	.byte	0
 	.section	.debug_aranges,"",@progbits
-	.long	0x24
+	.long	0x1c
 	.word	0x2
 	.long	.Ldebug_info0
 	.byte	0x4
 	.byte	0
 	.word	0
 	.word	0
-	.long	.LFB1
-	.long	.LFE1-.LFB1
-	.long	.LFB2
-	.long	.LFE2-.LFB2
-	.long	0
-	.long	0
-	.section	.debug_ranges,"",@progbits
-.Ldebug_ranges0:
-	.long	.LFB1
-	.long	.LFE1
-	.long	.LFB2
-	.long	.LFE2
+	.long	.Ltext0
+	.long	.Letext0-.Ltext0
 	.long	0
 	.long	0
 	.section	.debug_line,"",@progbits
@@ -232,18 +216,18 @@ __vector_23:
 	.string	"long unsigned int"
 .LASF0:
 	.string	"signed char"
-.LASF11:
-	.string	"/home/izhuk/workspace/A328Pn3310DS18x20_n/Debug"
 .LASF10:
 	.string	"../keypad/keyadc.c"
-.LASF9:
-	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields"
 .LASF6:
 	.string	"long long unsigned int"
 .LASF1:
 	.string	"unsigned char"
 .LASF3:
 	.string	"long int"
+.LASF11:
+	.string	"/home/izhuk/git/PumpRegulator/A328Pn3310DS18x20_n/Debug"
+.LASF9:
+	.string	"GNU C 4.8.1 -fpreprocessed -mmcu=atmega328p -g2 -gdwarf-2 -g -O1 -std=gnu99 -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields"
 .LASF7:
 	.string	"__vector_21"
 .LASF5:
