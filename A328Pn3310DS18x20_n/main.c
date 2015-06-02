@@ -1,6 +1,8 @@
 //
 //Ivan Zhuk, Nevyansk, 26.02.2015
 //
+// This code is distributed under the GNU Public License
+//		which can be found at http://www.gnu.org/licenses/gpl.txt
 
 #include <avr/version.h>
 #if __AVR_LIBC_VERSION__ < 10606UL
